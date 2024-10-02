@@ -11,6 +11,21 @@ async fn main() -> Result<()> {
     client
         .register(context::current(), "test".to_string())
         .await?;
+    client
+        .register(context::current(), "test2".to_string())
+        .await?;
+    client
+        .register(context::current(), "test3".to_string())
+        .await?;
+    client
+        .deregister(context::current(), "test3".to_string())
+        .await?;
+    client
+        .deregister(context::current(), "test2".to_string())
+        .await?;
+    client
+        .deregister(context::current(), "test".to_string())
+        .await?;
 
     Ok(())
 }
