@@ -1,5 +1,5 @@
 [workspace]
 
 members = [
-	"nekoindexer", "nekopeer",
+	"nekoindexer", "nekop2p", "nekopeer",
 ]

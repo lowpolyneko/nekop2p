@@ -4,3 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+anyhow = "1.0.89"
+futures = "0.3.30"
+nekop2p = { path = "../nekop2p" }
+tarpc = { version = "0.34.0", features = ["tokio1", "serde-transport", "tcp"] }
+tokio = { version = "1.40.0", features = ["rt-multi-thread", "macros"] }
