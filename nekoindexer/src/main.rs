@@ -1,4 +1,7 @@
+use std::sync::Arc;
+
 use anyhow::Result;
+use dashmap::DashMap;
 use futures::{future, prelude::*};
 use tarpc::{
     serde_transport::tcp,
@@ -15,6 +18,8 @@ use crate::server::IndexerServer;
 async fn main() -> Result<()> {
     println!("Starting server on localhost:5000");
 
+    let index = Arc::new(DashMap::new());
+
     let listener = tcp::listen("localhost:5000", Bincode::default).await?;
 
         listener
@@ -23,7 +28,7 @@ async fn main() -> Result<()> {
         // Establish serve channel
         .map(BaseChannel::with_defaults)
         .map(|channel| {
-            let server = IndexerServer::new();
+            let server = IndexerServer::new(&index);
             channel.execute(server.serve()).for_each(|response| async move {
                 tokio::spawn(response);
             })
