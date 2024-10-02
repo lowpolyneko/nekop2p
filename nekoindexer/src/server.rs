@@ -11,7 +11,9 @@ pub struct IndexerServer {
 
 impl IndexerServer {
     pub fn new() -> Self {
-        IndexerServer { index: HashMap::new() }
+        IndexerServer {
+            index: HashMap::new(),
+        }
     }
 }
 
@@ -23,7 +25,12 @@ impl Indexer for IndexerServer {
     }
     async fn search(mut self, _: Context, filename: String) -> Vec<String> {
         println!("Queried {filename}");
-        self.index.entry(filename).or_default().iter().cloned().collect()
+        self.index
+            .entry(filename)
+            .or_default()
+            .iter()
+            .cloned()
+            .collect()
     }
     async fn deregister(mut self, c: Context, filename: String) {
         println!("Deregistered {filename}");

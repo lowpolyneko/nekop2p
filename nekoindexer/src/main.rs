@@ -1,9 +1,9 @@
 use anyhow::Result;
-use futures::prelude::*;
+use futures::{future, prelude::*};
 use tarpc::{
     serde_transport::tcp,
-    tokio_serde::formats::Bincode,
     server::{BaseChannel, Channel},
+    tokio_serde::formats::Bincode,
 };
 
 use nekop2p::Indexer;
@@ -15,17 +15,23 @@ use crate::server::IndexerServer;
 async fn main() -> Result<()> {
     println!("Starting server on localhost:5000");
 
-    let mut listener = tcp::listen("localhost:5000", Bincode::default).await?;
+    let listener = tcp::listen("localhost:5000", Bincode::default).await?;
 
-    tokio::spawn(async move {
-        let transport = listener.next().await.unwrap().unwrap();
-        let server = IndexerServer::new();
-        BaseChannel::with_defaults(transport)
-            .execute(server.serve())
-            .for_each(|response| async move {
+        listener
+        // Ignore accept errors.
+        .filter_map(|r| future::ready(r.ok()))
+        // Establish serve channel
+        .map(BaseChannel::with_defaults)
+        .map(|channel| {
+            let server = IndexerServer::new();
+            channel.execute(server.serve()).for_each(|response| async move {
                 tokio::spawn(response);
-            }).await;
-    }).await?;
+            })
+        })
+        // Max 10 channels.
+        .buffer_unordered(10)
+        .for_each(|_| async {})
+        .await;
 
     Ok(())
 }
