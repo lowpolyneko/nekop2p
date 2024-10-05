@@ -1,3 +1,5 @@
+use std::io::{stdin, stdout, Write};
+
 use anyhow::Result;
 use futures::prelude::*;
 use tarpc::{
@@ -12,6 +14,22 @@ use nekop2p::{IndexerClient, Peer};
 
 mod peer;
 use crate::peer::PeerServer;
+
+async fn prompt_register(client: &IndexerClient) -> Result<()> {
+    let mut filename = String::new();
+    stdin().read_line(&mut filename)?;
+
+    client.register(context::current(), filename.trim_end().to_owned()).await?;
+    Ok(())
+}
+
+async fn prompt_deregister(client: &IndexerClient) -> Result<()> {
+    let mut filename = String::new();
+    stdin().read_line(&mut filename)?;
+
+    client.deregister(context::current(), filename.trim_end().to_owned()).await?;
+    Ok(())
+}
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -37,31 +55,28 @@ async fn main() -> Result<()> {
     );
 
     let client = IndexerClient::new(client::Config::default(), transport.await?).spawn();
-    client
-        .register(context::current(), "test".to_string())
-        .await?;
-    client
-        .register(context::current(), "test2".to_string())
-        .await?;
-    client
-        .register(context::current(), "test3".to_string())
-        .await?;
 
-    // wait for SIGINT
-    signal::ctrl_c().await?;
+    loop {
+        // wait for SIGINT
+        signal::ctrl_c().await?;
 
-    client
-        .deregister(context::current(), "test3".to_string())
-        .await?;
-    client
-        .deregister(context::current(), "test2".to_string())
-        .await?;
-    client
-        .deregister(context::current(), "test".to_string())
-        .await?;
+        // what are we doing?
+        print!("Enter Command >> ");
+        stdout().flush().unwrap();
 
-    // wait for SIGINT
-    signal::ctrl_c().await?;
+        let mut input = String::new();
+        stdin().read_line(&mut input)?;
+
+        match input.as_str().trim_end() {
+            "register" => prompt_register(&client).await?,
+            "deregister" => prompt_deregister(&client).await?,
+            "exit" => break,
+            _ => {
+                println!("unknown command");
+                continue;
+            }
+        }
+    }
 
     Ok(())
 }
