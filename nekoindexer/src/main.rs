@@ -33,6 +33,7 @@ async fn main() -> Result<()> {
     println!("Starting server on {0}:{1}", args.host, args.port);
 
     let index = Arc::new(DashMap::new());
+    let dl_ports = Arc::new(DashMap::new());
     let listener = tcp::listen((args.host, args.port), Bincode::default).await?;
     listener
         // Ignore accept errors.
@@ -40,7 +41,7 @@ async fn main() -> Result<()> {
         // Establish serve channel
         .map(BaseChannel::with_defaults)
         .map(|channel| {
-            let server = IndexerServer::new(channel.transport().peer_addr().unwrap(), &index);
+            let server = IndexerServer::new(channel.transport().peer_addr().unwrap(), &index, &dl_ports);
             channel
                 .execute(server.serve())
                 .for_each(|response| async move {

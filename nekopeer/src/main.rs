@@ -64,6 +64,7 @@ async fn main() -> Result<()> {
     );
 
     let client = IndexerClient::new(client::Config::default(), transport.await?).spawn();
+    client.set_port(context::current(), 5001).await?;
 
     loop {
         // wait for SIGINT
