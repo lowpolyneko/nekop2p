@@ -1,6 +1,7 @@
 use std::sync::Arc;
 
 use anyhow::Result;
+use clap::Parser;
 use dashmap::DashMap;
 use futures::{future, prelude::*};
 use tarpc::{
@@ -14,14 +15,25 @@ use nekop2p::Indexer;
 mod server;
 use crate::server::IndexerServer;
 
+#[derive(Parser)]
+#[command(version, about, long_about = None)]
+struct Args {
+    // host
+    host: String,
+
+    // port
+    #[arg(short, long, default_value_t = 5000)]
+    port: u16,
+}
+
 #[tokio::main]
 async fn main() -> Result<()> {
-    println!("Starting server on localhost:5000");
+    let args = Args::parse();
+
+    println!("Starting server on {0}:{1}", args.host, args.port);
 
     let index = Arc::new(DashMap::new());
-
-    let listener = tcp::listen("localhost:5000", Bincode::default).await?;
-
+    let listener = tcp::listen((args.host, args.port), Bincode::default).await?;
     listener
         // Ignore accept errors.
         .filter_map(|r| future::ready(r.ok()))
