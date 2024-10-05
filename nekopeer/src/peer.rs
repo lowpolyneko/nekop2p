@@ -1,3 +1,5 @@
+use std::fs;
+
 use nekop2p::Peer;
 use tarpc::context::Context;
 
@@ -5,7 +7,7 @@ use tarpc::context::Context;
 pub struct PeerServer;
 
 impl Peer for PeerServer {
-    async fn download_file(self, context: Context, filename: String) -> Vec<u8> {
-        vec![]
+    async fn download_file(self, _: Context, filename: String) -> Vec<u8> {
+        fs::read(filename).unwrap_or_default()
     }
 }

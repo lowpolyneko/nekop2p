@@ -23,6 +23,15 @@ async fn prompt_register(client: &IndexerClient) -> Result<()> {
     Ok(())
 }
 
+async fn prompt_search(client: &IndexerClient) -> Result<()> {
+    let mut filename = String::new();
+    stdin().read_line(&mut filename)?;
+
+    let results = client.search(context::current(), filename.trim_end().to_owned()).await?;
+    results.iter().for_each(|r| println!("{}", r));
+    Ok(())
+}
+
 async fn prompt_deregister(client: &IndexerClient) -> Result<()> {
     let mut filename = String::new();
     stdin().read_line(&mut filename)?;
@@ -69,6 +78,7 @@ async fn main() -> Result<()> {
 
         match input.as_str().trim_end() {
             "register" => prompt_register(&client).await?,
+            "search" => prompt_search(&client).await?,
             "deregister" => prompt_deregister(&client).await?,
             "exit" => break,
             _ => {
