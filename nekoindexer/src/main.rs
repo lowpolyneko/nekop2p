@@ -22,16 +22,18 @@ async fn main() -> Result<()> {
 
     let listener = tcp::listen("localhost:5000", Bincode::default).await?;
 
-        listener
+    listener
         // Ignore accept errors.
         .filter_map(|r| future::ready(r.ok()))
         // Establish serve channel
         .map(BaseChannel::with_defaults)
         .map(|channel| {
             let server = IndexerServer::new(channel.transport().peer_addr().unwrap(), &index);
-            channel.execute(server.serve()).for_each(|response| async move {
-                tokio::spawn(response);
-            })
+            channel
+                .execute(server.serve())
+                .for_each(|response| async move {
+                    tokio::spawn(response);
+                })
         })
         // Max 10 channels.
         .buffer_unordered(10)

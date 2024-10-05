@@ -15,7 +15,7 @@ impl IndexerServer {
     pub fn new(addr: SocketAddr, index: &Arc<DashMap<String, DashSet<SocketAddr>>>) -> Self {
         IndexerServer {
             addr,
-            index: Arc::clone(index)
+            index: Arc::clone(index),
         }
     }
 
