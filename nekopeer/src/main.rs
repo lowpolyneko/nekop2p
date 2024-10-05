@@ -8,9 +8,9 @@ use tarpc::{
     server::{BaseChannel, Channel},
     tokio_serde::formats::Bincode,
 };
-use tokio::signal;
+use tokio::{fs, signal};
 
-use nekop2p::{IndexerClient, Peer};
+use nekop2p::{IndexerClient, Peer, PeerClient};
 
 mod peer;
 use crate::peer::PeerServer;
@@ -20,6 +20,22 @@ async fn prompt_register(client: &IndexerClient) -> Result<()> {
     stdin().read_line(&mut filename)?;
 
     client.register(context::current(), filename.trim_end().to_owned()).await?;
+    Ok(())
+}
+
+async fn prompt_download(client: &IndexerClient) -> Result<()> {
+    let mut filename = String::new();
+    stdin().read_line(&mut filename)?;
+
+    let results = client.search(context::current(), filename.trim_end().to_owned()).await?;
+
+    // try to download file
+    let transport = tcp::connect(results.first().unwrap(), Bincode::default);
+    let peer = PeerClient::new(client::Config::default(), transport.await?).spawn();
+    let contents = peer.download_file(context::current(), filename.trim_end().to_owned()).await?;
+
+    fs::write(filename.trim_end(), contents).await?;
+
     Ok(())
 }
 
@@ -79,6 +95,7 @@ async fn main() -> Result<()> {
 
         match input.as_str().trim_end() {
             "register" => prompt_register(&client).await?,
+            "download" => prompt_download(&client).await?,
             "search" => prompt_search(&client).await?,
             "deregister" => prompt_deregister(&client).await?,
             "exit" => break,
