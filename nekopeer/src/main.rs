@@ -6,6 +6,7 @@ use tarpc::{
     server::{BaseChannel, Channel},
     tokio_serde::formats::Bincode,
 };
+use tokio::signal;
 
 use nekop2p::{IndexerClient, Peer};
 
@@ -17,21 +18,23 @@ async fn main() -> Result<()> {
     let transport = tcp::connect("localhost:5000", Bincode::default);
     let listener = tcp::listen("localhost:5001", Bincode::default).await?;
 
-    let promise = listener
-        // Ignore accept errors.
-        .filter_map(|r| future::ready(r.ok()))
-        // Establish serve channel
-        .map(BaseChannel::with_defaults)
-        .map(|channel| {
-            channel
-                .execute(PeerServer.serve())
-                .for_each(|response| async move {
-                    tokio::spawn(response);
-                })
-        })
-        // Max 10 channels.
-        .buffer_unordered(10)
-        .for_each(|_| async {});
+    tokio::spawn(
+        listener
+            // Ignore accept errors.
+            .filter_map(|r| future::ready(r.ok()))
+            // Establish serve channel
+            .map(BaseChannel::with_defaults)
+            .map(|channel| {
+                channel
+                    .execute(PeerServer.serve())
+                    .for_each(|response| async move {
+                        tokio::spawn(response);
+                    })
+            })
+            // Max 10 channels.
+            .buffer_unordered(10)
+            .for_each(|_| async {}),
+    );
 
     let client = IndexerClient::new(client::Config::default(), transport.await?).spawn();
     client
@@ -43,6 +46,10 @@ async fn main() -> Result<()> {
     client
         .register(context::current(), "test3".to_string())
         .await?;
+
+    // wait for SIGINT
+    signal::ctrl_c().await?;
+
     client
         .deregister(context::current(), "test3".to_string())
         .await?;
@@ -53,7 +60,8 @@ async fn main() -> Result<()> {
         .deregister(context::current(), "test".to_string())
         .await?;
 
-    promise.await;
+    // wait for SIGINT
+    signal::ctrl_c().await?;
 
     Ok(())
 }
