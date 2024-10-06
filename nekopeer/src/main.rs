@@ -43,51 +43,71 @@ fn input(prompt: &str) -> Option<String> {
     }
 }
 
-async fn prompt_register(client: &IndexerClient) -> Result<()> {
+async fn prompt_register(client: &IndexerClient) {
     let filename = input("Enter filename").unwrap();
 
-    client
+    match client
         .register(context::current(), filename.trim_end().to_owned())
-        .await?;
-    Ok(())
+        .await {
+            Ok(_) => println!("Registered {0} on index", filename.trim_end()),
+            Err(_) => println!("Failed to register {0}", filename.trim_end()),
+        }
 }
 
-async fn prompt_download(client: &IndexerClient) -> Result<()> {
+async fn prompt_download(client: &IndexerClient) {
     let filename = input("Enter filename").unwrap();
 
-    let results = client
+    let results = match client
         .search(context::current(), filename.trim_end().to_owned())
-        .await?;
+        .await {
+            Ok(x) => { println!("Querying peers for {0}", filename.trim_end()); x },
+            Err(_) => { println!("Failed to retrieve peers for {0}", filename.trim_end()); return },
+        };
 
     // try to download file
-    let transport = tcp::connect(results.first().unwrap(), Bincode::default);
-    let peer = PeerClient::new(client::Config::default(), transport.await?).spawn();
-    let contents = peer
+    let peer = results.first().unwrap();
+    let transport = match tcp::connect(peer, Bincode::default).await {
+        Ok(x) => { println!("Connecting to peer {0}", peer); x },
+        Err(_) => { println!("Failed to connect to peer {0}", peer); return },
+    };
+
+    let peer = PeerClient::new(client::Config::default(), transport).spawn();
+    let contents = match peer
         .download_file(context::current(), filename.trim_end().to_owned())
-        .await?;
+        .await {
+            Ok(x) => { println!("Downloading {0}...", filename.trim_end()); x },
+            Err(_) => { println!("Failed to download {0}", filename.trim_end()); return },
+        };
 
-    fs::write(filename.trim_end(), contents).await?;
-
-    Ok(())
+    match fs::write(filename.trim_end(), contents).await {
+        Ok(_) => println!("Writing contents to {0}...", filename.trim_end()),
+        Err(_) => println!("Failed to write to {0}", filename.trim_end()),
+    }
 }
 
-async fn prompt_search(client: &IndexerClient) -> Result<()> {
+async fn prompt_search(client: &IndexerClient) {
     let filename = input("Enter filename").unwrap();
 
-    let results = client
+    let results = match client
         .search(context::current(), filename.trim_end().to_owned())
-        .await?;
+        .await {
+            Ok(x) => { println!("Querying peers for {0}", filename.trim_end()); x },
+            Err(_) => { println!("Failed to retrieve peers for {0}", filename.trim_end()); return },
+        };
+
+    // print out results
     results.iter().for_each(|r| println!("{}", r));
-    Ok(())
 }
 
-async fn prompt_deregister(client: &IndexerClient) -> Result<()> {
+async fn prompt_deregister(client: &IndexerClient) {
     let filename = input("Enter filename").unwrap();
 
-    client
+    match client
         .deregister(context::current(), filename.trim_end().to_owned())
-        .await?;
-    Ok(())
+        .await {
+            Ok(_) => println!("Deregistered {0} on index", filename.trim_end()),
+            Err(_) => println!("Failed to deregister {0}", filename.trim_end()),
+        }
 }
 
 #[tokio::main]
@@ -132,15 +152,18 @@ async fn main() -> Result<()> {
         let input = input("Enter Command ('?' for help)").unwrap();
 
         match input.as_str().trim_end() {
-            "register" => prompt_register(&client).await?,
-            "download" => prompt_download(&client).await?,
-            "search" => prompt_search(&client).await?,
-            "deregister" => prompt_deregister(&client).await?,
+            "register" => prompt_register(&client).await,
+            "download" => prompt_download(&client).await,
+            "search" => prompt_search(&client).await,
+            "deregister" => prompt_deregister(&client).await,
             "?" => println!("register, download, search, deregister"),
             "exit" => break,
             _ => println!("unknown command"),
         }
     }
+
+    // ensure the client registrations are cleared
+    client.disconnect_peer(context::current()).await?;
 
     Ok(())
 }
