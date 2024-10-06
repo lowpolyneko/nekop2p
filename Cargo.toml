@@ -1,5 +1,5 @@
 [workspace]
 
-members = [
+members = [ "demo-profile",
 	"nekoindexer", "nekop2p", "nekopeer",
 ]

@@ -219,6 +219,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "demo-profile"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "clap",
+ "dashmap",
+ "futures",
+ "nekop2p",
+ "tarpc",
+ "tokio",
+]
+
+[[package]]
 name = "educe"
 version = "0.4.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -488,6 +501,7 @@ dependencies = [
 name = "nekop2p"
 version = "0.1.0"
 dependencies = [
+ "dashmap",
  "tarpc",
 ]
 
