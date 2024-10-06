@@ -1,3 +1,4 @@
+use std::iter::repeat;
 use std::time::Instant;
 use std::{
     sync::{Arc, RwLock},
@@ -8,6 +9,8 @@ use anyhow::Result;
 use clap::Parser;
 use dashmap::DashMap;
 use futures::{future, prelude::*};
+use plotly::common::Mode;
+use plotly::{layout::Axis, Layout, Plot, Scatter};
 use tarpc::{
     client, context,
     serde_transport::tcp,
@@ -22,11 +25,14 @@ use nekop2p::{server::IndexerServer, Indexer, IndexerClient};
 struct Args {
     indexer: Option<String>,
 
+    #[arg(short, long, action)]
+    plot: bool,
+
     #[arg(short, long, default_value_t = 1)]
-    concurrent: u32,
+    concurrent: usize,
 
     #[arg(short, long, default_value_t = 500)]
-    num_requests: u32,
+    num_requests: usize,
 }
 
 #[tokio::main]
@@ -63,6 +69,7 @@ async fn main() -> Result<()> {
 
     // Begin profiling requests
     // Spawn clients
+    println!("Spawning {0} clients", args.concurrent);
     let mut clients = Vec::new();
     for _ in 0..args.concurrent {
         let transport = tcp::connect(host.clone(), Bincode::default);
@@ -71,7 +78,8 @@ async fn main() -> Result<()> {
     }
 
     // Register binary files on the first peer
-    for i in 1..11 {
+    for i in 1..=10 {
+        println!("Registering {i}k.bin on first peer");
         clients
             .first()
             .unwrap()
@@ -80,6 +88,7 @@ async fn main() -> Result<()> {
     }
 
     // For each round, run a request on each client
+    println!("Starting runs!");
     let mutex = Arc::new(RwLock::new(Vec::new()));
     for i in 0..args.num_requests {
         future::join_all(clients.iter().map(|c| async {
@@ -103,5 +112,34 @@ async fn main() -> Result<()> {
         .sum::<Duration>()
         .div_f64(durations.len() as f64);
     println!("Average time: {:0.2?}", total);
+
+    // plot?
+    if args.plot {
+        let mut plot = Plot::new();
+        let x_axis = (1..=args.num_requests).flat_map(|x| repeat(x).take(args.concurrent)).collect();
+        let y_axis = durations.iter().map(|d| d.as_micros()).collect();
+        let trace = Scatter::new(x_axis, y_axis)
+            .name("Raw Data")
+            .mode(Mode::Markers);
+        plot.add_trace(trace);
+
+        let x_avg_axis = (1..=args.num_requests).collect();
+        let y_avg_axis = durations.chunks(args.concurrent).map(|i| {
+            i.iter().sum::<Duration>().div_f64(args.concurrent as f64).as_micros()
+        }).collect();
+        let trace_avg = Scatter::new(x_avg_axis, y_avg_axis)
+            .name("Average per Request")
+            .mode(Mode::Lines);
+        plot.add_trace(trace_avg);
+
+        let layout = Layout::new()
+            .title("`search` Response Time")
+            .x_axis(Axis::new().title("Request Iteration"))
+            .y_axis(Axis::new().title("Response Time (microseconds)"));
+        plot.set_layout(layout);
+
+        plot.show();
+    }
+
     Ok(())
 }
