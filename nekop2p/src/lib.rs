@@ -11,5 +11,5 @@ pub trait Indexer {
 
 #[tarpc::service]
 pub trait Peer {
-    async fn download_file(filename: String) -> Vec<u8>;
+    async fn download_file(filename: String) -> Option<Vec<u8>>;
 }

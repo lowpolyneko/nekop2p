@@ -85,8 +85,8 @@ async fn prompt_download(client: &IndexerClient) {
     let contents = match peer
         .download_file(context::current(), filename.trim_end().to_owned())
         .await {
-            Ok(x) => { println!("Downloading {0}...", filename.trim_end()); x },
-            Err(_) => { println!("Failed to download {0}", filename.trim_end()); return },
+            Ok(Some(x)) => { println!("Downloading {0}...", filename.trim_end()); x },
+            Ok(None) | Err(_) => { println!("Failed to download {0}", filename.trim_end()); return },
         };
 
     match fs::write(filename.trim_end(), contents).await {
@@ -140,8 +140,9 @@ async fn main() -> Result<()> {
             // Establish serve channel
             .map(BaseChannel::with_defaults)
             .map(|channel| {
+                let server = PeerServer::new(channel.transport().peer_addr().unwrap());
                 channel
-                    .execute(PeerServer.serve())
+                    .execute(server.serve())
                     .for_each(|response| async move {
                         tokio::spawn(response);
                     })
