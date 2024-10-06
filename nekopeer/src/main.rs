@@ -163,7 +163,10 @@ async fn main() -> Result<()> {
     );
 
     let transport = tcp::connect(args.indexer, Bincode::default);
-    let listener = tcp::listen((dl_host, args.dl_port), Bincode::default).await?;
+    let mut listener = tcp::listen((dl_host, args.dl_port), Bincode::default).await?;
+    listener.config_mut().max_frame_length(usize::MAX); // allow large frames
+
+    let port = listener.local_addr().port(); // get port (in-case dl_port = 0)
 
     tokio::spawn(
         listener
@@ -185,7 +188,7 @@ async fn main() -> Result<()> {
     );
 
     let client = IndexerClient::new(client::Config::default(), transport.await?).spawn();
-    client.set_port(context::current(), args.dl_port).await?;
+    client.set_port(context::current(), port).await?;
 
     loop {
         // wait for SIGINT
