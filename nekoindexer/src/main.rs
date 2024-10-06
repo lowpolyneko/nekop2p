@@ -10,10 +10,7 @@ use tarpc::{
     tokio_serde::formats::Bincode,
 };
 
-use nekop2p::Indexer;
-
-mod server;
-use crate::server::IndexerServer;
+use nekop2p::{Indexer, server::IndexerServer};
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]

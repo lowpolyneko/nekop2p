@@ -3,7 +3,7 @@ use std::{net::SocketAddr, sync::Arc};
 use dashmap::{DashMap, DashSet};
 use tarpc::context::Context;
 
-use nekop2p::Indexer;
+use crate::Indexer;
 
 #[derive(Clone)]
 pub struct IndexerServer {

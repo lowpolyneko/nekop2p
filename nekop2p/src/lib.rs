@@ -1,3 +1,5 @@
+pub mod server;
+
 use std::net::SocketAddr;
 
 #[tarpc::service]
