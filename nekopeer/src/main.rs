@@ -22,8 +22,12 @@ struct Args {
     // indexer
     indexer: String,
 
-    // download port
-    #[arg(short, long, default_value_t = 5001)]
+    // incoming host
+    #[arg(long)]
+    dl_host: Option<String>,
+
+    // incoming port
+    #[arg(long, default_value_t = 5001)]
     dl_port: u16,
 }
 
@@ -89,12 +93,15 @@ async fn prompt_deregister(client: &IndexerClient) -> Result<()> {
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
+    let dl_host = args.dl_host.unwrap_or("0.0.0.0".to_owned());
 
     println!("Welcome to nekop2p! (peer client)");
     println!("Press Ctrl-C to enter commands...");
+    println!("Connecting to indexer on {0}", args.indexer);
+    println!("Accepting inbound connections on {0}:{1}", dl_host, args.dl_port);
 
     let transport = tcp::connect(args.indexer, Bincode::default);
-    let listener = tcp::listen(("0.0.0.0", args.dl_port), Bincode::default).await?;
+    let listener = tcp::listen((dl_host, args.dl_port), Bincode::default).await?;
 
     tokio::spawn(
         listener

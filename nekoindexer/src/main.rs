@@ -19,7 +19,7 @@ use crate::server::IndexerServer;
 #[command(version, about, long_about = None)]
 struct Args {
     // host
-    host: String,
+    host: Option<String>,
 
     // port
     #[arg(short, long, default_value_t = 5000)]
@@ -29,12 +29,13 @@ struct Args {
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
+    let host = args.host.unwrap_or("0.0.0.0".to_owned());
 
-    println!("Starting server on {0}:{1}", args.host, args.port);
+    println!("Starting indexer on {0}:{1}", host, args.port);
 
     let index = Arc::new(DashMap::new());
     let dl_ports = Arc::new(DashMap::new());
-    let listener = tcp::listen((args.host, args.port), Bincode::default).await?;
+    let listener = tcp::listen((host, args.port), Bincode::default).await?;
     listener
         // Ignore accept errors.
         .filter_map(|r| future::ready(r.ok()))
