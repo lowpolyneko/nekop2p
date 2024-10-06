@@ -58,10 +58,11 @@ async fn prompt_register(client: &IndexerClient) {
 
     match client
         .register(context::current(), filename.trim_end().to_owned())
-        .await {
-            Ok(_) => println!("Registered {0} on index", filename.trim_end()),
-            Err(_) => println!("Failed to register {0}", filename.trim_end()),
-        }
+        .await
+    {
+        Ok(_) => println!("Registered {0} on index", filename.trim_end()),
+        Err(_) => println!("Failed to register {0}", filename.trim_end()),
+    }
 }
 
 async fn prompt_download(client: &IndexerClient) {
@@ -69,25 +70,45 @@ async fn prompt_download(client: &IndexerClient) {
 
     let results = match client
         .search(context::current(), filename.trim_end().to_owned())
-        .await {
-            Ok(x) => { println!("Querying peers for {0}", filename.trim_end()); x },
-            Err(_) => { println!("Failed to retrieve peers for {0}", filename.trim_end()); return },
-        };
+        .await
+    {
+        Ok(x) => {
+            println!("Querying peers for {0}", filename.trim_end());
+            x
+        }
+        Err(_) => {
+            println!("Failed to retrieve peers for {0}", filename.trim_end());
+            return;
+        }
+    };
 
     // try to download file
     let peer = results.first().unwrap();
     let transport = match tcp::connect(peer, Bincode::default).await {
-        Ok(x) => { println!("Connecting to peer {0}", peer); x },
-        Err(_) => { println!("Failed to connect to peer {0}", peer); return },
+        Ok(x) => {
+            println!("Connecting to peer {0}", peer);
+            x
+        }
+        Err(_) => {
+            println!("Failed to connect to peer {0}", peer);
+            return;
+        }
     };
 
     let peer = PeerClient::new(client::Config::default(), transport).spawn();
     let contents = match peer
         .download_file(context::current(), filename.trim_end().to_owned())
-        .await {
-            Ok(Some(x)) => { println!("Downloading {0}...", filename.trim_end()); x },
-            Ok(None) | Err(_) => { println!("Failed to download {0}", filename.trim_end()); return },
-        };
+        .await
+    {
+        Ok(Some(x)) => {
+            println!("Downloading {0}...", filename.trim_end());
+            x
+        }
+        Ok(None) | Err(_) => {
+            println!("Failed to download {0}", filename.trim_end());
+            return;
+        }
+    };
 
     match fs::write(filename.trim_end(), contents).await {
         Ok(_) => println!("Writing contents to {0}...", filename.trim_end()),
@@ -100,10 +121,17 @@ async fn prompt_search(client: &IndexerClient) {
 
     let results = match client
         .search(context::current(), filename.trim_end().to_owned())
-        .await {
-            Ok(x) => { println!("Querying peers for {0}", filename.trim_end()); x },
-            Err(_) => { println!("Failed to retrieve peers for {0}", filename.trim_end()); return },
-        };
+        .await
+    {
+        Ok(x) => {
+            println!("Querying peers for {0}", filename.trim_end());
+            x
+        }
+        Err(_) => {
+            println!("Failed to retrieve peers for {0}", filename.trim_end());
+            return;
+        }
+    };
 
     // print out results
     results.iter().for_each(|r| println!("{}", r));
@@ -114,10 +142,11 @@ async fn prompt_deregister(client: &IndexerClient) {
 
     match client
         .deregister(context::current(), filename.trim_end().to_owned())
-        .await {
-            Ok(_) => println!("Deregistered {0} on index", filename.trim_end()),
-            Err(_) => println!("Failed to deregister {0}", filename.trim_end()),
-        }
+        .await
+    {
+        Ok(_) => println!("Deregistered {0} on index", filename.trim_end()),
+        Err(_) => println!("Failed to deregister {0}", filename.trim_end()),
+    }
 }
 
 #[tokio::main]
@@ -128,7 +157,10 @@ async fn main() -> Result<()> {
     println!("Welcome to nekop2p! (peer client)");
     println!("Press Ctrl-C to enter commands...");
     println!("Connecting to indexer on {0}", args.indexer);
-    println!("Accepting inbound connections on {0}:{1}", dl_host, args.dl_port);
+    println!(
+        "Accepting inbound connections on {0}:{1}",
+        dl_host, args.dl_port
+    );
 
     let transport = tcp::connect(args.indexer, Bincode::default);
     let listener = tcp::listen((dl_host, args.dl_port), Bincode::default).await?;
