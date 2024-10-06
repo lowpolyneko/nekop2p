@@ -10,6 +10,7 @@ use clap::Parser;
 use dashmap::DashMap;
 use futures::{future, prelude::*};
 use plotly::common::Mode;
+use plotly::Histogram;
 use plotly::{layout::Axis, Layout, Plot, Scatter};
 use tarpc::{
     client, context,
@@ -117,8 +118,8 @@ async fn main() -> Result<()> {
     if args.plot {
         let mut plot = Plot::new();
         let x_axis = (1..=args.num_requests).flat_map(|x| repeat(x).take(args.concurrent)).collect();
-        let y_axis = durations.iter().map(|d| d.as_micros()).collect();
-        let trace = Scatter::new(x_axis, y_axis)
+        let y_axis: Vec<_> = durations.iter().map(|d| d.as_micros()).collect();
+        let trace = Scatter::new(x_axis, y_axis.clone())
             .name("Raw Data")
             .mode(Mode::Markers);
         plot.add_trace(trace);
@@ -139,6 +140,18 @@ async fn main() -> Result<()> {
         plot.set_layout(layout);
 
         plot.show();
+
+        let mut histogram = Plot::new();
+        let hist_trace = Histogram::new(y_axis);
+        histogram.add_trace(hist_trace);
+
+        let hist_layout = Layout::new()
+            .title("Distribution of `search` Response Time")
+            .x_axis(Axis::new().title("Response Time (microseconds)").range(vec![0, 250]))
+            .y_axis(Axis::new().title("Count"));
+        histogram.set_layout(hist_layout);
+
+        histogram.show();
     }
 
     Ok(())
