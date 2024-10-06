@@ -1,6 +1,7 @@
 use std::io::{stdin, stdout, Write};
 
 use anyhow::Result;
+use clap::Parser;
 use futures::prelude::*;
 use tarpc::{
     client, context,
@@ -14,6 +15,17 @@ use nekop2p::{IndexerClient, Peer, PeerClient};
 
 mod peer;
 use crate::peer::PeerServer;
+
+#[derive(Parser)]
+#[command(version, about, long_about = None)]
+struct Args {
+    // indexer
+    indexer: String,
+
+    // download port
+    #[arg(short, long, default_value_t = 5001)]
+    dl_port: u16,
+}
 
 fn input(prompt: &str) -> Option<String> {
     // what are we doing?
@@ -76,11 +88,13 @@ async fn prompt_deregister(client: &IndexerClient) -> Result<()> {
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    let args = Args::parse();
+
     println!("Welcome to nekop2p! (peer client)");
     println!("Press Ctrl-C to enter commands...");
 
-    let transport = tcp::connect("localhost:5000", Bincode::default);
-    let listener = tcp::listen("localhost:5001", Bincode::default).await?;
+    let transport = tcp::connect(args.indexer, Bincode::default);
+    let listener = tcp::listen(("0.0.0.0", args.dl_port), Bincode::default).await?;
 
     tokio::spawn(
         listener
@@ -101,7 +115,7 @@ async fn main() -> Result<()> {
     );
 
     let client = IndexerClient::new(client::Config::default(), transport.await?).spawn();
-    client.set_port(context::current(), 5001).await?;
+    client.set_port(context::current(), args.dl_port).await?;
 
     loop {
         // wait for SIGINT
