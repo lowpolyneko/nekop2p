@@ -56,7 +56,7 @@ impl Indexer for IndexerServer {
             .entry(filename)
             .or_default()
             .iter()
-            .filter_map(|e| match self.dl_ports.get(&self.addr) {
+            .filter_map(|e| match self.dl_ports.get(&e) {
                 Some(x) => {
                     let mut n = e.clone();
                     n.set_port(*x);
