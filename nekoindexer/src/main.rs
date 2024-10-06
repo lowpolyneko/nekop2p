@@ -29,7 +29,7 @@ struct Args {
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
-    let host = args.host.unwrap_or("0.0.0.0".to_owned());
+    let host = args.host.unwrap_or("localhost".to_owned());
 
     println!("Starting indexer on {0}:{1}", host, args.port);
 

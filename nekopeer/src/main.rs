@@ -113,7 +113,7 @@ async fn prompt_deregister(client: &IndexerClient) {
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
-    let dl_host = args.dl_host.unwrap_or("0.0.0.0".to_owned());
+    let dl_host = args.dl_host.unwrap_or("localhost".to_owned());
 
     println!("Welcome to nekop2p! (peer client)");
     println!("Press Ctrl-C to enter commands...");
