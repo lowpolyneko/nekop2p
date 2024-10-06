@@ -13,7 +13,11 @@ pub struct IndexerServer {
 }
 
 impl IndexerServer {
-    pub fn new(addr: SocketAddr, index: &Arc<DashMap<String, DashSet<SocketAddr>>>, dl_ports: &Arc<DashMap<SocketAddr, u16>>) -> Self {
+    pub fn new(
+        addr: SocketAddr,
+        index: &Arc<DashMap<String, DashSet<SocketAddr>>>,
+        dl_ports: &Arc<DashMap<SocketAddr, u16>>,
+    ) -> Self {
         IndexerServer {
             addr,
             index: Arc::clone(index),
@@ -52,11 +56,13 @@ impl Indexer for IndexerServer {
             .entry(filename)
             .or_default()
             .iter()
-            .filter_map(|e| {
-                match self.dl_ports.get(&self.addr) {
-                    Some(x) => { let mut n = e.clone(); n.set_port(*x); Some(n) },
-                    None => None,
+            .filter_map(|e| match self.dl_ports.get(&self.addr) {
+                Some(x) => {
+                    let mut n = e.clone();
+                    n.set_port(*x);
+                    Some(n)
                 }
+                None => None,
             })
             .collect()
     }

@@ -30,19 +30,25 @@ fn input(prompt: &str) -> Option<String> {
 async fn prompt_register(client: &IndexerClient) -> Result<()> {
     let filename = input("Enter filename").unwrap();
 
-    client.register(context::current(), filename.trim_end().to_owned()).await?;
+    client
+        .register(context::current(), filename.trim_end().to_owned())
+        .await?;
     Ok(())
 }
 
 async fn prompt_download(client: &IndexerClient) -> Result<()> {
     let filename = input("Enter filename").unwrap();
 
-    let results = client.search(context::current(), filename.trim_end().to_owned()).await?;
+    let results = client
+        .search(context::current(), filename.trim_end().to_owned())
+        .await?;
 
     // try to download file
     let transport = tcp::connect(results.first().unwrap(), Bincode::default);
     let peer = PeerClient::new(client::Config::default(), transport.await?).spawn();
-    let contents = peer.download_file(context::current(), filename.trim_end().to_owned()).await?;
+    let contents = peer
+        .download_file(context::current(), filename.trim_end().to_owned())
+        .await?;
 
     fs::write(filename.trim_end(), contents).await?;
 
@@ -52,7 +58,9 @@ async fn prompt_download(client: &IndexerClient) -> Result<()> {
 async fn prompt_search(client: &IndexerClient) -> Result<()> {
     let filename = input("Enter filename").unwrap();
 
-    let results = client.search(context::current(), filename.trim_end().to_owned()).await?;
+    let results = client
+        .search(context::current(), filename.trim_end().to_owned())
+        .await?;
     results.iter().for_each(|r| println!("{}", r));
     Ok(())
 }
@@ -60,7 +68,9 @@ async fn prompt_search(client: &IndexerClient) -> Result<()> {
 async fn prompt_deregister(client: &IndexerClient) -> Result<()> {
     let filename = input("Enter filename").unwrap();
 
-    client.deregister(context::current(), filename.trim_end().to_owned()).await?;
+    client
+        .deregister(context::current(), filename.trim_end().to_owned())
+        .await?;
     Ok(())
 }
 
