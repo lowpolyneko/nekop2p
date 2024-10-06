@@ -43,6 +43,16 @@ fn input(prompt: &str) -> Option<String> {
     }
 }
 
+fn print_help() {
+    println!("Available CLI commands:");
+    println!("register\tRegister file to index");
+    println!("download\tDownload file from peer on index");
+    println!("search\t\tQuery peers on index");
+    println!("deregister\tDeregister file on index");
+    println!("?\t\tPrint this help screen");
+    println!("exit\t\tQuit");
+}
+
 async fn prompt_register(client: &IndexerClient) {
     let filename = input("Enter filename").unwrap();
 
@@ -149,16 +159,16 @@ async fn main() -> Result<()> {
         signal::ctrl_c().await?;
 
         // what are we doing?
-        let input = input("Enter Command ('?' for help)").unwrap();
+        let input = input("\nEnter Command ('?' for help)").unwrap();
 
         match input.as_str().trim_end() {
             "register" => prompt_register(&client).await,
             "download" => prompt_download(&client).await,
             "search" => prompt_search(&client).await,
             "deregister" => prompt_deregister(&client).await,
-            "?" => println!("register, download, search, deregister"),
+            "?" => print_help(),
             "exit" => break,
-            _ => println!("unknown command"),
+            _ => println!("Unknown command"),
         }
     }
 
