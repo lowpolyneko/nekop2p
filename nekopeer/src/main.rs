@@ -15,17 +15,27 @@ use nekop2p::{IndexerClient, Peer, PeerClient};
 mod peer;
 use crate::peer::PeerServer;
 
+fn input(prompt: &str) -> Option<String> {
+    // what are we doing?
+    print!("{prompt} >> ");
+    stdout().flush().unwrap();
+
+    let mut input = String::new();
+    match stdin().read_line(&mut input) {
+        Ok(_) => Some(input),
+        Err(_) => None,
+    }
+}
+
 async fn prompt_register(client: &IndexerClient) -> Result<()> {
-    let mut filename = String::new();
-    stdin().read_line(&mut filename)?;
+    let filename = input("Enter filename").unwrap();
 
     client.register(context::current(), filename.trim_end().to_owned()).await?;
     Ok(())
 }
 
 async fn prompt_download(client: &IndexerClient) -> Result<()> {
-    let mut filename = String::new();
-    stdin().read_line(&mut filename)?;
+    let filename = input("Enter filename").unwrap();
 
     let results = client.search(context::current(), filename.trim_end().to_owned()).await?;
 
@@ -40,8 +50,7 @@ async fn prompt_download(client: &IndexerClient) -> Result<()> {
 }
 
 async fn prompt_search(client: &IndexerClient) -> Result<()> {
-    let mut filename = String::new();
-    stdin().read_line(&mut filename)?;
+    let filename = input("Enter filename").unwrap();
 
     let results = client.search(context::current(), filename.trim_end().to_owned()).await?;
     results.iter().for_each(|r| println!("{}", r));
@@ -49,8 +58,7 @@ async fn prompt_search(client: &IndexerClient) -> Result<()> {
 }
 
 async fn prompt_deregister(client: &IndexerClient) -> Result<()> {
-    let mut filename = String::new();
-    stdin().read_line(&mut filename)?;
+    let filename = input("Enter filename").unwrap();
 
     client.deregister(context::current(), filename.trim_end().to_owned()).await?;
     Ok(())
@@ -58,6 +66,9 @@ async fn prompt_deregister(client: &IndexerClient) -> Result<()> {
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    println!("Welcome to nekop2p! (peer client)");
+    println!("Press Ctrl-C to enter commands...");
+
     let transport = tcp::connect("localhost:5000", Bincode::default);
     let listener = tcp::listen("localhost:5001", Bincode::default).await?;
 
@@ -87,22 +98,16 @@ async fn main() -> Result<()> {
         signal::ctrl_c().await?;
 
         // what are we doing?
-        print!("Enter Command >> ");
-        stdout().flush().unwrap();
-
-        let mut input = String::new();
-        stdin().read_line(&mut input)?;
+        let input = input("Enter Command ('?' for help)").unwrap();
 
         match input.as_str().trim_end() {
             "register" => prompt_register(&client).await?,
             "download" => prompt_download(&client).await?,
             "search" => prompt_search(&client).await?,
             "deregister" => prompt_deregister(&client).await?,
+            "?" => println!("register, download, search, deregister"),
             "exit" => break,
-            _ => {
-                println!("unknown command");
-                continue;
-            }
+            _ => println!("unknown command"),
         }
     }
 
