@@ -12,10 +12,7 @@ use tarpc::{
 };
 use tokio::{fs, signal};
 
-use nekop2p::{IndexerClient, Peer, PeerClient};
-
-mod peer;
-use crate::peer::PeerServer;
+use nekop2p::{IndexerClient, Peer, PeerClient, PeerServer};
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]

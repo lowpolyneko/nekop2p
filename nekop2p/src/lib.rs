@@ -1,4 +1,7 @@
-pub mod server;
+mod peer;
+mod server;
+pub use peer::PeerServer;
+pub use server::IndexerServer;
 
 use std::net::SocketAddr;
 

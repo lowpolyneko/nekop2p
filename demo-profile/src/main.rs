@@ -19,7 +19,7 @@ use tarpc::{
     tokio_serde::formats::Bincode,
 };
 
-use nekop2p::{server::IndexerServer, Indexer, IndexerClient};
+use nekop2p::{IndexerServer, Indexer, IndexerClient};
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]

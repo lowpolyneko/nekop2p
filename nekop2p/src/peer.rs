@@ -3,7 +3,7 @@ use std::net::SocketAddr;
 use tarpc::context::Context;
 use tokio::fs;
 
-use nekop2p::Peer;
+use crate::Peer;
 
 #[derive(Clone)]
 pub struct PeerServer {
