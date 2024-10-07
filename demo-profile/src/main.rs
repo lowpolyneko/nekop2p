@@ -1,3 +1,9 @@
+//! Simple profiler that runs tests the `search` query in the nekop2p RPC.
+//!
+//! The compiled binary uses `-c` for the number of concurrent clients and `-n` for the number of
+//! requests to run and simulates `c*n` search queries on a dummy [IndexerServer].
+//!
+//! Additionally, plots can be generated using the [plotly] crate.
 use std::iter::repeat;
 use std::time::Instant;
 use std::{
@@ -24,18 +30,24 @@ use nekop2p::{IndexerServer, Indexer, IndexerClient};
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 struct Args {
+    /// IP and port to bind the [IndexerServer] to
     indexer: Option<String>,
 
+    /// Whether or not to plot
     #[arg(short, long, action)]
     plot: bool,
 
+    /// Number of concurrent clients
     #[arg(short, long, default_value_t = 1)]
     concurrent: usize,
 
+    /// Number of request rounds to run
     #[arg(short, long, default_value_t = 500)]
     num_requests: usize,
 }
 
+/// Sets-up an [IndexerServer], with [Args::concurrent] clients and runs [Args::num_requests]
+/// rounds, optionally plotting if [Args::plot] is set
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
