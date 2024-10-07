@@ -1,3 +1,8 @@
+//! Simple binary wrapping the reference implementation of [PeerServer] in a
+//! [tarpc::serde_transport::tcp::connect]
+//!
+//! Connects to [nekop2p::Indexer]s and [Peer]s using [IndexerClient] and [PeerClient]
+//! respectively.
 use std::io::{stdin, stdout, Write};
 
 use anyhow::Result;
@@ -17,18 +22,19 @@ use nekop2p::{IndexerClient, Peer, PeerClient, PeerServer};
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 struct Args {
-    // indexer
+    /// indexer to bind to
     indexer: String,
 
-    // incoming host
+    /// incoming peer connection [std::net::SocketAddr] to bind to
     #[arg(long)]
     dl_host: Option<String>,
 
-    // incoming port
+    /// incoming peer connection port to bind to
     #[arg(long, default_value_t = 5001)]
     dl_port: u16,
 }
 
+/// Given a `prompt` read a line from [stdout] and return it if it exists
 fn input(prompt: &str) -> Option<String> {
     // what are we doing?
     print!("{prompt} >> ");
@@ -41,6 +47,7 @@ fn input(prompt: &str) -> Option<String> {
     }
 }
 
+/// Prints all available [crate] commands
 fn print_help() {
     println!("Available CLI commands:");
     println!("register\tRegister file to index");
@@ -51,6 +58,7 @@ fn print_help() {
     println!("exit\t\tQuit");
 }
 
+/// Given an [IndexerClient] register a filename that is prompted for
 async fn prompt_register(client: &IndexerClient) {
     let filename = input("Enter filename").unwrap();
 
@@ -63,6 +71,8 @@ async fn prompt_register(client: &IndexerClient) {
     }
 }
 
+/// Given an [IndexerClient] download a file that is prompted for from a random peer and register
+/// it with the [nekop2p::Indexer]
 async fn prompt_download(client: &IndexerClient) {
     let filename = input("Enter filename").unwrap();
 
@@ -132,6 +142,7 @@ async fn prompt_download(client: &IndexerClient) {
     }
 }
 
+/// Given an [IndexerClient] queries all peers for a filename that is prompted for
 async fn prompt_search(client: &IndexerClient) {
     let filename = input("Enter filename").unwrap();
 
@@ -153,6 +164,7 @@ async fn prompt_search(client: &IndexerClient) {
     results.iter().for_each(|r| println!("{}", r));
 }
 
+/// Given an [IndexerClient] deregisters a filename that is prompted for
 async fn prompt_deregister(client: &IndexerClient) {
     let filename = input("Enter filename").unwrap();
 
@@ -165,6 +177,9 @@ async fn prompt_deregister(client: &IndexerClient) {
     }
 }
 
+/// Starts a [PeerServer] on [Args::dl_host] with [Args::dl_port] and connects to an
+/// [nekop2p::IndexerServer] on [Args::indexer]. Afterwards, the client will enter a REPL with
+/// [signal::ctrl_c] indicating when commands should be read.
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
