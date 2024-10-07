@@ -89,7 +89,7 @@ pub trait Peer {
 }
 ```
 
-Tarpc uses Rust macros (`$[...]`) to generate Client and Server interfaces which
+Tarpc uses Rust macros (`#[...]`) to generate Client and Server interfaces which
 can then be implemented to provide the corresponding RPC functionality.
 
 Snippet of `PeerServer` implementation in lib`nekop2p`.
