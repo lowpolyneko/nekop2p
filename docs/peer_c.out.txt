@@ -1,0 +1,74 @@
+Welcome to nekop2p! (peer client)
+Press Ctrl-C to enter commands...
+Connecting to indexer on localhost:5000
+Accepting inbound connections on localhost:5003
+
+Enter Command ('?' for help) >> Enter filename >> Registered 8k.bin on index
+
+Enter Command ('?' for help) >> Enter filename >> Registered 9k.bin on index
+
+Enter Command ('?' for help) >> Enter filename >> Registered 10k.bin on index
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 1k.bin
+Selected peer [::1]:5001
+Connecting to peer [::1]:5001
+Downloading 1k.bin...
+Writing contents to 1k.bin...
+Registered 1k.bin on index
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 2k.bin
+Selected peer [::1]:5001
+Connecting to peer [::1]:5001
+Downloading 2k.bin...
+Writing contents to 2k.bin...
+Registered 2k.bin on index
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 3k.bin
+Selected peer [::1]:5002
+Connecting to peer [::1]:5002
+Downloading 3k.bin...
+Writing contents to 3k.bin...
+Registered 3k.bin on index
+Handling download request for 8k.bin from [::1]:44110
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 4k.bin
+Selected peer [::1]:5001
+Connecting to peer [::1]:5001
+Downloading 4k.bin...
+Writing contents to 4k.bin...
+Registered 4k.bin on index
+Handling download request for 9k.bin from [::1]:54140
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 5k.bin
+Selected peer [::1]:5002
+Connecting to peer [::1]:5002
+Downloading 5k.bin...
+Writing contents to 5k.bin...
+Registered 5k.bin on index
+Handling download request for 10k.bin from [::1]:54150
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 6k.bin
+Selected peer [::1]:5002
+Connecting to peer [::1]:5002
+Downloading 6k.bin...
+Writing contents to 6k.bin...
+Registered 6k.bin on index
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 7k.bin
+Selected peer [::1]:5002
+Connecting to peer [::1]:5002
+Downloading 7k.bin...
+Writing contents to 7k.bin...
+Registered 7k.bin on index
+
+Enter Command ('?' for help) >> total 72K
+-rw-r--r-- 1 aether aether  10K Oct  6 12:58 10k.bin
+-rw-r--r-- 1 aether aether 1.0K Oct  6 20:28 1k.bin
+-rw-r--r-- 1 aether aether 2.0K Oct  6 20:28 2k.bin
+-rw-r--r-- 1 aether aether 3.0K Oct  6 20:28 3k.bin
+-rw-r--r-- 1 aether aether 4.0K Oct  6 20:28 4k.bin
+-rw-r--r-- 1 aether aether 5.0K Oct  6 20:28 5k.bin
+-rw-r--r-- 1 aether aether 6.0K Oct  6 20:28 6k.bin
+-rw-r--r-- 1 aether aether 7.0K Oct  6 20:28 7k.bin
+-rw-r--r-- 1 aether aether 8.0K Oct  6 12:58 8k.bin
+-rw-r--r-- 1 aether aether 9.0K Oct  6 12:58 9k.bin

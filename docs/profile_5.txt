@@ -1,0 +1,5080 @@
+Welcome to the nekop2p profiler!
+Starting indexer on localhost:5000
+Spawning 5 clients
+Registering 1k.bin on first peer
+Registered 1k.bin for [::1]:48626
+1k.bin: [::1]:48626
+Registering 2k.bin on first peer
+Registered 2k.bin for [::1]:48626
+2k.bin: [::1]:48626
+1k.bin: [::1]:48626
+Registering 3k.bin on first peer
+Registered 3k.bin for [::1]:48626
+3k.bin: [::1]:48626
+2k.bin: [::1]:48626
+1k.bin: [::1]:48626
+Registering 4k.bin on first peer
+Registered 4k.bin for [::1]:48626
+3k.bin: [::1]:48626
+2k.bin: [::1]:48626
+4k.bin: [::1]:48626
+1k.bin: [::1]:48626
+Registering 5k.bin on first peer
+Registered 5k.bin for [::1]:48626
+3k.bin: [::1]:48626
+2k.bin: [::1]:48626
+5k.bin: [::1]:48626
+4k.bin: [::1]:48626
+1k.bin: [::1]:48626
+Registering 6k.bin on first peer
+Registered 6k.bin for [::1]:48626
+6k.bin: [::1]:48626
+3k.bin: [::1]:48626
+2k.bin: [::1]:48626
+5k.bin: [::1]:48626
+4k.bin: [::1]:48626
+1k.bin: [::1]:48626
+Registering 7k.bin on first peer
+Registered 7k.bin for [::1]:48626
+6k.bin: [::1]:48626
+3k.bin: [::1]:48626
+2k.bin: [::1]:48626
+5k.bin: [::1]:48626
+4k.bin: [::1]:48626
+7k.bin: [::1]:48626
+1k.bin: [::1]:48626
+Registering 8k.bin on first peer
+Registered 8k.bin for [::1]:48626
+6k.bin: [::1]:48626
+3k.bin: [::1]:48626
+2k.bin: [::1]:48626
+5k.bin: [::1]:48626
+4k.bin: [::1]:48626
+7k.bin: [::1]:48626
+1k.bin: [::1]:48626
+8k.bin: [::1]:48626
+Registering 9k.bin on first peer
+Registered 9k.bin for [::1]:48626
+6k.bin: [::1]:48626
+3k.bin: [::1]:48626
+2k.bin: [::1]:48626
+5k.bin: [::1]:48626
+4k.bin: [::1]:48626
+7k.bin: [::1]:48626
+1k.bin: [::1]:48626
+8k.bin: [::1]:48626
+9k.bin: [::1]:48626
+Registering 10k.bin on first peer
+Registered 10k.bin for [::1]:48626
+6k.bin: [::1]:48626
+3k.bin: [::1]:48626
+10k.bin: [::1]:48626
+2k.bin: [::1]:48626
+5k.bin: [::1]:48626
+4k.bin: [::1]:48626
+7k.bin: [::1]:48626
+1k.bin: [::1]:48626
+8k.bin: [::1]:48626
+9k.bin: [::1]:48626
+Starting runs!
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 0: 77.73µs
+Run 0: 78.12µs
+Run 0: 90.10µs
+Run 0: 100.97µs
+Run 0: 117.22µs
+Queried 1k.bin for [::1]:48626
+Run 1: 43.21µs
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 1: 82.78µs
+Run 1: 91.94µs
+Run 1: 115.89µs
+Run 1: 120.65µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 2: 82.31µs
+Run 2: 81.67µs
+Run 2: 84.42µs
+Run 2: 93.90µs
+Run 2: 98.52µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 3: 88.01µs
+Run 3: 88.53µs
+Run 3: 88.73µs
+Run 3: 93.81µs
+Run 3: 93.63µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Run 4: 60.99µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 4: 86.92µs
+Run 4: 92.25µs
+Run 4: 99.89µs
+Run 4: 102.85µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 5: 68.33µs
+Run 5: 69.22µs
+Run 5: 74.65µs
+Run 5: 75.33µs
+Run 5: 79.76µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Run 6: 64.29µs
+Run 6: 79.96µs
+Run 6: 81.36µs
+Run 6: 84.54µs
+Run 6: 87.40µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 7: 77.56µs
+Run 7: 83.95µs
+Run 7: 84.90µs
+Run 7: 85.61µs
+Run 7: 89.85µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 8: 75.06µs
+Run 8: 81.09µs
+Run 8: 81.85µs
+Run 8: 88.01µs
+Run 8: 88.84µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Run 9: 60.60µs
+Run 9: 66.25µs
+Run 9: 69.92µs
+Run 9: 79.17µs
+Run 9: 78.85µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 10: 61.21µs
+Run 10: 60.37µs
+Run 10: 71.54µs
+Run 10: 73.33µs
+Run 10: 82.73µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 11: 63.67µs
+Run 11: 64.20µs
+Run 11: 78.68µs
+Run 11: 80.07µs
+Run 11: 88.75µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 12: 63.62µs
+Run 12: 69.39µs
+Run 12: 69.07µs
+Run 12: 89.44µs
+Run 12: 89.70µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 13: 60.41µs
+Run 13: 63.04µs
+Run 13: 74.06µs
+Run 13: 80.56µs
+Run 13: 80.53µs
+Queried 1k.bin for [::1]:48626
+Run 14: 53.88µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 14: 86.61µs
+Run 14: 88.12µs
+Run 14: 95.55µs
+Run 14: 101.14µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 15: 65.69µs
+Run 15: 64.85µs
+Run 15: 66.89µs
+Run 15: 81.62µs
+Run 15: 83.67µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 16: 78.37µs
+Run 16: 79.53µs
+Run 16: 79.29µs
+Run 16: 79.62µs
+Run 16: 82.03µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 17: 59.69µs
+Run 17: 63.99µs
+Run 17: 71.97µs
+Run 17: 74.15µs
+Run 17: 89.98µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 18: 100.41µs
+Run 18: 101.50µs
+Run 18: 106.70µs
+Run 18: 105.46µs
+Run 18: 106.05µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 19: 81.18µs
+Run 19: 83.26µs
+Run 19: 107.83µs
+Run 19: 109.56µs
+Run 19: 109.98µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 20: 844.32µs
+Run 20: 845.89µs
+Run 20: 862.33µs
+Run 20: 864.07µs
+Run 20: 875.16µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 21: 74.12µs
+Run 21: 80.79µs
+Run 21: 85.72µs
+Run 21: 90.68µs
+Run 21: 108.79µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 22: 288.72µs
+Run 22: 286.14µs
+Run 22: 286.55µs
+Run 22: 287.03µs
+Run 22: 287.85µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 23: 108.11µs
+Run 23: 107.69µs
+Run 23: 106.27µs
+Run 23: 121.91µs
+Run 23: 132.77µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 24: 75.05µs
+Run 24: 76.75µs
+Run 24: 81.77µs
+Run 24: 88.24µs
+Run 24: 100.39µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 25: 78.09µs
+Run 25: 78.83µs
+Run 25: 100.81µs
+Run 25: 101.91µs
+Run 25: 106.56µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 26: 96.24µs
+Run 26: 94.83µs
+Run 26: 95.24µs
+Run 26: 107.02µs
+Run 26: 107.98µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Run 27: 73.71µs
+Run 27: 79.93µs
+Run 27: 86.87µs
+Run 27: 93.68µs
+Run 27: 100.11µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 28: 103.51µs
+Run 28: 105.15µs
+Run 28: 109.76µs
+Run 28: 109.51µs
+Run 28: 110.32µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 29: 86.85µs
+Run 29: 90.42µs
+Run 29: 91.14µs
+Run 29: 91.67µs
+Run 29: 92.15µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 30: 125.42µs
+Run 30: 125.20µs
+Run 30: 131.19µs
+Run 30: 153.39µs
+Run 30: 153.20µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 31: 93.92µs
+Run 31: 161.45µs
+Run 31: 180.84µs
+Run 31: 182.50µs
+Run 31: 183.11µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 32: 93.47µs
+Run 32: 92.72µs
+Run 32: 101.32µs
+Run 32: 100.20µs
+Run 32: 99.78µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 33: 113.19µs
+Run 33: 112.91µs
+Run 33: 113.27µs
+Run 33: 113.54µs
+Run 33: 113.94µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 34: 106.74µs
+Run 34: 108.28µs
+Run 34: 112.84µs
+Run 34: 112.42µs
+Run 34: 112.90µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 35: 112.56µs
+Run 35: 113.28µs
+Run 35: 113.57µs
+Run 35: 113.96µs
+Run 35: 114.23µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 36: 89.88µs
+Run 36: 97.83µs
+Run 36: 103.07µs
+Run 36: 103.83µs
+Run 36: 221.76µs
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Run 37: 89.51µs
+Run 37: 92.63µs
+Run 37: 101.68µs
+Run 37: 121.58µs
+Run 37: 121.30µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 38: 78.53µs
+Run 38: 92.72µs
+Run 38: 97.21µs
+Run 38: 99.36µs
+Run 38: 109.91µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 39: 352.77µs
+Run 39: 353.89µs
+Run 39: 354.40µs
+Run 39: 354.67µs
+Run 39: 362.69µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 40: 132.97µs
+Run 40: 133.42µs
+Run 40: 139.32µs
+Run 40: 140.95µs
+Run 40: 141.44µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 41: 97.47µs
+Run 41: 98.29µs
+Run 41: 98.46µs
+Run 41: 98.03µs
+Run 41: 105.27µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 42: 94.33µs
+Run 42: 94.71µs
+Run 42: 94.46µs
+Run 42: 109.14µs
+Run 42: 111.27µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 43: 95.35µs
+Run 43: 96.32µs
+Run 43: 96.58µs
+Run 43: 96.75µs
+Run 43: 96.82µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 44: 130.78µs
+Run 44: 131.87µs
+Run 44: 136.88µs
+Run 44: 135.71µs
+Run 44: 136.05µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 45: 69.69µs
+Run 45: 72.87µs
+Run 45: 79.40µs
+Run 45: 85.07µs
+Run 45: 112.95µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 46: 81.96µs
+Run 46: 81.48µs
+Run 46: 90.11µs
+Run 46: 129.48µs
+Run 46: 131.33µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Run 47: 89.42µs
+Run 47: 91.14µs
+Run 47: 95.53µs
+Run 47: 120.11µs
+Run 47: 122.22µs
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Run 48: 95.89µs
+Run 48: 119.07µs
+Run 48: 118.83µs
+Run 48: 118.32µs
+Run 48: 118.25µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 49: 89.01µs
+Run 49: 98.16µs
+Run 49: 100.92µs
+Run 49: 132.24µs
+Run 49: 134.75µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 50: 88.65µs
+Run 50: 89.73µs
+Run 50: 89.87µs
+Run 50: 90.01µs
+Run 50: 96.06µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 51: 87.46µs
+Queried 1k.bin for [::1]:48660
+Run 51: 87.43µs
+Run 51: 121.08µs
+Run 51: 122.44µs
+Run 51: 125.34µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 52: 96.19µs
+Run 52: 95.80µs
+Run 52: 95.53µs
+Run 52: 97.79µs
+Run 52: 112.91µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 53: 89.37µs
+Run 53: 109.07µs
+Run 53: 144.62µs
+Run 53: 145.12µs
+Run 53: 145.38µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 54: 78.09µs
+Run 54: 91.96µs
+Queried 1k.bin for [::1]:48660
+Run 54: 107.39µs
+Run 54: 110.27µs
+Run 54: 123.75µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Run 55: 95.63µs
+Run 55: 99.99µs
+Run 55: 100.68µs
+Run 55: 100.86µs
+Run 55: 120.36µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Run 56: 88.72µs
+Run 56: 85.98µs
+Run 56: 95.00µs
+Run 56: 94.66µs
+Run 56: 112.96µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 57: 82.87µs
+Run 57: 90.55µs
+Run 57: 95.30µs
+Run 57: 98.49µs
+Run 57: 101.08µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 58: 104.68µs
+Run 58: 102.43µs
+Run 58: 102.72µs
+Run 58: 102.50µs
+Run 58: 134.20µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 59: 94.69µs
+Run 59: 92.99µs
+Run 59: 100.16µs
+Run 59: 110.67µs
+Run 59: 127.87µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 60: 73.32µs
+Run 60: 70.61µs
+Run 60: 77.18µs
+Run 60: 83.40µs
+Run 60: 106.74µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 61: 73.94µs
+Run 61: 72.90µs
+Run 61: 82.63µs
+Run 61: 102.27µs
+Run 61: 102.52µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Run 62: 88.63µs
+Run 62: 91.02µs
+Run 62: 91.00µs
+Run 62: 115.49µs
+Run 62: 116.15µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 63: 83.18µs
+Run 63: 103.75µs
+Run 63: 104.21µs
+Run 63: 104.61µs
+Run 63: 112.66µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Run 64: 80.58µs
+Run 64: 89.22µs
+Run 64: 102.23µs
+Run 64: 102.71µs
+Run 64: 102.01µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 65: 91.17µs
+Run 65: 83.99µs
+Run 65: 99.15µs
+Run 65: 129.31µs
+Run 65: 131.30µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 66: 97.05µs
+Run 66: 95.25µs
+Run 66: 95.45µs
+Run 66: 95.64µs
+Run 66: 112.04µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 67: 93.79µs
+Run 67: 97.31µs
+Run 67: 97.76µs
+Run 67: 98.01µs
+Run 67: 104.40µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 68: 111.38µs
+Run 68: 118.11µs
+Run 68: 131.76µs
+Run 68: 168.36µs
+Run 68: 176.50µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 69: 85.15µs
+Run 69: 93.11µs
+Run 69: 93.35µs
+Run 69: 101.57µs
+Run 69: 101.83µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Run 70: 87.30µs
+Queried 1k.bin for [::1]:48660
+Run 70: 106.69µs
+Run 70: 107.48µs
+Run 70: 106.92µs
+Run 70: 111.99µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 71: 85.20µs
+Run 71: 88.25µs
+Run 71: 104.91µs
+Run 71: 106.71µs
+Run 71: 107.68µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Run 72: 97.68µs
+Run 72: 96.48µs
+Run 72: 96.85µs
+Run 72: 96.94µs
+Run 72: 116.38µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Run 73: 106.78µs
+Run 73: 113.53µs
+Queried 1k.bin for [::1]:48646
+Run 73: 134.14µs
+Queried 1k.bin for [::1]:48660
+Run 73: 153.64µs
+Run 73: 165.86µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 74: 108.59µs
+Run 74: 108.32µs
+Run 74: 108.51µs
+Run 74: 108.66µs
+Run 74: 109.24µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Run 75: 51.12µs
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 75: 75.59µs
+Run 75: 85.58µs
+Run 75: 86.38µs
+Run 75: 92.59µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Run 76: 136.49µs
+Run 76: 135.88µs
+Run 76: 135.27µs
+Run 76: 135.44µs
+Run 76: 138.50µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 77: 109.73µs
+Run 77: 110.60µs
+Run 77: 110.93µs
+Run 77: 111.19µs
+Run 77: 111.49µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 78: 80.50µs
+Run 78: 78.69µs
+Run 78: 79.04µs
+Run 78: 99.92µs
+Run 78: 102.03µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 79: 104.50µs
+Run 79: 103.47µs
+Run 79: 103.61µs
+Run 79: 103.91µs
+Run 79: 98.24µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 80: 72.32µs
+Run 80: 91.83µs
+Run 80: 108.57µs
+Run 80: 109.99µs
+Run 80: 110.47µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 81: 87.76µs
+Run 81: 93.05µs
+Run 81: 108.87µs
+Run 81: 110.67µs
+Run 81: 111.06µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Run 82: 89.52µs
+Run 82: 89.78µs
+Run 82: 89.93µs
+Run 82: 101.58µs
+Run 82: 101.26µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 83: 652.10µs
+Run 83: 657.67µs
+Run 83: 664.95µs
+Run 83: 668.07µs
+Run 83: 679.55µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 84: 93.34µs
+Run 84: 93.81µs
+Run 84: 94.30µs
+Run 84: 94.74µs
+Run 84: 95.04µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 85: 90.20µs
+Run 85: 88.82µs
+Run 85: 89.39µs
+Run 85: 103.03µs
+Run 85: 104.42µs
+Queried 1k.bin for [::1]:48626
+Run 86: 52.40µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 86: 82.68µs
+Run 86: 97.55µs
+Run 86: 97.78µs
+Run 86: 99.38µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 87: 74.91µs
+Run 87: 76.37µs
+Queried 1k.bin for [::1]:48660
+Run 87: 76.96µs
+Run 87: 65.88µs
+Run 87: 82.90µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 88: 93.56µs
+Run 88: 92.86µs
+Run 88: 101.09µs
+Run 88: 103.41µs
+Run 88: 105.41µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 89: 90.90µs
+Run 89: 92.04µs
+Run 89: 105.19µs
+Run 89: 107.23µs
+Run 89: 107.87µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 90: 62.98µs
+Run 90: 66.98µs
+Run 90: 73.27µs
+Run 90: 84.77µs
+Run 90: 85.49µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Run 91: 79.01µs
+Run 91: 78.96µs
+Run 91: 79.30µs
+Run 91: 79.72µs
+Run 91: 80.01µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 92: 60.16µs
+Queried 1k.bin for [::1]:48644
+Run 92: 80.80µs
+Run 92: 81.88µs
+Run 92: 81.92µs
+Run 92: 81.91µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Run 93: 78.39µs
+Run 93: 77.97µs
+Run 93: 78.11µs
+Run 93: 78.64µs
+Run 93: 81.91µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 94: 64.55µs
+Run 94: 64.71µs
+Run 94: 74.52µs
+Run 94: 81.57µs
+Run 94: 81.38µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 95: 59.42µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Run 95: 81.73µs
+Run 95: 89.42µs
+Run 95: 91.21µs
+Run 95: 96.69µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Run 96: 48.72µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 96: 83.45µs
+Run 96: 93.84µs
+Run 96: 107.57µs
+Run 96: 108.88µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 97: 82.13µs
+Run 97: 79.59µs
+Run 97: 79.57µs
+Run 97: 79.53µs
+Run 97: 79.85µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 98: 185.94µs
+Run 98: 187.24µs
+Run 98: 187.18µs
+Run 98: 187.56µs
+Run 98: 195.78µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Run 99: 63.60µs
+Queried 1k.bin for [::1]:48646
+Run 99: 96.46µs
+Run 99: 99.50µs
+Run 99: 99.26µs
+Run 99: 116.21µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 100: 105.55µs
+Run 100: 104.53µs
+Run 100: 104.33µs
+Run 100: 108.54µs
+Run 100: 114.39µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Run 101: 77.06µs
+Run 101: 75.38µs
+Run 101: 75.58µs
+Run 101: 75.82µs
+Run 101: 82.53µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 102: 61.71µs
+Run 102: 65.57µs
+Run 102: 72.40µs
+Run 102: 79.83µs
+Run 102: 85.83µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 103: 102.80µs
+Run 103: 103.94µs
+Run 103: 104.13µs
+Run 103: 104.48µs
+Run 103: 104.78µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Run 104: 435.92µs
+Run 104: 437.63µs
+Run 104: 438.01µs
+Run 104: 437.78µs
+Run 104: 447.84µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 105: 94.01µs
+Run 105: 93.01µs
+Run 105: 92.83µs
+Run 105: 95.82µs
+Run 105: 99.56µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 106: 629.12µs
+Run 106: 632.82µs
+Run 106: 633.48µs
+Run 106: 633.43µs
+Run 106: 645.58µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Run 107: 74.18µs
+Run 107: 77.57µs
+Run 107: 98.76µs
+Run 107: 132.97µs
+Run 107: 135.76µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 108: 72.40µs
+Run 108: 72.97µs
+Run 108: 73.47µs
+Run 108: 74.03µs
+Run 108: 81.36µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 109: 75.32µs
+Run 109: 77.47µs
+Run 109: 83.05µs
+Run 109: 81.56µs
+Run 109: 80.93µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 110: 63.06µs
+Run 110: 63.06µs
+Run 110: 76.29µs
+Run 110: 76.27µs
+Run 110: 85.63µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 111: 76.21µs
+Run 111: 76.55µs
+Run 111: 87.02µs
+Run 111: 90.07µs
+Run 111: 98.29µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 112: 65.15µs
+Run 112: 71.15µs
+Run 112: 83.14µs
+Run 112: 84.20µs
+Run 112: 84.78µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 113: 60.99µs
+Run 113: 59.89µs
+Run 113: 79.78µs
+Run 113: 80.86µs
+Run 113: 81.07µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 114: 69.94µs
+Run 114: 69.94µs
+Run 114: 76.09µs
+Run 114: 77.99µs
+Run 114: 91.98µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 115: 64.11µs
+Run 115: 62.60µs
+Run 115: 77.71µs
+Run 115: 78.87µs
+Run 115: 79.03µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 116: 64.99µs
+Run 116: 65.29µs
+Run 116: 69.15µs
+Run 116: 91.56µs
+Run 116: 92.30µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 117: 63.96µs
+Run 117: 68.57µs
+Run 117: 75.70µs
+Run 117: 77.75µs
+Run 117: 92.42µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 118: 62.85µs
+Run 118: 65.75µs
+Run 118: 73.62µs
+Run 118: 74.48µs
+Run 118: 74.41µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 119: 60.84µs
+Run 119: 61.22µs
+Run 119: 68.68µs
+Run 119: 71.18µs
+Run 119: 78.88µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 120: 64.49µs
+Run 120: 65.64µs
+Run 120: 66.10µs
+Run 120: 78.28µs
+Run 120: 81.76µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 121: 51.97µs
+Run 121: 59.36µs
+Run 121: 63.98µs
+Run 121: 72.93µs
+Run 121: 73.74µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 122: 63.87µs
+Run 122: 68.27µs
+Run 122: 77.49µs
+Run 122: 86.71µs
+Run 122: 87.92µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 123: 114.28µs
+Run 123: 115.47µs
+Run 123: 115.89µs
+Run 123: 121.31µs
+Run 123: 119.70µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 124: 69.46µs
+Run 124: 75.10µs
+Run 124: 80.77µs
+Run 124: 81.65µs
+Run 124: 94.58µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 125: 77.50µs
+Run 125: 77.29µs
+Run 125: 84.66µs
+Run 125: 89.49µs
+Run 125: 98.47µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 126: 55.85µs
+Run 126: 60.28µs
+Run 126: 71.62µs
+Run 126: 72.52µs
+Run 126: 80.90µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 127: 60.22µs
+Run 127: 58.13µs
+Run 127: 71.04µs
+Run 127: 72.71µs
+Run 127: 83.18µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 128: 66.59µs
+Run 128: 70.77µs
+Run 128: 81.20µs
+Run 128: 91.30µs
+Run 128: 91.93µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 129: 52.88µs
+Run 129: 65.88µs
+Run 129: 69.45µs
+Run 129: 78.69µs
+Run 129: 82.34µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Run 130: 51.06µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 130: 72.37µs
+Run 130: 78.61µs
+Run 130: 87.89µs
+Run 130: 88.61µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 131: 58.94µs
+Run 131: 58.86µs
+Run 131: 66.41µs
+Run 131: 66.54µs
+Run 131: 79.67µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 132: 63.15µs
+Run 132: 63.48µs
+Run 132: 63.01µs
+Run 132: 89.00µs
+Run 132: 100.61µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 133: 73.57µs
+Run 133: 77.74µs
+Run 133: 77.77µs
+Run 133: 78.43µs
+Run 133: 84.01µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 134: 59.58µs
+Run 134: 59.08µs
+Run 134: 60.75µs
+Run 134: 76.93µs
+Run 134: 77.60µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 135: 67.67µs
+Run 135: 71.96µs
+Run 135: 72.07µs
+Run 135: 78.63µs
+Run 135: 81.70µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 136: 55.78µs
+Run 136: 61.28µs
+Run 136: 65.91µs
+Run 136: 71.42µs
+Run 136: 78.66µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Run 137: 61.10µs
+Run 137: 61.05µs
+Run 137: 61.74µs
+Run 137: 78.42µs
+Run 137: 79.55µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 138: 59.12µs
+Run 138: 59.49µs
+Run 138: 69.74µs
+Run 138: 76.49µs
+Run 138: 79.70µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 139: 60.83µs
+Run 139: 63.69µs
+Run 139: 79.53µs
+Run 139: 80.09µs
+Run 139: 82.19µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 140: 149.03µs
+Run 140: 152.82µs
+Run 140: 159.81µs
+Run 140: 162.09µs
+Run 140: 161.32µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 141: 64.45µs
+Run 141: 62.14µs
+Run 141: 69.56µs
+Run 141: 73.71µs
+Run 141: 80.47µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Run 142: 42.65µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 142: 68.93µs
+Run 142: 75.41µs
+Run 142: 89.09µs
+Run 142: 90.76µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 143: 66.79µs
+Run 143: 66.31µs
+Run 143: 72.96µs
+Run 143: 73.37µs
+Run 143: 84.74µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 144: 56.93µs
+Run 144: 58.10µs
+Run 144: 69.83µs
+Run 144: 74.99µs
+Run 144: 83.01µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 145: 59.14µs
+Run 145: 68.79µs
+Run 145: 83.40µs
+Run 145: 84.19µs
+Run 145: 84.34µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Run 146: 54.51µs
+Run 146: 52.62µs
+Run 146: 66.68µs
+Run 146: 68.48µs
+Run 146: 69.02µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 147: 62.83µs
+Run 147: 66.05µs
+Run 147: 78.29µs
+Run 147: 79.92µs
+Run 147: 92.81µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 148: 60.23µs
+Run 148: 63.22µs
+Run 148: 71.28µs
+Run 148: 71.22µs
+Run 148: 76.99µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 149: 69.52µs
+Run 149: 69.67µs
+Run 149: 80.76µs
+Run 149: 88.53µs
+Run 149: 88.99µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 150: 64.97µs
+Run 150: 65.66µs
+Run 150: 74.82µs
+Run 150: 85.23µs
+Run 150: 86.33µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 151: 63.85µs
+Run 151: 68.10µs
+Run 151: 66.17µs
+Run 151: 71.58µs
+Run 151: 73.75µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 152: 52.72µs
+Run 152: 66.06µs
+Run 152: 71.88µs
+Run 152: 82.11µs
+Run 152: 83.17µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Run 153: 53.01µs
+Run 153: 59.98µs
+Run 153: 61.35µs
+Run 153: 73.31µs
+Run 153: 73.97µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 154: 60.54µs
+Run 154: 66.87µs
+Run 154: 69.12µs
+Run 154: 76.95µs
+Run 154: 78.35µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 155: 56.70µs
+Run 155: 56.88µs
+Run 155: 68.24µs
+Run 155: 70.31µs
+Run 155: 84.78µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 156: 74.41µs
+Run 156: 72.87µs
+Run 156: 79.98µs
+Run 156: 81.49µs
+Run 156: 81.69µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 157: 72.60µs
+Run 157: 78.30µs
+Run 157: 86.05µs
+Run 157: 97.85µs
+Run 157: 99.41µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Run 158: 53.49µs
+Run 158: 66.92µs
+Run 158: 73.29µs
+Run 158: 78.34µs
+Run 158: 89.59µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 159: 65.80µs
+Run 159: 73.92µs
+Run 159: 74.56µs
+Run 159: 83.73µs
+Run 159: 96.88µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 160: 77.57µs
+Run 160: 79.16µs
+Run 160: 79.54µs
+Run 160: 86.01µs
+Run 160: 83.95µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 161: 66.77µs
+Run 161: 66.26µs
+Run 161: 76.20µs
+Run 161: 77.76µs
+Run 161: 87.75µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 162: 884.15µs
+Run 162: 885.92µs
+Run 162: 886.19µs
+Run 162: 886.78µs
+Run 162: 886.91µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 163: 79.42µs
+Run 163: 101.55µs
+Run 163: 97.59µs
+Run 163: 97.99µs
+Run 163: 99.11µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Run 164: 51.27µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 164: 74.97µs
+Run 164: 77.61µs
+Run 164: 83.74µs
+Run 164: 88.93µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Run 165: 77.40µs
+Run 165: 73.34µs
+Run 165: 73.72µs
+Run 165: 84.31µs
+Run 165: 93.57µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Run 166: 74.81µs
+Run 166: 73.04µs
+Run 166: 73.40µs
+Run 166: 75.72µs
+Run 166: 94.59µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 167: 67.64µs
+Run 167: 67.09µs
+Run 167: 69.73µs
+Run 167: 81.49µs
+Run 167: 83.54µs
+Queried 1k.bin for [::1]:48626
+Run 168: 36.10µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 168: 60.43µs
+Run 168: 72.88µs
+Run 168: 82.86µs
+Run 168: 83.10µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 169: 63.13µs
+Run 169: 72.28µs
+Run 169: 73.23µs
+Run 169: 74.17µs
+Run 169: 90.01µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 170: 75.02µs
+Run 170: 73.07µs
+Run 170: 73.39µs
+Run 170: 73.90µs
+Run 170: 77.36µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Run 171: 43.11µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 171: 68.53µs
+Run 171: 83.68µs
+Run 171: 85.09µs
+Run 171: 90.51µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 172: 88.25µs
+Run 172: 89.68µs
+Run 172: 89.90µs
+Run 172: 89.91µs
+Run 172: 96.62µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 173: 65.40µs
+Run 173: 69.19µs
+Run 173: 76.27µs
+Run 173: 76.62µs
+Run 173: 78.83µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 174: 72.24µs
+Run 174: 71.72µs
+Run 174: 72.32µs
+Run 174: 76.71µs
+Run 174: 78.44µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 175: 71.26µs
+Run 175: 72.36µs
+Run 175: 72.73µs
+Run 175: 75.84µs
+Run 175: 78.94µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 176: 76.03µs
+Run 176: 77.58µs
+Run 176: 77.80µs
+Run 176: 82.27µs
+Run 176: 89.89µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 177: 66.56µs
+Run 177: 70.83µs
+Run 177: 83.12µs
+Run 177: 84.85µs
+Run 177: 85.24µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Run 178: 63.35µs
+Run 178: 71.66µs
+Run 178: 69.98µs
+Run 178: 70.10µs
+Run 178: 72.72µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 179: 73.78µs
+Run 179: 80.27µs
+Run 179: 86.80µs
+Run 179: 92.04µs
+Run 179: 94.80µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 180: 67.62µs
+Run 180: 70.73µs
+Run 180: 72.60µs
+Run 180: 71.52µs
+Run 180: 79.56µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 181: 66.87µs
+Run 181: 65.63µs
+Run 181: 74.03µs
+Run 181: 79.67µs
+Run 181: 83.19µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 182: 67.72µs
+Run 182: 67.34µs
+Run 182: 74.92µs
+Run 182: 85.57µs
+Run 182: 87.02µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 183: 62.49µs
+Run 183: 63.65µs
+Run 183: 69.89µs
+Run 183: 78.41µs
+Run 183: 81.64µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 184: 67.40µs
+Run 184: 67.14µs
+Run 184: 96.33µs
+Run 184: 97.15µs
+Run 184: 97.48µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 185: 53.44µs
+Queried 1k.bin for [::1]:48660
+Run 185: 73.39µs
+Run 185: 75.47µs
+Run 185: 85.78µs
+Run 185: 86.34µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 186: 69.05µs
+Run 186: 69.60µs
+Run 186: 77.96µs
+Run 186: 80.77µs
+Run 186: 92.14µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Run 187: 55.33µs
+Run 187: 58.87µs
+Run 187: 79.54µs
+Run 187: 80.05µs
+Run 187: 79.47µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 188: 65.11µs
+Run 188: 69.84µs
+Run 188: 80.54µs
+Run 188: 83.08µs
+Run 188: 85.16µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 189: 55.20µs
+Run 189: 60.34µs
+Run 189: 65.85µs
+Run 189: 71.65µs
+Run 189: 72.92µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 190: 57.31µs
+Run 190: 57.27µs
+Run 190: 68.38µs
+Run 190: 69.42µs
+Run 190: 81.02µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 191: 56.73µs
+Run 191: 57.61µs
+Run 191: 67.75µs
+Run 191: 74.42µs
+Run 191: 76.35µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 192: 65.82µs
+Run 192: 71.52µs
+Run 192: 78.98µs
+Run 192: 80.50µs
+Run 192: 89.10µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 193: 66.61µs
+Run 193: 71.77µs
+Run 193: 71.45µs
+Run 193: 80.44µs
+Run 193: 91.65µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 194: 88.37µs
+Run 194: 88.12µs
+Run 194: 88.65µs
+Run 194: 89.03µs
+Run 194: 89.46µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 195: 64.64µs
+Run 195: 64.15µs
+Run 195: 72.47µs
+Run 195: 73.21µs
+Run 195: 78.68µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 196: 71.48µs
+Run 196: 70.98µs
+Run 196: 84.29µs
+Run 196: 84.56µs
+Run 196: 96.74µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 197: 80.69µs
+Run 197: 83.36µs
+Run 197: 93.56µs
+Run 197: 96.39µs
+Run 197: 95.98µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Run 198: 66.76µs
+Run 198: 70.98µs
+Run 198: 78.00µs
+Run 198: 80.11µs
+Run 198: 80.38µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 199: 61.00µs
+Run 199: 73.38µs
+Run 199: 76.16µs
+Run 199: 79.81µs
+Run 199: 92.55µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 200: 67.36µs
+Run 200: 70.82µs
+Run 200: 71.45µs
+Run 200: 78.21µs
+Run 200: 99.37µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 201: 71.56µs
+Run 201: 79.83µs
+Run 201: 94.45µs
+Run 201: 95.16µs
+Run 201: 95.64µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 202: 399.56µs
+Run 202: 399.29µs
+Run 202: 405.86µs
+Run 202: 409.95µs
+Run 202: 410.22µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 203: 73.06µs
+Run 203: 81.47µs
+Run 203: 82.27µs
+Run 203: 88.36µs
+Run 203: 102.18µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 204: 70.01µs
+Run 204: 69.11µs
+Run 204: 79.29µs
+Run 204: 81.46µs
+Run 204: 94.65µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 205: 59.02µs
+Run 205: 63.84µs
+Run 205: 69.10µs
+Run 205: 74.17µs
+Run 205: 81.57µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 206: 64.01µs
+Run 206: 68.27µs
+Run 206: 74.54µs
+Run 206: 80.48µs
+Run 206: 83.34µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 207: 63.78µs
+Run 207: 67.73µs
+Run 207: 74.46µs
+Run 207: 75.75µs
+Run 207: 80.87µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 208: 58.65µs
+Run 208: 63.64µs
+Run 208: 82.83µs
+Run 208: 83.59µs
+Run 208: 83.83µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 209: 75.76µs
+Run 209: 79.80µs
+Run 209: 84.85µs
+Run 209: 90.55µs
+Run 209: 98.51µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 210: 58.99µs
+Run 210: 65.15µs
+Run 210: 73.47µs
+Run 210: 82.29µs
+Run 210: 83.65µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 211: 59.28µs
+Run 211: 64.42µs
+Run 211: 72.00µs
+Run 211: 73.13µs
+Run 211: 79.21µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 212: 54.33µs
+Run 212: 53.64µs
+Run 212: 71.03µs
+Run 212: 71.90µs
+Run 212: 81.30µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 213: 59.78µs
+Run 213: 57.88µs
+Run 213: 59.39µs
+Run 213: 68.50µs
+Run 213: 73.90µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 214: 52.96µs
+Run 214: 57.93µs
+Run 214: 66.62µs
+Run 214: 68.16µs
+Run 214: 79.19µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 215: 63.28µs
+Run 215: 62.38µs
+Run 215: 65.71µs
+Run 215: 76.32µs
+Run 215: 78.63µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 216: 60.45µs
+Run 216: 63.28µs
+Run 216: 73.80µs
+Run 216: 75.29µs
+Run 216: 76.93µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 217: 64.54µs
+Run 217: 69.92µs
+Run 217: 77.37µs
+Run 217: 89.95µs
+Run 217: 91.13µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 218: 63.34µs
+Run 218: 63.23µs
+Run 218: 79.63µs
+Run 218: 80.27µs
+Run 218: 80.69µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 219: 59.96µs
+Run 219: 66.31µs
+Run 219: 68.09µs
+Run 219: 77.10µs
+Run 219: 84.60µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 220: 53.62µs
+Run 220: 57.42µs
+Run 220: 65.34µs
+Run 220: 69.74µs
+Run 220: 77.53µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 221: 70.06µs
+Run 221: 73.11µs
+Run 221: 79.70µs
+Run 221: 82.54µs
+Run 221: 92.30µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 222: 63.66µs
+Run 222: 68.87µs
+Run 222: 66.28µs
+Run 222: 66.51µs
+Run 222: 70.96µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 223: 64.18µs
+Run 223: 67.39µs
+Run 223: 66.70µs
+Run 223: 84.49µs
+Run 223: 84.20µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 224: 60.72µs
+Run 224: 63.77µs
+Run 224: 70.60µs
+Run 224: 77.36µs
+Run 224: 77.01µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 225: 62.26µs
+Run 225: 62.69µs
+Run 225: 76.70µs
+Run 225: 77.61µs
+Run 225: 87.07µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 226: 67.24µs
+Run 226: 66.29µs
+Run 226: 74.41µs
+Run 226: 77.33µs
+Run 226: 81.83µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Run 227: 56.56µs
+Run 227: 59.30µs
+Run 227: 70.59µs
+Run 227: 77.51µs
+Run 227: 77.45µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 228: 55.38µs
+Run 228: 58.13µs
+Run 228: 62.60µs
+Run 228: 60.99µs
+Run 228: 69.71µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 229: 64.17µs
+Run 229: 68.93µs
+Run 229: 71.91µs
+Run 229: 70.94µs
+Run 229: 90.07µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 230: 64.51µs
+Run 230: 65.01µs
+Run 230: 75.67µs
+Run 230: 77.68µs
+Run 230: 78.27µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 231: 70.11µs
+Run 231: 71.65µs
+Run 231: 83.82µs
+Run 231: 84.67µs
+Run 231: 87.08µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 232: 62.02µs
+Run 232: 60.29µs
+Run 232: 70.29µs
+Run 232: 78.45µs
+Run 232: 78.90µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 233: 68.54µs
+Run 233: 68.47µs
+Run 233: 90.05µs
+Run 233: 91.50µs
+Run 233: 91.83µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 234: 63.74µs
+Run 234: 69.70µs
+Run 234: 80.45µs
+Run 234: 81.94µs
+Run 234: 92.59µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Run 235: 65.69µs
+Run 235: 64.32µs
+Run 235: 64.52µs
+Run 235: 84.47µs
+Run 235: 83.22µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 236: 61.57µs
+Run 236: 65.30µs
+Run 236: 70.21µs
+Run 236: 75.82µs
+Run 236: 81.05µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 237: 56.85µs
+Run 237: 62.01µs
+Run 237: 75.51µs
+Run 237: 76.60µs
+Run 237: 77.05µs
+Queried 1k.bin for [::1]:48626
+Run 238: 39.50µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 238: 69.19µs
+Run 238: 77.85µs
+Run 238: 81.33µs
+Run 238: 89.89µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 239: 56.47µs
+Run 239: 56.07µs
+Run 239: 65.09µs
+Run 239: 71.73µs
+Run 239: 77.61µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 240: 54.03µs
+Run 240: 54.66µs
+Run 240: 66.27µs
+Run 240: 76.44µs
+Run 240: 81.07µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 241: 66.67µs
+Run 241: 70.36µs
+Run 241: 70.15µs
+Run 241: 82.26µs
+Run 241: 85.82µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 242: 70.76µs
+Run 242: 70.54µs
+Run 242: 74.78µs
+Run 242: 82.80µs
+Run 242: 85.62µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 243: 62.76µs
+Run 243: 62.82µs
+Run 243: 63.20µs
+Run 243: 69.90µs
+Run 243: 70.04µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Run 244: 49.73µs
+Queried 1k.bin for [::1]:48660
+Run 244: 64.82µs
+Run 244: 77.82µs
+Run 244: 78.60µs
+Run 244: 81.43µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 245: 89.63µs
+Run 245: 90.72µs
+Run 245: 91.02µs
+Run 245: 95.52µs
+Run 245: 92.67µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 246: 56.34µs
+Run 246: 60.51µs
+Run 246: 66.88µs
+Run 246: 67.62µs
+Run 246: 69.84µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 247: 66.85µs
+Run 247: 72.08µs
+Run 247: 74.40µs
+Run 247: 79.22µs
+Run 247: 83.21µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 248: 61.42µs
+Run 248: 65.64µs
+Run 248: 73.80µs
+Run 248: 78.12µs
+Run 248: 83.04µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 249: 65.92µs
+Run 249: 66.86µs
+Run 249: 70.30µs
+Run 249: 70.01µs
+Run 249: 81.55µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 250: 59.44µs
+Run 250: 63.64µs
+Run 250: 78.74µs
+Run 250: 80.48µs
+Run 250: 82.85µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 251: 68.11µs
+Run 251: 68.28µs
+Run 251: 69.46µs
+Run 251: 80.11µs
+Run 251: 82.58µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 252: 58.42µs
+Run 252: 80.04µs
+Run 252: 81.38µs
+Run 252: 82.14µs
+Run 252: 84.58µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 253: 64.68µs
+Run 253: 70.48µs
+Run 253: 80.62µs
+Run 253: 81.62µs
+Run 253: 91.99µs
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 254: 65.21µs
+Run 254: 71.15µs
+Run 254: 80.06µs
+Run 254: 87.15µs
+Run 254: 92.31µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 255: 62.67µs
+Run 255: 118.68µs
+Run 255: 124.54µs
+Run 255: 124.83µs
+Run 255: 131.43µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 256: 59.13µs
+Run 256: 62.47µs
+Run 256: 70.19µs
+Run 256: 70.46µs
+Run 256: 78.33µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 257: 63.15µs
+Run 257: 66.53µs
+Run 257: 66.27µs
+Run 257: 79.32µs
+Run 257: 80.70µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 258: 57.41µs
+Run 258: 57.24µs
+Run 258: 67.58µs
+Run 258: 67.91µs
+Run 258: 67.85µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 259: 56.48µs
+Run 259: 56.02µs
+Run 259: 66.66µs
+Run 259: 68.40µs
+Run 259: 76.83µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 260: 63.47µs
+Run 260: 68.57µs
+Run 260: 85.13µs
+Run 260: 86.16µs
+Run 260: 86.77µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 261: 65.74µs
+Run 261: 66.18µs
+Run 261: 71.55µs
+Run 261: 79.75µs
+Run 261: 88.72µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 262: 63.06µs
+Run 262: 61.62µs
+Run 262: 71.67µs
+Run 262: 76.18µs
+Run 262: 84.67µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 263: 63.73µs
+Run 263: 62.73µs
+Run 263: 73.60µs
+Run 263: 74.60µs
+Run 263: 85.29µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 264: 66.37µs
+Run 264: 66.10µs
+Run 264: 66.49µs
+Run 264: 72.82µs
+Run 264: 84.89µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 265: 59.07µs
+Run 265: 58.69µs
+Run 265: 67.28µs
+Run 265: 77.77µs
+Run 265: 78.73µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 266: 62.54µs
+Run 266: 63.35µs
+Run 266: 72.00µs
+Run 266: 78.87µs
+Run 266: 84.49µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 267: 72.12µs
+Run 267: 75.36µs
+Run 267: 80.72µs
+Run 267: 87.85µs
+Run 267: 93.19µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 268: 74.09µs
+Run 268: 76.84µs
+Run 268: 77.44µs
+Run 268: 77.42µs
+Run 268: 85.72µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 269: 67.38µs
+Run 269: 71.54µs
+Run 269: 76.07µs
+Run 269: 80.70µs
+Run 269: 81.64µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 270: 104.62µs
+Run 270: 104.83µs
+Run 270: 113.57µs
+Run 270: 119.60µs
+Run 270: 120.17µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 271: 66.96µs
+Run 271: 67.94µs
+Run 271: 74.66µs
+Run 271: 78.47µs
+Run 271: 87.07µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 272: 74.96µs
+Run 272: 75.24µs
+Run 272: 74.52µs
+Run 272: 84.77µs
+Run 272: 88.29µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 273: 67.47µs
+Run 273: 72.87µs
+Run 273: 80.19µs
+Run 273: 91.54µs
+Run 273: 93.19µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 274: 61.82µs
+Run 274: 59.03µs
+Run 274: 74.53µs
+Run 274: 75.96µs
+Run 274: 85.21µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 275: 85.82µs
+Run 275: 86.84µs
+Run 275: 86.83µs
+Run 275: 91.69µs
+Run 275: 96.55µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 276: 55.03µs
+Run 276: 55.97µs
+Run 276: 63.32µs
+Run 276: 71.54µs
+Run 276: 81.22µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Run 277: 60.15µs
+Run 277: 64.52µs
+Run 277: 68.81µs
+Run 277: 79.00µs
+Run 277: 90.96µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 278: 68.01µs
+Run 278: 74.72µs
+Run 278: 78.34µs
+Run 278: 85.42µs
+Run 278: 89.96µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 279: 65.57µs
+Run 279: 66.68µs
+Run 279: 78.68µs
+Run 279: 81.41µs
+Run 279: 83.84µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 280: 52.47µs
+Run 280: 56.96µs
+Run 280: 76.39µs
+Run 280: 77.21µs
+Run 280: 77.81µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Run 281: 66.30µs
+Run 281: 65.39µs
+Run 281: 65.27µs
+Run 281: 67.31µs
+Run 281: 86.36µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 282: 55.09µs
+Run 282: 54.71µs
+Run 282: 62.93µs
+Run 282: 67.85µs
+Run 282: 80.31µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 283: 58.85µs
+Run 283: 63.63µs
+Run 283: 69.23µs
+Run 283: 70.70µs
+Run 283: 82.30µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 284: 63.44µs
+Run 284: 67.09µs
+Run 284: 70.51µs
+Run 284: 72.44µs
+Run 284: 75.73µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 285: 57.84µs
+Run 285: 67.84µs
+Run 285: 71.56µs
+Run 285: 86.72µs
+Run 285: 88.59µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 286: 59.99µs
+Run 286: 62.44µs
+Run 286: 66.88µs
+Run 286: 68.97µs
+Run 286: 76.89µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 287: 57.36µs
+Run 287: 56.24µs
+Run 287: 68.67µs
+Run 287: 75.20µs
+Run 287: 90.23µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 288: 62.88µs
+Run 288: 67.53µs
+Run 288: 88.42µs
+Run 288: 89.74µs
+Run 288: 89.89µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 289: 77.65µs
+Run 289: 82.65µs
+Run 289: 83.09µs
+Run 289: 87.39µs
+Run 289: 94.89µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 290: 61.25µs
+Run 290: 59.07µs
+Run 290: 69.80µs
+Run 290: 78.66µs
+Run 290: 79.50µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 291: 56.29µs
+Run 291: 61.06µs
+Run 291: 66.65µs
+Run 291: 68.12µs
+Run 291: 77.17µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 292: 55.08µs
+Run 292: 56.57µs
+Run 292: 56.71µs
+Run 292: 66.02µs
+Run 292: 74.99µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 293: 60.44µs
+Run 293: 61.51µs
+Run 293: 71.56µs
+Run 293: 72.10µs
+Run 293: 83.66µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 294: 58.46µs
+Run 294: 56.50µs
+Run 294: 74.47µs
+Run 294: 74.47µs
+Run 294: 82.66µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 295: 59.31µs
+Run 295: 58.67µs
+Run 295: 69.13µs
+Run 295: 75.16µs
+Run 295: 85.61µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 296: 65.59µs
+Run 296: 65.24µs
+Run 296: 64.25µs
+Run 296: 66.98µs
+Run 296: 75.45µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 297: 55.47µs
+Run 297: 60.12µs
+Run 297: 65.55µs
+Run 297: 71.30µs
+Run 297: 78.64µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 298: 57.37µs
+Run 298: 63.83µs
+Run 298: 65.42µs
+Run 298: 65.31µs
+Run 298: 933.08µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 299: 73.26µs
+Run 299: 90.70µs
+Run 299: 89.62µs
+Run 299: 89.98µs
+Run 299: 105.05µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Run 300: 62.23µs
+Run 300: 80.55µs
+Run 300: 87.87µs
+Run 300: 100.97µs
+Run 300: 102.12µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 301: 77.24µs
+Run 301: 77.53µs
+Run 301: 83.01µs
+Run 301: 89.30µs
+Run 301: 113.71µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 302: 70.29µs
+Run 302: 68.24µs
+Run 302: 76.16µs
+Run 302: 82.39µs
+Run 302: 90.80µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Run 303: 59.90µs
+Run 303: 65.93µs
+Run 303: 85.75µs
+Run 303: 86.56µs
+Run 303: 86.66µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 304: 61.52µs
+Run 304: 61.39µs
+Run 304: 66.97µs
+Run 304: 85.75µs
+Run 304: 86.79µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 305: 79.78µs
+Run 305: 80.71µs
+Run 305: 80.89µs
+Run 305: 81.21µs
+Run 305: 88.07µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 306: 67.02µs
+Run 306: 71.76µs
+Run 306: 78.02µs
+Run 306: 81.09µs
+Run 306: 83.22µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Run 307: 47.40µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 307: 63.92µs
+Run 307: 70.80µs
+Run 307: 85.53µs
+Run 307: 86.82µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 308: 59.10µs
+Run 308: 63.49µs
+Run 308: 83.93µs
+Run 308: 85.30µs
+Run 308: 85.58µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 309: 65.21µs
+Run 309: 71.19µs
+Run 309: 76.78µs
+Run 309: 77.14µs
+Run 309: 86.76µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 310: 71.97µs
+Run 310: 71.79µs
+Run 310: 78.51µs
+Run 310: 83.32µs
+Run 310: 83.88µs
+Queried 1k.bin for [::1]:48626
+Run 311: 40.31µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 311: 73.79µs
+Run 311: 90.57µs
+Run 311: 92.69µs
+Run 311: 103.02µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 312: 64.81µs
+Run 312: 66.76µs
+Run 312: 72.94µs
+Run 312: 76.72µs
+Run 312: 81.77µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Run 313: 57.28µs
+Queried 1k.bin for [::1]:48646
+Run 313: 67.17µs
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 313: 83.37µs
+Run 313: 104.87µs
+Run 313: 109.95µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 314: 62.42µs
+Run 314: 62.84µs
+Run 314: 69.12µs
+Run 314: 77.96µs
+Run 314: 87.22µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 315: 54.39µs
+Run 315: 62.97µs
+Queried 1k.bin for [::1]:48660
+Run 315: 76.90µs
+Run 315: 81.88µs
+Run 315: 87.67µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 316: 56.97µs
+Run 316: 61.99µs
+Run 316: 61.52µs
+Run 316: 67.62µs
+Run 316: 83.46µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 317: 73.45µs
+Run 317: 73.82µs
+Run 317: 73.85µs
+Run 317: 74.24µs
+Run 317: 80.67µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 318: 60.15µs
+Run 318: 65.01µs
+Run 318: 67.29µs
+Run 318: 90.37µs
+Run 318: 90.83µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 319: 62.93µs
+Run 319: 63.08µs
+Run 319: 76.46µs
+Run 319: 84.65µs
+Run 319: 84.86µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 320: 59.04µs
+Run 320: 63.33µs
+Run 320: 73.97µs
+Run 320: 73.40µs
+Run 320: 75.41µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 321: 52.84µs
+Run 321: 58.88µs
+Run 321: 59.00µs
+Run 321: 68.69µs
+Run 321: 71.66µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 322: 55.46µs
+Run 322: 59.79µs
+Run 322: 70.16µs
+Run 322: 70.60µs
+Run 322: 76.39µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 323: 64.53µs
+Run 323: 63.79µs
+Run 323: 75.28µs
+Run 323: 79.39µs
+Run 323: 85.34µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 324: 60.47µs
+Run 324: 60.33µs
+Run 324: 65.74µs
+Run 324: 68.94µs
+Run 324: 82.85µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 325: 68.64µs
+Run 325: 68.24µs
+Run 325: 78.63µs
+Run 325: 82.43µs
+Run 325: 88.47µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Run 326: 54.94µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 326: 78.05µs
+Run 326: 84.45µs
+Run 326: 101.24µs
+Run 326: 102.88µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 327: 56.93µs
+Run 327: 80.27µs
+Run 327: 81.51µs
+Run 327: 81.82µs
+Run 327: 81.92µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 328: 69.67µs
+Run 328: 78.33µs
+Run 328: 80.42µs
+Run 328: 86.44µs
+Run 328: 98.66µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 329: 68.78µs
+Run 329: 84.95µs
+Run 329: 87.72µs
+Run 329: 90.45µs
+Run 329: 97.03µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 330: 62.08µs
+Run 330: 64.76µs
+Run 330: 78.05µs
+Run 330: 80.35µs
+Run 330: 89.36µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 331: 59.90µs
+Run 331: 60.45µs
+Run 331: 74.34µs
+Run 331: 75.97µs
+Run 331: 83.43µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 332: 58.17µs
+Run 332: 58.60µs
+Run 332: 64.55µs
+Run 332: 72.97µs
+Run 332: 79.64µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 333: 69.69µs
+Run 333: 69.93µs
+Run 333: 96.35µs
+Run 333: 97.54µs
+Run 333: 98.06µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 334: 59.47µs
+Run 334: 59.58µs
+Run 334: 69.41µs
+Run 334: 70.83µs
+Run 334: 78.31µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 335: 74.73µs
+Run 335: 76.35µs
+Run 335: 76.95µs
+Run 335: 77.49µs
+Run 335: 82.10µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 336: 68.33µs
+Run 336: 67.60µs
+Run 336: 67.12µs
+Run 336: 80.07µs
+Run 336: 82.31µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 337: 71.21µs
+Run 337: 74.64µs
+Run 337: 88.52µs
+Run 337: 89.28µs
+Run 337: 89.64µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Run 338: 47.22µs
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 338: 63.08µs
+Run 338: 72.64µs
+Run 338: 86.68µs
+Run 338: 87.73µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Run 339: 49.68µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 339: 76.48µs
+Run 339: 89.49µs
+Run 339: 98.43µs
+Run 339: 98.56µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 340: 67.72µs
+Run 340: 152.29µs
+Run 340: 152.98µs
+Run 340: 153.53µs
+Run 340: 154.06µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 341: 63.68µs
+Run 341: 63.62µs
+Run 341: 80.06µs
+Run 341: 81.43µs
+Run 341: 92.63µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 342: 65.22µs
+Run 342: 73.48µs
+Run 342: 82.03µs
+Run 342: 88.45µs
+Run 342: 88.54µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 343: 67.00µs
+Run 343: 75.88µs
+Run 343: 76.39µs
+Run 343: 76.90µs
+Run 343: 86.53µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 344: 65.06µs
+Run 344: 73.31µs
+Run 344: 81.40µs
+Run 344: 81.12µs
+Run 344: 86.25µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 345: 55.90µs
+Queried 1k.bin for [::1]:48660
+Run 345: 74.03µs
+Run 345: 79.36µs
+Run 345: 83.80µs
+Run 345: 85.84µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Run 346: 60.72µs
+Run 346: 61.45µs
+Run 346: 72.30µs
+Run 346: 83.80µs
+Run 346: 85.08µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 347: 61.56µs
+Run 347: 64.92µs
+Run 347: 65.42µs
+Run 347: 72.30µs
+Run 347: 86.47µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 348: 64.24µs
+Run 348: 67.89µs
+Run 348: 70.20µs
+Run 348: 69.87µs
+Run 348: 78.02µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 349: 67.60µs
+Run 349: 72.16µs
+Run 349: 77.03µs
+Run 349: 87.71µs
+Run 349: 91.19µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 350: 60.65µs
+Run 350: 64.05µs
+Run 350: 79.19µs
+Run 350: 79.52µs
+Run 350: 79.39µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Run 351: 48.60µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 351: 71.94µs
+Run 351: 73.21µs
+Run 351: 90.19µs
+Run 351: 91.11µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 352: 68.01µs
+Run 352: 72.87µs
+Run 352: 82.80µs
+Run 352: 85.83µs
+Run 352: 91.77µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 353: 62.29µs
+Run 353: 69.00µs
+Run 353: 76.52µs
+Run 353: 79.91µs
+Run 353: 80.35µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 354: 59.49µs
+Run 354: 59.47µs
+Run 354: 67.60µs
+Run 354: 81.57µs
+Run 354: 82.53µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 355: 65.02µs
+Run 355: 65.29µs
+Run 355: 76.27µs
+Run 355: 79.10µs
+Run 355: 86.62µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 356: 66.29µs
+Run 356: 69.18µs
+Run 356: 77.71µs
+Run 356: 87.74µs
+Run 356: 92.60µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 357: 64.87µs
+Run 357: 66.75µs
+Run 357: 77.27µs
+Run 357: 78.00µs
+Run 357: 89.92µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 358: 59.95µs
+Run 358: 59.53µs
+Run 358: 67.55µs
+Run 358: 72.50µs
+Run 358: 87.40µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 359: 60.21µs
+Run 359: 59.07µs
+Run 359: 65.55µs
+Run 359: 65.18µs
+Run 359: 83.77µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 360: 59.54µs
+Run 360: 59.62µs
+Run 360: 69.47µs
+Run 360: 70.41µs
+Run 360: 83.84µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 361: 65.49µs
+Run 361: 66.84µs
+Run 361: 87.88µs
+Run 361: 88.30µs
+Run 361: 88.28µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 362: 57.33µs
+Run 362: 61.16µs
+Run 362: 69.98µs
+Run 362: 74.42µs
+Run 362: 79.14µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 363: 58.94µs
+Run 363: 66.62µs
+Run 363: 63.89µs
+Run 363: 78.55µs
+Run 363: 86.15µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Run 364: 65.82µs
+Run 364: 65.33µs
+Run 364: 73.86µs
+Run 364: 79.94µs
+Run 364: 100.19µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 365: 63.15µs
+Run 365: 68.32µs
+Run 365: 68.90µs
+Run 365: 75.26µs
+Run 365: 84.54µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 366: 55.16µs
+Run 366: 66.19µs
+Run 366: 66.82µs
+Run 366: 78.72µs
+Run 366: 81.86µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 367: 56.39µs
+Run 367: 62.45µs
+Run 367: 68.56µs
+Run 367: 70.00µs
+Run 367: 79.93µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 368: 59.21µs
+Run 368: 58.62µs
+Run 368: 69.70µs
+Run 368: 73.99µs
+Run 368: 79.98µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 369: 50.80µs
+Run 369: 56.99µs
+Run 369: 65.91µs
+Run 369: 72.99µs
+Run 369: 73.72µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 370: 63.35µs
+Run 370: 68.62µs
+Run 370: 75.34µs
+Run 370: 77.54µs
+Run 370: 82.36µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 371: 67.11µs
+Run 371: 74.66µs
+Run 371: 78.77µs
+Run 371: 84.50µs
+Run 371: 91.88µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 372: 82.96µs
+Run 372: 82.53µs
+Run 372: 83.01µs
+Run 372: 83.38µs
+Run 372: 86.34µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 373: 55.27µs
+Run 373: 54.67µs
+Run 373: 78.66µs
+Run 373: 79.43µs
+Run 373: 79.87µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 374: 66.88µs
+Run 374: 70.70µs
+Run 374: 78.70µs
+Run 374: 84.71µs
+Run 374: 84.76µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 375: 68.44µs
+Run 375: 67.36µs
+Run 375: 87.33µs
+Run 375: 88.13µs
+Run 375: 87.65µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 376: 67.91µs
+Run 376: 68.16µs
+Run 376: 81.52µs
+Run 376: 85.22µs
+Run 376: 90.11µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 377: 60.89µs
+Run 377: 74.68µs
+Run 377: 82.70µs
+Run 377: 83.12µs
+Run 377: 93.49µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 378: 58.55µs
+Run 378: 62.67µs
+Run 378: 79.87µs
+Run 378: 80.83µs
+Run 378: 80.98µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 379: 86.08µs
+Run 379: 88.88µs
+Run 379: 88.95µs
+Run 379: 95.49µs
+Run 379: 93.01µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 380: 66.35µs
+Run 380: 70.67µs
+Run 380: 72.70µs
+Run 380: 78.99µs
+Run 380: 89.55µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 381: 73.86µs
+Run 381: 75.06µs
+Run 381: 80.34µs
+Run 381: 79.18µs
+Run 381: 79.51µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 382: 58.73µs
+Run 382: 58.20µs
+Run 382: 67.82µs
+Run 382: 79.52µs
+Run 382: 82.41µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 383: 62.81µs
+Run 383: 67.91µs
+Run 383: 81.08µs
+Run 383: 81.87µs
+Run 383: 82.09µs
+Queried 1k.bin for [::1]:48626
+Run 384: 38.85µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 384: 91.61µs
+Run 384: 92.60µs
+Run 384: 95.56µs
+Run 384: 95.92µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 385: 59.38µs
+Run 385: 58.96µs
+Run 385: 73.38µs
+Run 385: 76.69µs
+Run 385: 76.50µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 386: 59.41µs
+Run 386: 63.22µs
+Run 386: 68.63µs
+Run 386: 80.49µs
+Run 386: 81.46µs
+Queried 1k.bin for [::1]:48626
+Run 387: 34.81µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 387: 64.71µs
+Run 387: 76.39µs
+Run 387: 78.39µs
+Run 387: 85.63µs
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Run 388: 124.28µs
+Run 388: 121.55µs
+Queried 1k.bin for [::1]:48660
+Run 388: 134.58µs
+Run 388: 149.52µs
+Run 388: 153.63µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 389: 63.21µs
+Run 389: 62.86µs
+Run 389: 63.24µs
+Run 389: 74.31µs
+Run 389: 75.73µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 390: 63.22µs
+Run 390: 67.70µs
+Run 390: 67.56µs
+Run 390: 79.72µs
+Run 390: 79.31µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 391: 67.78µs
+Run 391: 72.99µs
+Run 391: 74.36µs
+Run 391: 82.43µs
+Run 391: 92.50µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 392: 55.58µs
+Run 392: 57.17µs
+Run 392: 63.65µs
+Run 392: 70.37µs
+Run 392: 84.28µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 393: 67.74µs
+Run 393: 69.26µs
+Run 393: 84.24µs
+Run 393: 85.03µs
+Run 393: 85.57µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 394: 60.47µs
+Run 394: 61.78µs
+Run 394: 68.83µs
+Run 394: 80.50µs
+Run 394: 82.02µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 395: 64.62µs
+Run 395: 63.59µs
+Run 395: 72.02µs
+Run 395: 79.89µs
+Run 395: 93.25µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 396: 87.52µs
+Run 396: 87.10µs
+Run 396: 87.74µs
+Run 396: 88.33µs
+Run 396: 88.75µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 397: 61.82µs
+Run 397: 62.64µs
+Run 397: 77.54µs
+Run 397: 78.40µs
+Run 397: 78.44µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 398: 339.53µs
+Run 398: 342.91µs
+Run 398: 351.20µs
+Run 398: 360.41µs
+Run 398: 376.54µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 399: 63.58µs
+Run 399: 68.39µs
+Run 399: 68.58µs
+Run 399: 75.39µs
+Run 399: 75.69µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 400: 59.74µs
+Run 400: 63.55µs
+Run 400: 71.63µs
+Run 400: 75.92µs
+Run 400: 82.69µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 401: 62.50µs
+Run 401: 61.36µs
+Run 401: 68.23µs
+Run 401: 72.87µs
+Run 401: 76.61µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 402: 95.66µs
+Run 402: 103.90µs
+Run 402: 103.19µs
+Run 402: 122.80µs
+Run 402: 123.42µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 403: 57.20µs
+Run 403: 58.41µs
+Run 403: 66.14µs
+Run 403: 75.46µs
+Run 403: 75.62µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 404: 54.48µs
+Run 404: 53.86µs
+Run 404: 61.69µs
+Run 404: 62.50µs
+Run 404: 62.72µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 405: 62.38µs
+Run 405: 63.68µs
+Run 405: 68.88µs
+Run 405: 76.52µs
+Run 405: 82.96µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 406: 59.18µs
+Run 406: 62.61µs
+Run 406: 70.31µs
+Run 406: 75.80µs
+Run 406: 76.35µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 407: 75.40µs
+Run 407: 75.59µs
+Run 407: 80.09µs
+Run 407: 80.62µs
+Run 407: 80.87µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 408: 47.05µs
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 408: 73.53µs
+Run 408: 73.83µs
+Run 408: 83.49µs
+Run 408: 84.41µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 409: 59.98µs
+Run 409: 62.29µs
+Run 409: 74.46µs
+Run 409: 77.16µs
+Run 409: 80.52µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Run 410: 53.56µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Run 410: 77.03µs
+Run 410: 77.90µs
+Run 410: 87.03µs
+Run 410: 89.90µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 411: 65.84µs
+Run 411: 70.65µs
+Run 411: 73.21µs
+Run 411: 73.91µs
+Run 411: 79.04µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 412: 124.54µs
+Run 412: 125.48µs
+Run 412: 126.00µs
+Run 412: 132.30µs
+Run 412: 133.09µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 413: 67.68µs
+Run 413: 68.64µs
+Run 413: 68.18µs
+Run 413: 77.71µs
+Run 413: 88.32µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 414: 65.07µs
+Run 414: 67.52µs
+Run 414: 77.77µs
+Run 414: 82.32µs
+Run 414: 89.60µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 415: 56.22µs
+Run 415: 56.89µs
+Run 415: 66.16µs
+Run 415: 72.39µs
+Run 415: 72.89µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 416: 59.56µs
+Run 416: 61.14µs
+Run 416: 65.98µs
+Run 416: 74.52µs
+Run 416: 80.40µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 417: 58.50µs
+Run 417: 62.89µs
+Run 417: 63.98µs
+Run 417: 74.99µs
+Run 417: 79.42µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 418: 68.21µs
+Run 418: 70.99µs
+Run 418: 78.63µs
+Run 418: 85.89µs
+Run 418: 87.13µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 419: 53.37µs
+Run 419: 54.77µs
+Run 419: 66.01µs
+Run 419: 69.93µs
+Run 419: 80.36µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 420: 63.42µs
+Run 420: 62.80µs
+Run 420: 67.92µs
+Run 420: 75.60µs
+Run 420: 78.10µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 421: 62.66µs
+Run 421: 68.25µs
+Run 421: 74.74µs
+Run 421: 80.89µs
+Run 421: 85.56µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 422: 64.29µs
+Run 422: 69.59µs
+Run 422: 77.59µs
+Run 422: 81.54µs
+Run 422: 88.01µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 423: 62.21µs
+Run 423: 65.12µs
+Run 423: 70.29µs
+Run 423: 74.88µs
+Run 423: 86.60µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 424: 68.84µs
+Run 424: 70.37µs
+Run 424: 73.29µs
+Run 424: 71.87µs
+Run 424: 83.76µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 425: 62.58µs
+Run 425: 64.75µs
+Run 425: 74.86µs
+Run 425: 75.58µs
+Run 425: 83.07µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 426: 64.89µs
+Run 426: 64.22µs
+Run 426: 70.53µs
+Run 426: 76.13µs
+Run 426: 85.10µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 427: 63.61µs
+Run 427: 66.55µs
+Run 427: 75.71µs
+Run 427: 75.75µs
+Run 427: 88.12µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 428: 65.91µs
+Run 428: 66.70µs
+Run 428: 73.39µs
+Run 428: 79.56µs
+Run 428: 88.68µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 429: 69.63µs
+Run 429: 74.19µs
+Run 429: 74.47µs
+Run 429: 79.87µs
+Run 429: 89.62µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 430: 64.27µs
+Run 430: 62.13µs
+Run 430: 74.23µs
+Run 430: 81.60µs
+Run 430: 81.83µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 431: 60.27µs
+Run 431: 65.71µs
+Run 431: 73.37µs
+Run 431: 90.53µs
+Run 431: 91.37µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 432: 65.60µs
+Run 432: 65.43µs
+Run 432: 76.73µs
+Run 432: 78.05µs
+Run 432: 92.83µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 433: 60.13µs
+Run 433: 61.32µs
+Run 433: 68.52µs
+Run 433: 72.28µs
+Run 433: 77.55µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Run 434: 81.10µs
+Run 434: 79.21µs
+Run 434: 89.93µs
+Run 434: 107.39µs
+Run 434: 109.24µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Run 435: 50.59µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 435: 68.26µs
+Run 435: 76.83µs
+Run 435: 87.15µs
+Run 435: 95.38µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 436: 91.22µs
+Run 436: 92.62µs
+Run 436: 92.83µs
+Run 436: 92.85µs
+Run 436: 97.71µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 437: 62.46µs
+Run 437: 62.53µs
+Run 437: 66.70µs
+Run 437: 74.51µs
+Run 437: 85.69µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 438: 57.26µs
+Run 438: 60.86µs
+Run 438: 80.67µs
+Run 438: 81.00µs
+Run 438: 80.51µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 439: 63.87µs
+Run 439: 64.22µs
+Run 439: 76.05µs
+Run 439: 79.03µs
+Run 439: 79.73µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 440: 64.02µs
+Run 440: 63.45µs
+Run 440: 72.79µs
+Run 440: 73.69µs
+Run 440: 88.04µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 441: 63.87µs
+Run 441: 70.31µs
+Run 441: 76.47µs
+Run 441: 76.50µs
+Run 441: 94.81µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 442: 58.17µs
+Run 442: 58.39µs
+Run 442: 64.98µs
+Run 442: 66.99µs
+Run 442: 74.64µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 443: 59.30µs
+Run 443: 58.84µs
+Run 443: 69.29µs
+Run 443: 72.63µs
+Run 443: 78.12µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 444: 63.03µs
+Run 444: 66.13µs
+Run 444: 71.81µs
+Run 444: 73.95µs
+Run 444: 79.31µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 445: 925.44µs
+Run 445: 928.08µs
+Run 445: 928.66µs
+Run 445: 937.84µs
+Run 445: 940.09µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 446: 73.74µs
+Run 446: 72.64µs
+Run 446: 83.08µs
+Run 446: 84.28µs
+Run 446: 84.60µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Run 447: 69.16µs
+Run 447: 70.45µs
+Run 447: 81.63µs
+Run 447: 85.94µs
+Run 447: 91.85µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 448: 70.10µs
+Run 448: 67.66µs
+Run 448: 74.49µs
+Run 448: 73.68µs
+Run 448: 78.98µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 449: 67.15µs
+Run 449: 67.54µs
+Run 449: 76.35µs
+Run 449: 82.44µs
+Run 449: 94.10µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 450: 65.15µs
+Run 450: 63.88µs
+Run 450: 75.65µs
+Run 450: 81.04µs
+Run 450: 82.99µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 451: 76.66µs
+Run 451: 65.28µs
+Run 451: 63.63µs
+Run 451: 72.80µs
+Run 451: 75.91µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 452: 73.08µs
+Run 452: 82.79µs
+Run 452: 83.42µs
+Run 452: 95.06µs
+Run 452: 97.10µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 453: 62.67µs
+Run 453: 62.29µs
+Run 453: 74.08µs
+Run 453: 76.75µs
+Run 453: 76.52µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48642
+Run 454: 57.67µs
+Run 454: 57.54µs
+Run 454: 62.98µs
+Run 454: 72.62µs
+Run 454: 72.85µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 455: 79.89µs
+Run 455: 85.11µs
+Run 455: 87.41µs
+Run 455: 87.18µs
+Run 455: 92.13µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 456: 63.91µs
+Run 456: 65.55µs
+Run 456: 65.52µs
+Run 456: 79.28µs
+Run 456: 88.59µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 457: 64.77µs
+Run 457: 64.40µs
+Run 457: 70.97µs
+Run 457: 79.09µs
+Run 457: 87.51µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 458: 55.67µs
+Run 458: 72.77µs
+Run 458: 74.32µs
+Run 458: 74.55µs
+Run 458: 74.94µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 459: 55.87µs
+Run 459: 61.82µs
+Run 459: 66.76µs
+Run 459: 70.78µs
+Run 459: 82.23µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 460: 60.28µs
+Run 460: 77.67µs
+Run 460: 77.63µs
+Run 460: 77.60µs
+Run 460: 85.20µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 461: 76.45µs
+Run 461: 78.70µs
+Run 461: 87.53µs
+Run 461: 90.31µs
+Run 461: 97.68µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 462: 81.45µs
+Run 462: 81.43µs
+Run 462: 93.85µs
+Run 462: 95.03µs
+Run 462: 97.55µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 463: 67.95µs
+Run 463: 67.65µs
+Run 463: 74.63µs
+Run 463: 78.46µs
+Run 463: 91.33µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 464: 62.83µs
+Run 464: 61.28µs
+Run 464: 71.83µs
+Run 464: 74.09µs
+Run 464: 79.16µs
+Queried 1k.bin for [::1]:48626
+Run 465: 43.02µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 465: 85.18µs
+Run 465: 85.77µs
+Run 465: 85.74µs
+Run 465: 85.74µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 466: 54.56µs
+Run 466: 56.31µs
+Run 466: 79.14µs
+Run 466: 80.69µs
+Run 466: 81.25µs
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 467: 88.58µs
+Run 467: 94.07µs
+Run 467: 92.59µs
+Run 467: 95.67µs
+Run 467: 95.95µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 468: 73.71µs
+Run 468: 74.86µs
+Run 468: 85.36µs
+Run 468: 88.42µs
+Run 468: 95.30µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 469: 89.44µs
+Run 469: 89.29µs
+Run 469: 88.54µs
+Run 469: 100.41µs
+Run 469: 102.97µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 470: 60.51µs
+Run 470: 60.20µs
+Run 470: 72.41µs
+Run 470: 75.26µs
+Run 470: 79.20µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 471: 70.25µs
+Run 471: 71.52µs
+Run 471: 82.33µs
+Run 471: 83.60µs
+Run 471: 96.82µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 472: 73.22µs
+Run 472: 73.57µs
+Run 472: 84.97µs
+Run 472: 89.61µs
+Run 472: 95.65µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 473: 62.98µs
+Run 473: 68.98µs
+Run 473: 75.50µs
+Run 473: 82.38µs
+Run 473: 87.87µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 474: 65.41µs
+Run 474: 66.57µs
+Run 474: 77.64µs
+Run 474: 78.55µs
+Run 474: 87.96µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 475: 65.55µs
+Run 475: 72.56µs
+Run 475: 89.95µs
+Run 475: 91.63µs
+Run 475: 94.18µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 476: 56.38µs
+Run 476: 60.72µs
+Run 476: 59.95µs
+Run 476: 70.17µs
+Run 476: 77.14µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 477: 63.81µs
+Run 477: 64.07µs
+Run 477: 71.56µs
+Run 477: 76.02µs
+Run 477: 80.14µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 478: 69.35µs
+Run 478: 69.95µs
+Run 478: 83.47µs
+Run 478: 85.69µs
+Run 478: 91.77µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 479: 62.22µs
+Run 479: 75.11µs
+Run 479: 83.15µs
+Run 479: 87.70µs
+Run 479: 92.18µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 480: 61.88µs
+Run 480: 63.56µs
+Run 480: 81.82µs
+Run 480: 82.00µs
+Run 480: 82.09µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 481: 78.56µs
+Run 481: 80.20µs
+Run 481: 83.93µs
+Run 481: 83.17µs
+Run 481: 82.84µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 482: 62.01µs
+Run 482: 70.97µs
+Run 482: 73.49µs
+Run 482: 74.03µs
+Run 482: 74.58µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Run 483: 54.96µs
+Run 483: 55.56µs
+Run 483: 67.87µs
+Run 483: 78.28µs
+Run 483: 78.64µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 484: 62.03µs
+Run 484: 62.12µs
+Run 484: 70.68µs
+Run 484: 70.65µs
+Run 484: 83.71µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 485: 113.58µs
+Run 485: 114.50µs
+Run 485: 119.85µs
+Run 485: 122.72µs
+Run 485: 123.51µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Run 486: 91.05µs
+Run 486: 94.86µs
+Run 486: 94.91µs
+Run 486: 101.55µs
+Run 486: 102.11µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 487: 62.17µs
+Run 487: 66.25µs
+Run 487: 73.29µs
+Run 487: 81.42µs
+Run 487: 82.24µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 488: 61.14µs
+Run 488: 66.33µs
+Run 488: 65.79µs
+Run 488: 74.32µs
+Run 488: 74.08µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Run 489: 57.96µs
+Run 489: 59.43µs
+Run 489: 68.08µs
+Run 489: 69.22µs
+Run 489: 69.91µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 490: 64.15µs
+Run 490: 67.16µs
+Run 490: 81.27µs
+Run 490: 82.29µs
+Run 490: 81.85µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 491: 66.70µs
+Run 491: 68.82µs
+Run 491: 71.89µs
+Run 491: 71.52µs
+Run 491: 82.08µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 492: 81.12µs
+Run 492: 79.98µs
+Run 492: 79.55µs
+Run 492: 81.94µs
+Run 492: 88.57µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Run 493: 70.29µs
+Run 493: 70.30µs
+Run 493: 75.20µs
+Run 493: 81.25µs
+Run 493: 84.50µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 494: 76.71µs
+Run 494: 82.22µs
+Run 494: 91.07µs
+Run 494: 122.62µs
+Queried 1k.bin for [::1]:48642
+Run 494: 155.61µs
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 495: 70.51µs
+Run 495: 76.33µs
+Run 495: 80.53µs
+Run 495: 79.13µs
+Run 495: 85.96µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48642
+Run 496: 67.25µs
+Run 496: 76.87µs
+Run 496: 77.26µs
+Run 496: 87.93µs
+Run 496: 94.73µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 497: 61.99µs
+Run 497: 70.32µs
+Run 497: 71.81µs
+Run 497: 72.19µs
+Run 497: 84.53µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48660
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48644
+Run 498: 60.10µs
+Run 498: 61.06µs
+Run 498: 74.16µs
+Run 498: 77.69µs
+Run 498: 78.01µs
+Queried 1k.bin for [::1]:48626
+Queried 1k.bin for [::1]:48642
+Queried 1k.bin for [::1]:48644
+Queried 1k.bin for [::1]:48646
+Queried 1k.bin for [::1]:48660
+Run 499: 63.58µs
+Run 499: 63.51µs
+Run 499: 68.24µs
+Run 499: 80.80µs
+Run 499: 82.41µs
+Average time: 90.58µs

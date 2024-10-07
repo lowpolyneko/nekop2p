@@ -1,0 +1,78 @@
+Welcome to nekop2p! (peer client)
+Press Ctrl-C to enter commands...
+Connecting to indexer on localhost:5000
+Accepting inbound connections on localhost:5002
+
+Enter Command ('?' for help) >> Enter filename >> Registered 5k.bin on index
+
+Enter Command ('?' for help) >> Enter filename >> Registered 6k.bin on index
+
+Enter Command ('?' for help) >> Enter filename >> Registered 7k.bin on index
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 1k.bin
+Selected peer [::1]:5001
+Connecting to peer [::1]:5001
+Downloading 1k.bin...
+Writing contents to 1k.bin...
+Registered 1k.bin on index
+Handling download request for 5k.bin from [::1]:44386
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 2k.bin
+Selected peer [::1]:5001
+Connecting to peer [::1]:5001
+Downloading 2k.bin...
+Writing contents to 2k.bin...
+Registered 2k.bin on index
+Handling download request for 6k.bin from [::1]:44392
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 3k.bin
+Selected peer [::1]:5001
+Connecting to peer [::1]:5001
+Downloading 3k.bin...
+Writing contents to 3k.bin...
+Registered 3k.bin on index
+Handling download request for 7k.bin from [::1]:44404
+Handling download request for 3k.bin from [::1]:44414
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 4k.bin
+Selected peer [::1]:5001
+Connecting to peer [::1]:5001
+Downloading 4k.bin...
+Writing contents to 4k.bin...
+Registered 4k.bin on index
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 8k.bin
+Selected peer [::1]:5001
+Connecting to peer [::1]:5001
+Downloading 8k.bin...
+Writing contents to 8k.bin...
+Registered 8k.bin on index
+Handling download request for 5k.bin from [::1]:38650
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 9k.bin
+Selected peer [::1]:5001
+Connecting to peer [::1]:5001
+Downloading 9k.bin...
+Writing contents to 9k.bin...
+Registered 9k.bin on index
+Handling download request for 6k.bin from [::1]:38660
+
+Enter Command ('?' for help) >> Enter filename >> Querying peers for 10k.bin
+Selected peer [::1]:5001
+Connecting to peer [::1]:5001
+Downloading 10k.bin...
+Writing contents to 10k.bin...
+Registered 10k.bin on index
+Handling download request for 7k.bin from [::1]:38666
+
+Enter Command ('?' for help) >> total 72K
+-rw-r--r-- 1 aether aether  10K Oct  6 20:28 10k.bin
+-rw-r--r-- 1 aether aether 1.0K Oct  6 20:28 1k.bin
+-rw-r--r-- 1 aether aether 2.0K Oct  6 20:28 2k.bin
+-rw-r--r-- 1 aether aether 3.0K Oct  6 20:28 3k.bin
+-rw-r--r-- 1 aether aether 4.0K Oct  6 20:28 4k.bin
+-rw-r--r-- 1 aether aether 5.0K Oct  6 12:58 5k.bin
+-rw-r--r-- 1 aether aether 6.0K Oct  6 12:58 6k.bin
+-rw-r--r-- 1 aether aether 7.0K Oct  6 12:58 7k.bin
+-rw-r--r-- 1 aether aether 8.0K Oct  6 20:28 8k.bin
+-rw-r--r-- 1 aether aether 9.0K Oct  6 20:28 9k.bin
