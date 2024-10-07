@@ -114,6 +114,13 @@ So, as an example, to download `foo.txt` from another peer (presuming another
 peer *has `foo.txt` and registered it on the index server*), simply run
 `download` and input `foo.txt` as the file name when prompted.
 
+## Documentation
+To view documentation, simply run `cargo doc --open`.
+
+# Design and Testing
+See `docs/design.md` and `docs/testing.md`. For readability, it may be advisable
+to view *this README* and the associated docs on
+[Github](https://github.com/lowpolyneko/nekop2p).
 
 <!-- vim: tw=80:
 -->
