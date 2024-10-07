@@ -25,7 +25,7 @@ additional clients.
 
 The distribution of response times remain fairly normal aswell.
 
-![](profile-5-scatter.png)
+![](profile-5-hist.png)
 
 ## 10 Concurrent
 With a doubled concurrent load, the average jumps to `123.51` µs over
@@ -36,7 +36,7 @@ response time with the async model of `nekop2p` scales logarithmically.
 
 The distribution of response times continues to remain fairly normal.
 
-![](profile-10-scatter.png)
+![](profile-10-hist.png)
 
 ## Note on Response Time Spike with Beginning Requests
 In the concurrent examples, initial responses incur a significantly higher cost
