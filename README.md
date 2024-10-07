@@ -1,6 +1,6 @@
 # nekop2p
 A simple p2p file sharing system built on `tokio` and `tarpc`. The software
-package is spit into three crates:
+package is spit into four crates:
 - `demo-profile` - `search` query profiler with plotting support
 - `nekoindexer` - index server
 - `nekop2p` - common library (contains RPC scheme)
