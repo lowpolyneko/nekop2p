@@ -3,6 +3,7 @@ use std::io::{stdin, stdout, Write};
 use anyhow::Result;
 use clap::Parser;
 use futures::prelude::*;
+use rand::seq::SliceRandom;
 use tarpc::{
     client, context,
     serde_transport::tcp,
@@ -83,7 +84,17 @@ async fn prompt_download(client: &IndexerClient) {
     };
 
     // try to download file
-    let peer = results.first().unwrap();
+    let peer = match results.choose(&mut rand::thread_rng()) {
+        Some(x) => {
+            println!("Selected peer {x}");
+            x
+        }
+        None => {
+            println!("No peers to download {0} from", filename.trim_end());
+            return;
+        }
+    };
+
     let transport = match tcp::connect(peer, Bincode::default).await {
         Ok(x) => {
             println!("Connecting to peer {0}", peer);
@@ -113,6 +124,14 @@ async fn prompt_download(client: &IndexerClient) {
     match fs::write(filename.trim_end(), contents).await {
         Ok(_) => println!("Writing contents to {0}...", filename.trim_end()),
         Err(_) => println!("Failed to write to {0}", filename.trim_end()),
+    }
+
+    match client
+        .register(context::current(), filename.trim_end().to_owned())
+        .await
+    {
+        Ok(_) => println!("Registered {0} on index", filename.trim_end()),
+        Err(_) => println!("Failed to register {0}", filename.trim_end()),
     }
 }
 

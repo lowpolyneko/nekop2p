@@ -8,5 +8,6 @@ anyhow = "1.0.89"
 clap = { version = "4.5.19", features = ["derive"] }
 futures = "0.3.30"
 nekop2p = { path = "../nekop2p" }
+rand = "0.8.5"
 tarpc = { version = "0.34.0", features = ["full"] }
 tokio = { version = "1.40.0", features = ["full"] }
