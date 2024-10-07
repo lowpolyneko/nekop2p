@@ -132,6 +132,11 @@ listed below.
 - The underlying RPC transport lacks security. Maliciously crafted clients can
   likely abuse the RPC calls to hang clients, download files other than what's
   indexed, DOS the indexer with junk registrations, etc.
+- Something better than a `DashMap<K, V>` should be used like an in-memory DB
+  (i.e. Redis) for real implementations of an Indexer where performance matters.
+- The current implementation relies on the TCP connection between the peer and
+  indexer being long-living. Real implementations should instead allow for
+  multiple connects and disconnects and track clients in-spite of this.
 
 <!-- vim: set tw=80:
 -->
