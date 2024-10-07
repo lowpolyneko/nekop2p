@@ -1,3 +1,8 @@
+//! Simple binary wrapping the reference implementation of [IndexerServer] in a
+//! [tarpc::serde_transport::tcp::connect].
+//!
+//! Utilizes two [DashMap]s as the underlying data structure for the [IndexerServer::index] and
+//! [IndexerServer::dl_ports].
 use std::sync::Arc;
 
 use anyhow::Result;
@@ -15,14 +20,13 @@ use nekop2p::{Indexer, IndexerServer};
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 struct Args {
-    // host
     host: Option<String>,
 
-    // port
     #[arg(short, long, default_value_t = 5000)]
     port: u16,
 }
 
+/// Starts an [IndexerServer] on [Args::host] with [Args::port]
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
