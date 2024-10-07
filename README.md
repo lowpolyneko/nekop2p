@@ -115,7 +115,7 @@ peer *has `foo.txt` and registered it on the index server*), simply run
 `download` and input `foo.txt` as the file name when prompted.
 
 ## Documentation
-To view documentation, simply run `cargo doc --open`.
+To view documentation, simply run `cargo doc -p [ demo-profile | nekoindexer | nekop2p | nekopeer ] --open`.
 
 # Design and Testing
 See `docs/design.md` and `docs/testing.md`. For readability, it may be advisable
