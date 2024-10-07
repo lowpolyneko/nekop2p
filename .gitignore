@@ -1,1 +1,7 @@
 target/
+demo/peer_a/[5-9]k.bin
+demo/peer_a/10k.bin
+demo/peer_b/[1-4]k.bin
+demo/peer_b/[8-9]k.bin
+demo/peer_b/10k.bin
+demo/peer_c/[1-7]k.bin
