@@ -5,12 +5,15 @@ use tokio::fs;
 
 use crate::Peer;
 
+/// Reference [Peer] implementation
 #[derive(Clone)]
 pub struct PeerServer {
+    /// Address of remote peer
     addr: SocketAddr,
 }
 
 impl PeerServer {
+    /// Create a new [PeerServer] with the address of the remote peer
     pub fn new(addr: SocketAddr) -> Self {
         PeerServer { addr }
     }

@@ -5,14 +5,21 @@ use tarpc::context::Context;
 
 use crate::Indexer;
 
+/// Reference [Indexer] implementation
 #[derive(Clone)]
 pub struct IndexerServer {
+    /// Address of the remote peer
     addr: SocketAddr,
+
+    /// Index shared between all connections
     index: Arc<DashMap<String, DashSet<SocketAddr>>>,
+
+    /// Index shared between all connections to map remote peers with their incoming download port
     dl_ports: Arc<DashMap<SocketAddr, u16>>,
 }
 
 impl IndexerServer {
+    /// Create a new [IndexerServer] with a shared `index` and `dl_ports` for `addr`
     pub fn new(
         addr: SocketAddr,
         index: &Arc<DashMap<String, DashSet<SocketAddr>>>,
@@ -25,6 +32,7 @@ impl IndexerServer {
         }
     }
 
+    /// Prints all entries in index
     pub fn print_index(self) {
         self.index.iter().for_each(|entry| {
             let filename = entry.key();
