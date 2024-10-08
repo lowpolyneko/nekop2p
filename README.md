@@ -14,7 +14,7 @@ package is spit into four crates:
 
 ## Demo
 To run the example demo, `cd demo/` and run `./run_demo.sh`. This will start an
-instance of `nekoindexer` on `localhost:5000` and tree instances of `nekopeer`
+instance of `nekoindexer` on `localhost:5000` and three instances of `nekopeer`
 which listen on `localhost` ports `5001`, `5002`, and `5003` respectively, all
 in a tmux session for easy viewing!
 
