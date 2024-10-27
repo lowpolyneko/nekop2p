@@ -9,6 +9,7 @@
 //! Clients are utilized using [tarpc]'s generated [PeerClient] and [IndexerClient].
 mod peer;
 mod server;
+pub mod superpeer;
 pub use peer::PeerServer;
 pub use server::IndexerServer;
 
