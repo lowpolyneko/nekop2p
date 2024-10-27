@@ -9,7 +9,7 @@ use crate::Indexer;
 #[derive(Clone)]
 pub struct IndexerServer {
     /// Address of the remote peer
-    addr: SocketAddr,
+    pub addr: SocketAddr,
 
     /// Index shared between all connections
     index: Arc<DashMap<String, DashSet<SocketAddr>>>,
