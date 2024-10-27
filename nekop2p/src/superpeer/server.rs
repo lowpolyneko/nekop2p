@@ -2,6 +2,7 @@ use std::ops::Deref;
 use std::net::SocketAddr;
 
 use tarpc::context::Context;
+use uuid::Uuid;
 
 use crate::{IndexerServer, SuperPeer};
 
@@ -18,11 +19,11 @@ pub struct SuperIndexerServer {
 }
 
 impl SuperPeer for SuperIndexerServer {
-    fn query(self, _: Context, msg_id: String, ttl: u8, filename: String) {
+    async fn query(self, _: Context, msg_id: Uuid, ttl: u8, filename: String) {
 
     }
 
-    fn query_hit(self, _: Context, msg_id: String, ttl: u8, filename: String, peer: SocketAddr) {
+    async fn query_hit(self, _: Context, msg_id: Uuid, ttl: u8, filename: String, peer: SocketAddr) {
 
     }
 }

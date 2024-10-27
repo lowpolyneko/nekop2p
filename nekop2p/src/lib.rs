@@ -15,14 +15,16 @@ pub use server::IndexerServer;
 
 use std::net::SocketAddr;
 
+use uuid::Uuid;
+
 /// RPC scheme for querying neighboring [IndexerServer]s or [PeerServer]s
 #[tarpc::service]
 pub trait SuperPeer {
     /// Query the network for `filename`
-    async fn query(msg_id: String, ttl: u8, filename: String);
+    async fn query(msg_id: Uuid, ttl: u8, filename: String);
 
     /// Inform a peer that a given peer has `filename` via back propogation
-    async fn query_hit(msg_id: String, ttl: u8, filename: String, peer: SocketAddr);
+    async fn query_hit(msg_id: Uuid, ttl: u8, filename: String, peer: SocketAddr);
 }
 
 /// RPC scheme for interacting with an [IndexerServer]
