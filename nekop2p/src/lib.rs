@@ -14,6 +14,16 @@ pub use server::IndexerServer;
 
 use std::net::SocketAddr;
 
+/// RPC scheme for querying neighboring [IndexerServer]s or [PeerServer]s
+#[tarpc::service]
+pub trait SuperPeer {
+    /// Query the network for `filename`
+    async fn query(msg_id: String, ttl: u8, filename: String);
+
+    /// Inform a peer that a given peer has `filename` via back propogation
+    async fn query_hit(msg_id: String, ttl: u8, filename: String, peer: SocketAddr);
+}
+
 /// RPC scheme for interacting with an [IndexerServer]
 #[tarpc::service]
 pub trait Indexer {
@@ -35,7 +45,7 @@ pub trait Indexer {
     async fn disconnect_peer();
 }
 
-/// RPC scheme for interacting with an [PeerServer]
+/// RPC scheme for interacting with a [PeerServer]
 #[tarpc::service]
 pub trait Peer {
     /// Query `filename` and send over the raw bytes if it exists
