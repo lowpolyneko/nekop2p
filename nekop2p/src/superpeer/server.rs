@@ -1,7 +1,7 @@
-use std::{ops::Deref, sync::Arc};
 use std::net::SocketAddr;
+use std::{ops::Deref, sync::Arc};
 
-use dashmap::DashMap;
+use dashmap::{DashMap, DashSet};
 use tarpc::context::Context;
 use uuid::Uuid;
 
@@ -34,18 +34,42 @@ pub struct SuperIndexerServer {
 }
 
 impl SuperIndexerServer {
-    fn prune_backtrace_table(self) {
+    pub fn new(
+        addr: SocketAddr,
+        index: &Arc<DashMap<String, DashSet<SocketAddr>>>,
+        dl_ports: &Arc<DashMap<SocketAddr, u16>>,
+        backtrace: &Arc<DashMap<Uuid, TTLEntry<SocketAddr>>>,
+    ) -> Self {
+        SuperIndexerServer {
+            s: IndexerServer::new(addr, index, dl_ports),
+            backtrace: Arc::clone(backtrace),
+        }
     }
+
+    fn prune_backtrace_table(self) {}
 }
 
 impl SuperPeer for SuperIndexerServer {
     async fn query(self, _: Context, msg_id: Uuid, ttl: u8, filename: String) {
         // on query, append to backtrace table
         // TODO don't hardcode TTL
-        self.backtrace.insert(msg_id, TTLEntry { val: self.addr, ttl: unix_time() + 30 });
+        self.backtrace.insert(
+            msg_id,
+            TTLEntry {
+                val: self.addr,
+                ttl: unix_time() + 30,
+            },
+        );
     }
 
-    async fn query_hit(self, _: Context, msg_id: Uuid, ttl: u8, filename: String, peer: SocketAddr) {
+    async fn query_hit(
+        self,
+        _: Context,
+        msg_id: Uuid,
+        ttl: u8,
+        filename: String,
+        peer: SocketAddr,
+    ) {
         // TODO handle non-existant msg id
         let back_addr = match self.backtrace.get(&msg_id).unwrap().timed_unwrap() {
             Some(x) => x,
