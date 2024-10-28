@@ -9,9 +9,10 @@
 //! Clients are utilized using [tarpc]'s generated [PeerClient] and [IndexerClient].
 mod peer;
 mod server;
-pub mod superpeer;
+mod superpeer;
 pub use peer::PeerServer;
 pub use server::IndexerServer;
+pub use superpeer::{SuperPeerServer, TTLEntry};
 
 use std::net::SocketAddr;
 

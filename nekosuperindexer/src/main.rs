@@ -12,15 +12,18 @@ use tarpc::{
 };
 use tokio::fs;
 
-use nekop2p::{Indexer, superpeer::SuperIndexerServer};
+use nekop2p::{Indexer, IndexerServer, SuperPeer, SuperPeerServer};
 
 #[derive(Deserialize)]
 struct Config {
     /// Host
     host: Option<String>,
 
-    /// Port
-    port: u16,
+    /// [IndexerServer] Port
+    indexer_port: u16,
+
+    /// [SuperPeerServer] Port
+    superpeer_port: u16,
 }
 
 #[derive(Parser)]
@@ -30,7 +33,8 @@ struct Args {
     config: String,
 }
 
-/// Starts an [SuperIndexerServer] on [Args::host] with [Args::port]
+/// Starts an [IndexerServer] on [Config::host] with [Config::indexer_port] and [SuperPeerServer]
+/// on [Config::superpeer_port]
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
@@ -42,20 +46,21 @@ async fn main() -> Result<()> {
     .expect("failed to parse config file");
     let host = config.host.unwrap_or("localhost".to_owned());
 
-    println!("Starting indexer on {0}:{1}", host, config.port);
+    println!("Starting indexer on {0}:{1}", host, config.indexer_port);
+    println!("Starting superpeer on {0}:{1}", host, config.superpeer_port);
 
     let index = Arc::new(DashMap::new());
     let dl_ports = Arc::new(DashMap::new());
-    let backtrace = Arc::new(DashMap::new());
-    let listener = tcp::listen((host, config.port), Bincode::default).await?;
-    listener
+    let indexer_listener =
+        tcp::listen((host.clone(), config.indexer_port), Bincode::default).await?;
+    let indexer = indexer_listener
         // Ignore accept errors.
         .filter_map(|r| future::ready(r.ok()))
         // Establish serve channel
         .map(BaseChannel::with_defaults)
         .map(|channel| {
             let server =
-                SuperIndexerServer::new(channel.transport().peer_addr().unwrap(), &index, &dl_ports, &backtrace);
+                IndexerServer::new(channel.transport().peer_addr().unwrap(), &index, &dl_ports);
             channel
                 .execute(server.serve())
                 .for_each(|response| async move {
@@ -64,8 +69,28 @@ async fn main() -> Result<()> {
         })
         // Max 10 channels.
         .buffer_unordered(10)
-        .for_each(|_| async {})
-        .await;
+        .for_each(|_| async {});
+
+    let backtrace = Arc::new(DashMap::new());
+    let superpeer_listener = tcp::listen((host, config.superpeer_port), Bincode::default).await?;
+    let superpeer = superpeer_listener
+        // Ignore accept errors.
+        .filter_map(|r| future::ready(r.ok()))
+        // Establish serve channel
+        .map(BaseChannel::with_defaults)
+        .map(|channel| {
+            let server = SuperPeerServer::new(channel.transport().peer_addr().unwrap(), &backtrace);
+            channel
+                .execute(server.serve())
+                .for_each(|response| async move {
+                    tokio::spawn(response);
+                })
+        })
+        // Max 10 channels.
+        .buffer_unordered(10)
+        .for_each(|_| async {});
+
+    future::join(indexer, superpeer).await;
 
     Ok(())
 }
