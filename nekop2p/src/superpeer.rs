@@ -1,11 +1,11 @@
-use std::net::SocketAddr;
+use std::{net::SocketAddr, ops::Deref};
 use std::sync::Arc;
 
 use dashmap::DashMap;
 use tarpc::context::Context;
 use uuid::Uuid;
 
-use crate::SuperPeer;
+use crate::{SuperPeer, IndexerServer};
 
 pub struct TTLEntry<T> {
     val: T,
@@ -26,17 +26,17 @@ impl<T> TTLEntry<T> {
 /// Reference [SuperPeer] overlay implementation
 #[derive(Clone)]
 pub struct SuperPeerServer {
-    /// Peer address
-    addr: SocketAddr,
+    /// Underlying [IndexerServer]
+    s: IndexerServer,
 
     /// Index for back-propogation of queries
     backtrace: Arc<DashMap<Uuid, TTLEntry<SocketAddr>>>,
 }
 
 impl SuperPeerServer {
-    pub fn new(addr: SocketAddr, backtrace: &Arc<DashMap<Uuid, TTLEntry<SocketAddr>>>) -> Self {
+    pub fn new(s: IndexerServer, backtrace: &Arc<DashMap<Uuid, TTLEntry<SocketAddr>>>) -> Self {
         SuperPeerServer {
-            addr,
+            s,
             backtrace: Arc::clone(backtrace),
         }
     }
@@ -46,6 +46,11 @@ impl SuperPeerServer {
 
 impl SuperPeer for SuperPeerServer {
     async fn query(self, _: Context, msg_id: Uuid, ttl: u8, filename: String) {
+        if self.backtrace.contains_key(&msg_id) {
+            // already exists, meaning query has been processed. ignore.
+            return;
+        }
+
         // on query, append to backtrace table
         // TODO don't hardcode TTL
         self.backtrace.insert(
@@ -55,6 +60,8 @@ impl SuperPeer for SuperPeerServer {
                 ttl: unix_time() + 30,
             },
         );
+
+        // check for files, returning a [query_hit] on success
     }
 
     async fn query_hit(
@@ -70,6 +77,13 @@ impl SuperPeer for SuperPeerServer {
             Some(x) => x,
             None => return,
         };
+    }
+}
+
+impl Deref for SuperPeerServer {
+    type Target = IndexerServer;
+    fn deref(&self) -> &Self::Target {
+        &self.s
     }
 }
 
