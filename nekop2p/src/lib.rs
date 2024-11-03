@@ -12,7 +12,7 @@ mod server;
 mod superpeer;
 pub use peer::PeerServer;
 pub use server::IndexerServer;
-pub use superpeer::{SuperPeerServer, TTLEntry};
+pub use superpeer::{SuperPeerConfig, SuperPeerServer, TTLEntry};
 
 use std::net::SocketAddr;
 
@@ -26,6 +26,9 @@ pub trait SuperPeer {
 
     /// Inform a peer that a given peer has `filename` via back propogation
     async fn query_hit(msg_id: Uuid, ttl: u8, filename: String, peer: SocketAddr);
+
+    /// Query `filename` and send over the raw bytes if it exists
+    async fn obtain(filename: String) -> Option<Vec<u8>>;
 }
 
 /// RPC scheme for interacting with an [IndexerServer]

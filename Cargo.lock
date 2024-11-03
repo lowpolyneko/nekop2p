@@ -731,6 +731,7 @@ name = "nekop2p"
 version = "0.1.0"
 dependencies = [
  "dashmap",
+ "serde",
  "tarpc",
  "tokio",
  "uuid",
@@ -758,7 +759,6 @@ dependencies = [
  "dashmap",
  "futures",
  "nekop2p",
- "serde",
  "tarpc",
  "tokio",
  "toml",

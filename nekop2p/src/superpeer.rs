@@ -1,11 +1,12 @@
-use std::{net::SocketAddr, ops::Deref};
+use std::net::SocketAddr;
 use std::sync::Arc;
 
 use dashmap::DashMap;
+use serde::Deserialize;
 use tarpc::context::Context;
 use uuid::Uuid;
 
-use crate::{SuperPeer, IndexerServer};
+use crate::SuperPeer;
 
 pub struct TTLEntry<T> {
     val: T,
@@ -23,20 +24,40 @@ impl<T> TTLEntry<T> {
     }
 }
 
+/// [SuperPeer] config values
+#[derive(Deserialize)]
+pub struct SuperPeerConfig {
+    /// Host
+    pub host: Option<String>,
+
+    /// [SuperPeerServer] Port
+    pub port: u16,
+
+    /// List of leaf nodes
+    pub leaf_nodes: Vec<SocketAddr>,
+
+    /// List of leaf nodes
+    pub superpeer_neighbors: Vec<SocketAddr>,
+}
+
 /// Reference [SuperPeer] overlay implementation
 #[derive(Clone)]
 pub struct SuperPeerServer {
-    /// Underlying [IndexerServer]
-    s: IndexerServer,
+    /// Address of the remote peer
+    addr: SocketAddr,
+
+    /// Config for super peer
+    config: Arc<SuperPeerConfig>,
 
     /// Index for back-propogation of queries
     backtrace: Arc<DashMap<Uuid, TTLEntry<SocketAddr>>>,
 }
 
 impl SuperPeerServer {
-    pub fn new(s: IndexerServer, backtrace: &Arc<DashMap<Uuid, TTLEntry<SocketAddr>>>) -> Self {
+    pub fn new(addr: SocketAddr, config: &Arc<SuperPeerConfig>, backtrace: &Arc<DashMap<Uuid, TTLEntry<SocketAddr>>>) -> Self {
         SuperPeerServer {
-            s,
+            addr,
+            config: Arc::clone(config),
             backtrace: Arc::clone(backtrace),
         }
     }
@@ -45,7 +66,7 @@ impl SuperPeerServer {
 }
 
 impl SuperPeer for SuperPeerServer {
-    async fn query(self, _: Context, msg_id: Uuid, ttl: u8, filename: String) {
+    async fn query(self, c: Context, msg_id: Uuid, ttl: u8, filename: String) {
         if self.backtrace.contains_key(&msg_id) {
             // already exists, meaning query has been processed. ignore.
             return;
@@ -62,6 +83,14 @@ impl SuperPeer for SuperPeerServer {
         );
 
         // check for files, returning a [query_hit] on success
+        self.obtain(c, filename).await;
+
+        // propogate query if ttl is non-zero
+        if ttl < 1 {
+            return;
+        }
+
+        
     }
 
     async fn query_hit(
@@ -78,12 +107,9 @@ impl SuperPeer for SuperPeerServer {
             None => return,
         };
     }
-}
 
-impl Deref for SuperPeerServer {
-    type Target = IndexerServer;
-    fn deref(&self) -> &Self::Target {
-        &self.s
+    async fn obtain(self, _: Context, filename: String) -> Option<Vec<u8>> {
+        None
     }
 }
 
