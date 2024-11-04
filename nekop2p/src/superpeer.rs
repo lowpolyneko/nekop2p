@@ -3,10 +3,11 @@ use std::sync::Arc;
 
 use dashmap::DashMap;
 use serde::Deserialize;
-use tarpc::context::Context;
+use tarpc::{client, context::Context, serde_transport::tcp, tokio_serde::formats::Bincode};
+use tokio::fs;
 use uuid::Uuid;
 
-use crate::SuperPeer;
+use crate::{SuperPeer, SuperPeerClient};
 
 pub struct TTLEntry<T> {
     val: T,
@@ -33,11 +34,29 @@ pub struct SuperPeerConfig {
     /// [SuperPeerServer] Port
     pub port: u16,
 
+    /// Node type specific config, either [SuperNodeConfig] or [LeafNodeConfig]
+    pub node_config: NodeConfig,
+}
+
+#[derive(Deserialize)]
+pub enum NodeConfig {
+    SuperNode(SuperNodeConfig),
+    LeafNode(LeafNodeConfig),
+}
+
+#[derive(Deserialize)]
+pub struct SuperNodeConfig {
     /// List of leaf nodes
     pub leaf_nodes: Vec<SocketAddr>,
 
     /// List of leaf nodes
     pub superpeer_neighbors: Vec<SocketAddr>,
+}
+
+#[derive(Deserialize)]
+pub struct LeafNodeConfig {
+    /// [SuperPeer] to connect to
+    pub superpeer: SocketAddr,
 }
 
 /// Reference [SuperPeer] overlay implementation
@@ -54,7 +73,11 @@ pub struct SuperPeerServer {
 }
 
 impl SuperPeerServer {
-    pub fn new(addr: SocketAddr, config: &Arc<SuperPeerConfig>, backtrace: &Arc<DashMap<Uuid, TTLEntry<SocketAddr>>>) -> Self {
+    pub fn new(
+        addr: SocketAddr,
+        config: &Arc<SuperPeerConfig>,
+        backtrace: &Arc<DashMap<Uuid, TTLEntry<SocketAddr>>>,
+    ) -> Self {
         SuperPeerServer {
             addr,
             config: Arc::clone(config),
@@ -83,14 +106,24 @@ impl SuperPeer for SuperPeerServer {
         );
 
         // check for files, returning a [query_hit] on success
-        self.obtain(c, filename).await;
+        if let NodeConfig::LeafNode(node_config) = &self.config.node_config {
+            let transport = tcp::connect(ip, Bincode::default);
+            let client = SuperPeerClient::new(client::Config::default(), transport.await.unwrap()).spawn();
+            let _ = client.query_hit(c, msg_id, ttl - 1, filename.clone()).await;
+        }
 
         // propogate query if ttl is non-zero
         if ttl < 1 {
             return;
         }
 
-        
+        if let NodeConfig::SuperNode(node_config) = &self.config.node_config {
+            for ip in &node_config.leaf_nodes {
+                let transport = tcp::connect(ip, Bincode::default);
+                let client = SuperPeerClient::new(client::Config::default(), transport.await.unwrap()).spawn();
+                let _ = client.query(c, msg_id, ttl - 1, filename.clone()).await;
+            }
+        }
     }
 
     async fn query_hit(
@@ -109,7 +142,7 @@ impl SuperPeer for SuperPeerServer {
     }
 
     async fn obtain(self, _: Context, filename: String) -> Option<Vec<u8>> {
-        None
+        fs::read(filename).await.ok()
     }
 }
 
