@@ -108,7 +108,8 @@ impl SuperPeer for SuperPeerServer {
         // check for files, returning a [query_hit] on success
         if let NodeConfig::LeafNode(node_config) = &self.config.node_config {
             let transport = tcp::connect(ip, Bincode::default);
-            let client = SuperPeerClient::new(client::Config::default(), transport.await.unwrap()).spawn();
+            let client =
+                SuperPeerClient::new(client::Config::default(), transport.await.unwrap()).spawn();
             let _ = client.query_hit(c, msg_id, ttl - 1, filename.clone()).await;
         }
 
@@ -120,7 +121,9 @@ impl SuperPeer for SuperPeerServer {
         if let NodeConfig::SuperNode(node_config) = &self.config.node_config {
             for ip in &node_config.leaf_nodes {
                 let transport = tcp::connect(ip, Bincode::default);
-                let client = SuperPeerClient::new(client::Config::default(), transport.await.unwrap()).spawn();
+                let client =
+                    SuperPeerClient::new(client::Config::default(), transport.await.unwrap())
+                        .spawn();
                 let _ = client.query(c, msg_id, ttl - 1, filename.clone()).await;
             }
         }
@@ -144,6 +147,10 @@ impl SuperPeer for SuperPeerServer {
     async fn obtain(self, _: Context, filename: String) -> Option<Vec<u8>> {
         fs::read(filename).await.ok()
     }
+
+    async fn register(self, context: Context, filename: String, addr: SocketAddr) {}
+
+    async fn deregister(self, context: Context, filename: String, addr: SocketAddr) {}
 }
 
 fn unix_time() -> u64 {

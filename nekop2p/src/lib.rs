@@ -29,6 +29,12 @@ pub trait SuperPeer {
 
     /// Query `filename` and send over the raw bytes if it exists
     async fn obtain(filename: String) -> Option<Vec<u8>>;
+
+    /// Register `filename` in index
+    async fn register(filename: String, addr: SocketAddr);
+
+    /// Deregister `filename` in index
+    async fn deregister(filename: String, addr: SocketAddr);
 }
 
 /// RPC scheme for interacting with an [IndexerServer]
