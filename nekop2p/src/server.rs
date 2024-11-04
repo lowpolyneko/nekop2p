@@ -2,6 +2,7 @@ use std::{net::SocketAddr, sync::Arc};
 
 use dashmap::{DashMap, DashSet};
 use tarpc::context::Context;
+use uuid::Uuid;
 
 use crate::Indexer;
 
@@ -96,5 +97,9 @@ impl Indexer for IndexerServer {
         self.dl_ports.remove(&self.addr);
 
         self.print_index();
+    }
+
+    async fn query(self, c: Context, msg_id: Uuid, filename: String, ttl: u8) -> Vec<SocketAddr> {
+        vec![]
     }
 }
