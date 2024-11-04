@@ -128,12 +128,20 @@ impl SuperPeer for SuperPeerServer {
         );
 
         // check for files, returning a [query_hit] on success
-        //if let NodeConfig::LeafNode(node_config) = &self.config.node_config {
-        //    let transport = tcp::connect(ip, Bincode::default);
-        //    let client =
-        //        SuperPeerClient::new(client::Config::default(), transport.await.unwrap()).spawn();
-        //    let _ = client.query_hit(c, msg_id, ttl - 1, filename.clone()).await;
-        //}
+        if let Some(index) = self.index {
+            println!("Queried {filename} for {0}", self.addr);
+            index
+                .entry(filename)
+                .or_default()
+                .iter()
+                .for_each(|peer| async {
+                    let transport = tcp::connect(peer, Bincode::default);
+                    let client =
+                        SuperPeerClient::new(client::Config::default(), transport.await.unwrap())
+                            .spawn();
+                    let _ = client.query_hit(c, msg_id, ttl, 
+                });
+        }
 
         // propogate query if ttl is non-zero
         if ttl < 1 {
