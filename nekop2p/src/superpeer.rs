@@ -1,7 +1,7 @@
 use std::net::SocketAddr;
 use std::sync::Arc;
 
-use dashmap::DashMap;
+use dashmap::{DashMap, DashSet};
 use serde::Deserialize;
 use tarpc::{client, context::Context, serde_transport::tcp, tokio_serde::formats::Bincode};
 use tokio::fs;
@@ -68,6 +68,9 @@ pub struct SuperPeerServer {
     /// Config for super peer
     config: Arc<SuperPeerConfig>,
 
+    /// Index shared between all connections
+    index: Option<Arc<DashMap<String, DashSet<SocketAddr>>>>,
+
     /// Index for back-propogation of queries
     backtrace: Arc<DashMap<Uuid, TTLEntry<SocketAddr>>>,
 }
@@ -76,16 +79,35 @@ impl SuperPeerServer {
     pub fn new(
         addr: SocketAddr,
         config: &Arc<SuperPeerConfig>,
+        index: Option<&Arc<DashMap<String, DashSet<SocketAddr>>>>,
         backtrace: &Arc<DashMap<Uuid, TTLEntry<SocketAddr>>>,
     ) -> Self {
         SuperPeerServer {
             addr,
             config: Arc::clone(config),
+            index: match index {
+                Some(i) => Some(Arc::clone(i)),
+                None => None,
+            },
             backtrace: Arc::clone(backtrace),
         }
     }
 
+    /// Prune all expired entries in backtrace
     fn prune_backtrace_table(self) {}
+
+    /// Prints all entries in index
+    fn print_index(self) {
+        if let Some(index) = self.index {
+            index.iter().for_each(|entry| {
+                let filename = entry.key();
+                entry.value().iter().for_each(|v| {
+                    let peer = v.key();
+                    println!("{filename}: {peer}");
+                });
+            });
+        }
+    }
 }
 
 impl SuperPeer for SuperPeerServer {
@@ -106,12 +128,12 @@ impl SuperPeer for SuperPeerServer {
         );
 
         // check for files, returning a [query_hit] on success
-        if let NodeConfig::LeafNode(node_config) = &self.config.node_config {
-            let transport = tcp::connect(ip, Bincode::default);
-            let client =
-                SuperPeerClient::new(client::Config::default(), transport.await.unwrap()).spawn();
-            let _ = client.query_hit(c, msg_id, ttl - 1, filename.clone()).await;
-        }
+        //if let NodeConfig::LeafNode(node_config) = &self.config.node_config {
+        //    let transport = tcp::connect(ip, Bincode::default);
+        //    let client =
+        //        SuperPeerClient::new(client::Config::default(), transport.await.unwrap()).spawn();
+        //    let _ = client.query_hit(c, msg_id, ttl - 1, filename.clone()).await;
+        //}
 
         // propogate query if ttl is non-zero
         if ttl < 1 {
@@ -145,12 +167,34 @@ impl SuperPeer for SuperPeerServer {
     }
 
     async fn obtain(self, _: Context, filename: String) -> Option<Vec<u8>> {
+        println!(
+            "Handling download request for {0} from {1}",
+            filename, self.addr
+        );
         fs::read(filename).await.ok()
     }
 
-    async fn register(self, context: Context, filename: String, addr: SocketAddr) {}
+    async fn register(self, _: Context, filename: String, dl_port: u16) {
+        println!("Registered {filename} for {0}", self.addr);
+        if let Some(index) = &self.index {
+            let list = index.entry(filename).or_default();
+            let mut addr = self.addr;
+            addr.set_port(dl_port);
+            list.insert(addr);
+        }
+        self.print_index();
+    }
 
-    async fn deregister(self, context: Context, filename: String, addr: SocketAddr) {}
+    async fn deregister(self, _: Context, filename: String, dl_port: u16) {
+        println!("Deregistered {filename} for {0}", self.addr);
+        if let Some(index) = &self.index {
+            let list = index.entry(filename).or_default();
+            let mut addr = self.addr;
+            addr.set_port(dl_port);
+            list.remove(&addr);
+        }
+        self.print_index();
+    }
 }
 
 fn unix_time() -> u64 {

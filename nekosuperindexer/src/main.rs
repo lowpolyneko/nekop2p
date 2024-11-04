@@ -37,6 +37,7 @@ async fn main() -> Result<()> {
 
     println!("Starting superpeer on {0}:{1}", host, config.port);
 
+    let index = Arc::new(DashMap::new());
     let backtrace = Arc::new(DashMap::new());
     let listener = tcp::listen((host, config.port), Bincode::default).await?;
     listener
@@ -48,6 +49,7 @@ async fn main() -> Result<()> {
             let server = SuperPeerServer::new(
                 channel.transport().peer_addr().unwrap(),
                 &config,
+                Some(&index),
                 &backtrace,
             );
             channel

@@ -31,10 +31,10 @@ pub trait SuperPeer {
     async fn obtain(filename: String) -> Option<Vec<u8>>;
 
     /// Register `filename` in index
-    async fn register(filename: String, addr: SocketAddr);
+    async fn register(filename: String, dl_port: u16);
 
     /// Deregister `filename` in index
-    async fn deregister(filename: String, addr: SocketAddr);
+    async fn deregister(filename: String, dl_port: u16);
 }
 
 /// RPC scheme for interacting with an [IndexerServer]
