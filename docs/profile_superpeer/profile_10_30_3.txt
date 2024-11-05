@@ -1,0 +1,267 @@
+Welcome to the nekop2p profiler!
+Starting 10 indexers...
+Spawning 30 clients
+Registering 1k.bin on a peer
+Registered 1k.bin for 127.0.0.1:42748
+1k.bin: 127.0.0.1:42748
+Registering 2k.bin on a peer
+Registered 2k.bin for 127.0.0.1:53102
+2k.bin: 127.0.0.1:53102
+Registering 3k.bin on a peer
+Registered 3k.bin for 127.0.0.1:53674
+3k.bin: 127.0.0.1:53674
+Registering 4k.bin on a peer
+Registered 4k.bin for 127.0.0.1:48886
+4k.bin: 127.0.0.1:48886
+Registering 5k.bin on a peer
+Registered 5k.bin for 127.0.0.1:35102
+5k.bin: 127.0.0.1:35102
+Registering 6k.bin on a peer
+Registered 6k.bin for 127.0.0.1:56814
+6k.bin: 127.0.0.1:56814
+Registering 7k.bin on a peer
+Registered 7k.bin for 127.0.0.1:34744
+7k.bin: 127.0.0.1:34744
+Registering 8k.bin on a peer
+Registered 8k.bin for 127.0.0.1:46564
+8k.bin: 127.0.0.1:46564
+Registering 9k.bin on a peer
+Registered 9k.bin for 127.0.0.1:58034
+9k.bin: 127.0.0.1:58034
+Registering 10k.bin on a peer
+Registered 10k.bin for 127.0.0.1:41042
+10k.bin: 127.0.0.1:41042
+Registering 1k.bin on a peer
+Registered 1k.bin for 127.0.0.1:42756
+1k.bin: 127.0.0.1:42748
+1k.bin: 127.0.0.1:42756
+Registering 2k.bin on a peer
+Registered 2k.bin for 127.0.0.1:53114
+2k.bin: 127.0.0.1:53102
+2k.bin: 127.0.0.1:53114
+Registering 3k.bin on a peer
+Registered 3k.bin for 127.0.0.1:53688
+3k.bin: 127.0.0.1:53674
+3k.bin: 127.0.0.1:53688
+Registering 4k.bin on a peer
+Registered 4k.bin for 127.0.0.1:48898
+4k.bin: 127.0.0.1:48898
+4k.bin: 127.0.0.1:48886
+Registering 5k.bin on a peer
+Registered 5k.bin for 127.0.0.1:35114
+5k.bin: 127.0.0.1:35114
+5k.bin: 127.0.0.1:35102
+Registering 6k.bin on a peer
+Registered 6k.bin for 127.0.0.1:56816
+6k.bin: 127.0.0.1:56816
+6k.bin: 127.0.0.1:56814
+Registering 7k.bin on a peer
+Registered 7k.bin for 127.0.0.1:34758
+7k.bin: 127.0.0.1:34744
+7k.bin: 127.0.0.1:34758
+Registering 8k.bin on a peer
+Registered 8k.bin for 127.0.0.1:46578
+8k.bin: 127.0.0.1:46578
+8k.bin: 127.0.0.1:46564
+Registering 9k.bin on a peer
+Registered 9k.bin for 127.0.0.1:58038
+9k.bin: 127.0.0.1:58038
+9k.bin: 127.0.0.1:58034
+Registering 10k.bin on a peer
+Registered 10k.bin for 127.0.0.1:41048
+10k.bin: 127.0.0.1:41048
+10k.bin: 127.0.0.1:41042
+Registering 1k.bin on a peer
+Registered 1k.bin for 127.0.0.1:42762
+1k.bin: 127.0.0.1:42748
+1k.bin: 127.0.0.1:42756
+1k.bin: 127.0.0.1:42762
+Registering 2k.bin on a peer
+Registered 2k.bin for 127.0.0.1:53116
+2k.bin: 127.0.0.1:53102
+2k.bin: 127.0.0.1:53116
+2k.bin: 127.0.0.1:53114
+Registering 3k.bin on a peer
+Registered 3k.bin for 127.0.0.1:53690
+3k.bin: 127.0.0.1:53690
+3k.bin: 127.0.0.1:53674
+3k.bin: 127.0.0.1:53688
+Registering 4k.bin on a peer
+Registered 4k.bin for 127.0.0.1:48912
+4k.bin: 127.0.0.1:48898
+4k.bin: 127.0.0.1:48886
+4k.bin: 127.0.0.1:48912
+Registering 5k.bin on a peer
+Registered 5k.bin for 127.0.0.1:35128
+5k.bin: 127.0.0.1:35128
+5k.bin: 127.0.0.1:35114
+5k.bin: 127.0.0.1:35102
+Registering 6k.bin on a peer
+Registered 6k.bin for 127.0.0.1:56820
+6k.bin: 127.0.0.1:56816
+6k.bin: 127.0.0.1:56814
+6k.bin: 127.0.0.1:56820
+Registering 7k.bin on a peer
+Registered 7k.bin for 127.0.0.1:34772
+7k.bin: 127.0.0.1:34744
+7k.bin: 127.0.0.1:34772
+7k.bin: 127.0.0.1:34758
+Registering 8k.bin on a peer
+Registered 8k.bin for 127.0.0.1:46584
+8k.bin: 127.0.0.1:46578
+8k.bin: 127.0.0.1:46564
+8k.bin: 127.0.0.1:46584
+Registering 9k.bin on a peer
+Registered 9k.bin for 127.0.0.1:58040
+9k.bin: 127.0.0.1:58038
+9k.bin: 127.0.0.1:58034
+9k.bin: 127.0.0.1:58040
+Registering 10k.bin on a peer
+Registered 10k.bin for 127.0.0.1:41054
+10k.bin: 127.0.0.1:41048
+10k.bin: 127.0.0.1:41042
+10k.bin: 127.0.0.1:41054
+Starting runs!
+Querying 1k.bin for 127.0.0.1:42748 (id: c0e5e492-a93d-4767-a857-b64c4b65fb3e)
+Searched 1k.bin for 127.0.0.1:42748
+Propagating query of 1k.bin to 127.0.0.1:5009 (id: c0e5e492-a93d-4767-a857-b64c4b65fb3e)
+Querying 1k.bin for 127.0.0.1:46564 (id: 7456021f-b57f-4b85-940e-9984d3fb96df)
+Querying 1k.bin for 127.0.0.1:42756 (id: 1cc8c67e-119d-4fbd-a205-4c243203cc61)
+Querying 1k.bin for 127.0.0.1:58038 (id: 57022b30-6bd9-47a7-893d-4bcc1b57225d)
+Searched 1k.bin for 127.0.0.1:58038
+Querying 1k.bin for 127.0.0.1:56820 (id: 745944d3-4f74-4f19-9824-980526534d7b)
+Searched 1k.bin for 127.0.0.1:46564
+Searched 1k.bin for 127.0.0.1:56820
+Querying 1k.bin for 127.0.0.1:41048 (id: 846c9def-8a37-4de6-b4f7-64dcff15eb81)
+Searched 1k.bin for 127.0.0.1:41048
+Searched 1k.bin for 127.0.0.1:42756
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 846c9def-8a37-4de6-b4f7-64dcff15eb81)
+Querying 1k.bin for 127.0.0.1:46584 (id: c48e3598-85d6-48bd-92d9-c358e94aa288)
+Searched 1k.bin for 127.0.0.1:46584
+Querying 1k.bin for 127.0.0.1:34772 (id: ac5c5514-6194-4132-9a61-c66ed8d201ea)
+Searched 1k.bin for 127.0.0.1:34772
+Querying 1k.bin for 127.0.0.1:53116 (id: 0c53ab05-9788-4e30-bc99-11ef1997f41c)
+Searched 1k.bin for 127.0.0.1:53116
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 57022b30-6bd9-47a7-893d-4bcc1b57225d)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 0c53ab05-9788-4e30-bc99-11ef1997f41c)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 7456021f-b57f-4b85-940e-9984d3fb96df)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 745944d3-4f74-4f19-9824-980526534d7b)
+Propagating query of 1k.bin to 127.0.0.1:5009 (id: 1cc8c67e-119d-4fbd-a205-4c243203cc61)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: c48e3598-85d6-48bd-92d9-c358e94aa288)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: ac5c5514-6194-4132-9a61-c66ed8d201ea)
+Querying 1k.bin for 127.0.0.1:41042 (id: e59e86b5-3781-4b40-8534-76ad4e672d9b)
+Querying 1k.bin for 127.0.0.1:46578 (id: ad96a2b3-db71-49f3-a470-4f8c672ab78a)
+Searched 1k.bin for 127.0.0.1:41042
+Searched 1k.bin for 127.0.0.1:46578
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: e59e86b5-3781-4b40-8534-76ad4e672d9b)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: ad96a2b3-db71-49f3-a470-4f8c672ab78a)
+Querying 1k.bin for 127.0.0.1:53690 (id: af454f5e-896e-4f44-850e-376a9ea1cfa5)
+Searched 1k.bin for 127.0.0.1:53690
+Querying 1k.bin for 127.0.0.1:34744 (id: 06e18683-03aa-4c45-ab75-40ab3c070057)
+Searched 1k.bin for 127.0.0.1:34744
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: af454f5e-896e-4f44-850e-376a9ea1cfa5)
+Querying 1k.bin for 127.0.0.1:35114 (id: fc2fb1b1-0588-4291-96a4-970011f2c691)
+Searched 1k.bin for 127.0.0.1:35114
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 06e18683-03aa-4c45-ab75-40ab3c070057)
+Querying 1k.bin for 127.0.0.1:58040 (id: 6d71d595-d0ab-4825-ad25-827d2c158b64)
+Searched 1k.bin for 127.0.0.1:58040
+Querying 1k.bin for 127.0.0.1:58034 (id: 24afdf94-3e9f-4254-8ca1-fe82d2d4fad6)
+Searched 1k.bin for 127.0.0.1:58034
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: fc2fb1b1-0588-4291-96a4-970011f2c691)
+Querying 1k.bin for 127.0.0.1:53102 (id: 54017a77-5e33-494c-ab69-b4a9afbb843d)
+Searched 1k.bin for 127.0.0.1:53102
+Querying 1k.bin for 127.0.0.1:34758 (id: fa3c19c6-5794-4d5b-af81-2752bd88fd1b)
+Searched 1k.bin for 127.0.0.1:34758
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 6d71d595-d0ab-4825-ad25-827d2c158b64)
+Querying 1k.bin for 127.0.0.1:53674 (id: bc0ea50c-2bfd-4243-944f-fe027d701e86)
+Searched 1k.bin for 127.0.0.1:53674
+Querying 1k.bin for 127.0.0.1:41054 (id: b473e0f4-e348-4108-825d-26ce71d2cb96)
+Searched 1k.bin for 127.0.0.1:41054
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 24afdf94-3e9f-4254-8ca1-fe82d2d4fad6)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 54017a77-5e33-494c-ab69-b4a9afbb843d)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: fa3c19c6-5794-4d5b-af81-2752bd88fd1b)
+Querying 1k.bin for 127.0.0.1:48912 (id: 79843766-22de-4719-bb2b-99b0072edd39)
+Querying 1k.bin for 127.0.0.1:53688 (id: 2a493832-008b-4ac6-8162-12c8ccaa401c)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: bc0ea50c-2bfd-4243-944f-fe027d701e86)
+Querying 1k.bin for 127.0.0.1:56816 (id: 39778993-a2c9-43ac-84bd-6001c5197e9e)
+Querying 1k.bin for 127.0.0.1:35128 (id: 03a0a405-e19b-410b-925e-6a5733320014)
+Searched 1k.bin for 127.0.0.1:35128
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: b473e0f4-e348-4108-825d-26ce71d2cb96)
+Searched 1k.bin for 127.0.0.1:48912
+Querying 1k.bin for 127.0.0.1:53114 (id: baff3044-aef3-4ac5-ae06-fc32b623dace)
+Searched 1k.bin for 127.0.0.1:53114
+Searched 1k.bin for 127.0.0.1:53688
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 2a493832-008b-4ac6-8162-12c8ccaa401c)
+Querying 1k.bin for 127.0.0.1:42762 (id: f7cb9f05-0537-4eb5-9306-9c13848d0f60)
+Searched 1k.bin for 127.0.0.1:42762
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 03a0a405-e19b-410b-925e-6a5733320014)
+Querying 1k.bin for 127.0.0.1:56814 (id: 024a253f-d16e-45bc-aed4-c26340d8a21a)
+Searched 1k.bin for 127.0.0.1:56814
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 79843766-22de-4719-bb2b-99b0072edd39)
+Querying 1k.bin for 127.0.0.1:48898 (id: d6ffef4e-09d3-4513-b2a5-a2f76c8474e6)
+Searched 1k.bin for 127.0.0.1:48898
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: baff3044-aef3-4ac5-ae06-fc32b623dace)
+Searched 1k.bin for 127.0.0.1:56816
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 39778993-a2c9-43ac-84bd-6001c5197e9e)
+Propagating query of 1k.bin to 127.0.0.1:5009 (id: f7cb9f05-0537-4eb5-9306-9c13848d0f60)
+Querying 1k.bin for 127.0.0.1:48886 (id: 0aa6c826-681c-4175-ace7-dabe877407f1)
+Searched 1k.bin for 127.0.0.1:48886
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 024a253f-d16e-45bc-aed4-c26340d8a21a)
+Querying 1k.bin for 127.0.0.1:35102 (id: dcac7f56-449c-4af2-990d-b741514f4904)
+Searched 1k.bin for 127.0.0.1:35102
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: d6ffef4e-09d3-4513-b2a5-a2f76c8474e6)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 0aa6c826-681c-4175-ace7-dabe877407f1)
+Querying 1k.bin for 127.0.0.1:42796 (id: 7456021f-b57f-4b85-940e-9984d3fb96df)
+Searched 1k.bin for 127.0.0.1:42796
+Propagating query of 1k.bin to 127.0.0.1:5009 (id: 7456021f-b57f-4b85-940e-9984d3fb96df)
+Querying 1k.bin for 127.0.0.1:42764 (id: 846c9def-8a37-4de6-b4f7-64dcff15eb81)
+Searched 1k.bin for 127.0.0.1:42764
+Querying 1k.bin for 127.0.0.1:42802 (id: 745944d3-4f74-4f19-9824-980526534d7b)
+Searched 1k.bin for 127.0.0.1:42802
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: dcac7f56-449c-4af2-990d-b741514f4904)
+Querying 1k.bin for 127.0.0.1:41056 (id: c0e5e492-a93d-4767-a857-b64c4b65fb3e)
+Searched 1k.bin for 127.0.0.1:41056
+Querying 1k.bin for 127.0.0.1:42794 (id: 0c53ab05-9788-4e30-bc99-11ef1997f41c)
+Searched 1k.bin for 127.0.0.1:42794
+Propagating query of 1k.bin to 127.0.0.1:5009 (id: 846c9def-8a37-4de6-b4f7-64dcff15eb81)
+Querying 1k.bin for 127.0.0.1:42780 (id: 57022b30-6bd9-47a7-893d-4bcc1b57225d)
+Searched 1k.bin for 127.0.0.1:42780
+Propagating query of 1k.bin to 127.0.0.1:5009 (id: 745944d3-4f74-4f19-9824-980526534d7b)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: c0e5e492-a93d-4767-a857-b64c4b65fb3e)
+Propagating query of 1k.bin to 127.0.0.1:5009 (id: 0c53ab05-9788-4e30-bc99-11ef1997f41c)
+Propagating query of 1k.bin to 127.0.0.1:5009 (id: 57022b30-6bd9-47a7-893d-4bcc1b57225d)
+Querying 1k.bin for 127.0.0.1:42812 (id: c48e3598-85d6-48bd-92d9-c358e94aa288)
+Searched 1k.bin for 127.0.0.1:42812
+Propagating query of 1k.bin to 127.0.0.1:5009 (id: c48e3598-85d6-48bd-92d9-c358e94aa288)
+Querying 1k.bin for 127.0.0.1:42816 (id: ac5c5514-6194-4132-9a61-c66ed8d201ea)
+Searched 1k.bin for 127.0.0.1:42816
+Propagating query of 1k.bin to 127.0.0.1:5009 (id: ac5c5514-6194-4132-9a61-c66ed8d201ea)
+Querying 1k.bin for 127.0.0.1:41064 (id: 1cc8c67e-119d-4fbd-a205-4c243203cc61)
+Querying 1k.bin for 127.0.0.1:41068 (id: f7cb9f05-0537-4eb5-9306-9c13848d0f60)
+Searched 1k.bin for 127.0.0.1:41064
+Searched 1k.bin for 127.0.0.1:41068
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 1cc8c67e-119d-4fbd-a205-4c243203cc61)
+Querying 1k.bin for 127.0.0.1:41076 (id: 7456021f-b57f-4b85-940e-9984d3fb96df)
+Querying 1k.bin for 127.0.0.1:41092 (id: 0c53ab05-9788-4e30-bc99-11ef1997f41c)
+Searched 1k.bin for 127.0.0.1:41092
+Querying 1k.bin for 127.0.0.1:41078 (id: 846c9def-8a37-4de6-b4f7-64dcff15eb81)
+Message 846c9def-8a37-4de6-b4f7-64dcff15eb81 already handled!
+Searched 1k.bin for 127.0.0.1:41076
+Querying 1k.bin for 127.0.0.1:41082 (id: 745944d3-4f74-4f19-9824-980526534d7b)
+Searched 1k.bin for 127.0.0.1:41082
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: f7cb9f05-0537-4eb5-9306-9c13848d0f60)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 0c53ab05-9788-4e30-bc99-11ef1997f41c)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 7456021f-b57f-4b85-940e-9984d3fb96df)
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 745944d3-4f74-4f19-9824-980526534d7b)
+Propagating query of 1k.bin to 127.0.0.1:5001 (id: 846c9def-8a37-4de6-b4f7-64dcff15eb81)
+Querying 1k.bin for 127.0.0.1:41098 (id: 57022b30-6bd9-47a7-893d-4bcc1b57225d)
+Searched 1k.bin for 127.0.0.1:41098
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 57022b30-6bd9-47a7-893d-4bcc1b57225d)
+Querying 1k.bin for 127.0.0.1:53124 (id: 846c9def-8a37-4de6-b4f7-64dcff15eb81)
+Searched 1k.bin for 127.0.0.1:53124
+Propagating query of 1k.bin to 127.0.0.1:5000 (id: 846c9def-8a37-4de6-b4f7-64dcff15eb81)
+Propagating query of 1k.bin to 127.0.0.1:5001 (id: e59e86b5-3781-4b40-8534-76ad4e672d9b)
+Propagating query of 1k.bin to 127.0.0.1:5001 (id: c48e3598-85d6-48bd-92d9-c358e94aa288)
+Propagating query of 1k.bin to 127.0.0.1:5001 (id: 2a493832-008b-4ac6-8162-12c8ccaa401c)
+Propagating query of 1k.bin to 127.0.0.1:5001 (id: 1cc8c67e-119d-4fbd-a205-4c243203cc61)
+Propagating query of 1k.bin to 127.0.0.1:5001 (id: c0e5e492-a93d-4767-a857-b64c4b65fb3e)

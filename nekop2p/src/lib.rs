@@ -14,6 +14,8 @@ pub use server::IndexerServer;
 
 use std::net::SocketAddr;
 
+use uuid::Uuid;
+
 /// RPC scheme for interacting with an [IndexerServer]
 #[tarpc::service]
 pub trait Indexer {
@@ -33,9 +35,12 @@ pub trait Indexer {
 
     /// Remove all mentions of peer from index and dl_ports
     async fn disconnect_peer();
+
+    /// Queries entire network for `filename` with a given ttl
+    async fn query(msg_id: Uuid, filename: String, ttl: u8) -> Vec<SocketAddr>;
 }
 
-/// RPC scheme for interacting with an [PeerServer]
+/// RPC scheme for interacting with a [PeerServer]
 #[tarpc::service]
 pub trait Peer {
     /// Query `filename` and send over the raw bytes if it exists

@@ -1,0 +1,608 @@
+Welcome to the nekop2p profiler!
+Starting 1 indexers...
+Spawning 1 clients
+Registering 1k.bin on a peer
+Registered 1k.bin for 127.0.0.1:45146
+1k.bin: 127.0.0.1:45146
+Starting runs!
+Querying 1k.bin for 127.0.0.1:45146 (id: 07b9ebe1-3136-404b-8589-29ebb945d372)
+Searched 1k.bin for 127.0.0.1:45146
+Run 0: 453.77µs
+Querying 2k.bin for 127.0.0.1:45146 (id: e14310a9-c2aa-481a-946b-ffce15e2671c)
+Searched 2k.bin for 127.0.0.1:45146
+Run 1: 272.32µs
+Querying 3k.bin for 127.0.0.1:45146 (id: aace64a6-f7d9-4097-b5a2-34d1503de971)
+Searched 3k.bin for 127.0.0.1:45146
+Run 2: 222.58µs
+Querying 4k.bin for 127.0.0.1:45146 (id: be11cee8-bf79-4056-9d0f-54d72b8e50b8)
+Searched 4k.bin for 127.0.0.1:45146
+Run 3: 218.85µs
+Querying 5k.bin for 127.0.0.1:45146 (id: 697d88b8-7eae-402f-bb6a-35985944effe)
+Searched 5k.bin for 127.0.0.1:45146
+Run 4: 150.01µs
+Querying 6k.bin for 127.0.0.1:45146 (id: 5060c110-5711-424f-adda-ae6616a121d8)
+Searched 6k.bin for 127.0.0.1:45146
+Run 5: 144.01µs
+Querying 7k.bin for 127.0.0.1:45146 (id: a798e212-a410-4f61-aa46-1a02aae9439a)
+Searched 7k.bin for 127.0.0.1:45146
+Run 6: 130.64µs
+Querying 8k.bin for 127.0.0.1:45146 (id: 9d4c8083-df9b-4a0c-9a3a-a75bc58f481b)
+Searched 8k.bin for 127.0.0.1:45146
+Run 7: 157.63µs
+Querying 9k.bin for 127.0.0.1:45146 (id: d37e3b66-64a6-48b0-a181-b9248f6f1847)
+Searched 9k.bin for 127.0.0.1:45146
+Run 8: 182.16µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 51900fe2-4955-4270-901f-8b20be61f9ce)
+Searched 10k.bin for 127.0.0.1:45146
+Run 9: 142.72µs
+Querying 1k.bin for 127.0.0.1:45146 (id: d0d916fc-11b8-4b65-bcc5-12420b52c721)
+Searched 1k.bin for 127.0.0.1:45146
+Run 10: 153.34µs
+Querying 2k.bin for 127.0.0.1:45146 (id: f810c14f-70bc-4554-ab1d-187db16ee6a9)
+Searched 2k.bin for 127.0.0.1:45146
+Run 11: 173.70µs
+Querying 3k.bin for 127.0.0.1:45146 (id: f8c7de21-bd6f-46f6-bb11-789597256559)
+Searched 3k.bin for 127.0.0.1:45146
+Run 12: 134.23µs
+Querying 4k.bin for 127.0.0.1:45146 (id: f96fc82a-f731-43d9-9580-45b53fec5a50)
+Searched 4k.bin for 127.0.0.1:45146
+Run 13: 127.66µs
+Querying 5k.bin for 127.0.0.1:45146 (id: 173ad9f0-7456-4f13-899a-0e5764f0d012)
+Searched 5k.bin for 127.0.0.1:45146
+Run 14: 132.15µs
+Querying 6k.bin for 127.0.0.1:45146 (id: 74b713a3-ddbf-4114-bd5e-3e45900a9d90)
+Searched 6k.bin for 127.0.0.1:45146
+Run 15: 128.37µs
+Querying 7k.bin for 127.0.0.1:45146 (id: b7da60f7-a52e-47cc-8247-27e45d7408f5)
+Searched 7k.bin for 127.0.0.1:45146
+Run 16: 119.16µs
+Querying 8k.bin for 127.0.0.1:45146 (id: dd30b814-7c56-44c4-9987-6d552e939f7c)
+Searched 8k.bin for 127.0.0.1:45146
+Run 17: 113.55µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 50489a8e-ce5a-4961-87c9-b4bf3ef09439)
+Searched 9k.bin for 127.0.0.1:45146
+Run 18: 111.59µs
+Querying 10k.bin for 127.0.0.1:45146 (id: ae1a005b-2863-426c-98b3-cfd4849323d3)
+Searched 10k.bin for 127.0.0.1:45146
+Run 19: 114.04µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 1a8d0ea4-deac-4d7c-a33d-eedd855dcd6b)
+Searched 1k.bin for 127.0.0.1:45146
+Run 20: 38.08µs
+Querying 2k.bin for 127.0.0.1:45146 (id: fa57ac50-6539-4593-983d-fa0619c11556)
+Searched 2k.bin for 127.0.0.1:45146
+Run 21: 37.76µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 729d600d-f261-4f4b-b110-86a5b956b780)
+Searched 3k.bin for 127.0.0.1:45146
+Run 22: 38.34µs
+Querying 4k.bin for 127.0.0.1:45146 (id: 7faa2ebb-10d0-4b6c-8785-83ba54247dca)
+Searched 4k.bin for 127.0.0.1:45146
+Run 23: 41.38µs
+Querying 5k.bin for 127.0.0.1:45146 (id: c64e6de5-eae6-45ca-8796-d5d37400f372)
+Searched 5k.bin for 127.0.0.1:45146
+Run 24: 41.56µs
+Querying 6k.bin for 127.0.0.1:45146 (id: 2e2656d5-ab7c-4eb0-ad5b-d47c10224a33)
+Searched 6k.bin for 127.0.0.1:45146
+Run 25: 39.09µs
+Querying 7k.bin for 127.0.0.1:45146 (id: a1429952-eb60-43b1-bfec-be97aaa56827)
+Searched 7k.bin for 127.0.0.1:45146
+Run 26: 40.22µs
+Querying 8k.bin for 127.0.0.1:45146 (id: 3887c2ee-5fa4-4d70-a2db-ba45bbf53921)
+Searched 8k.bin for 127.0.0.1:45146
+Run 27: 42.57µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 4d6b4ea8-4a73-4f0b-9f87-0f29ba3787c4)
+Searched 9k.bin for 127.0.0.1:45146
+Run 28: 43.11µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 32c7221c-b97c-40ad-a9d6-fcb616143c95)
+Searched 10k.bin for 127.0.0.1:45146
+Run 29: 51.65µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 7a1ac6d4-ddae-432f-aad3-996fdebbe99b)
+Searched 1k.bin for 127.0.0.1:45146
+Run 30: 43.11µs
+Querying 2k.bin for 127.0.0.1:45146 (id: 69d97366-7a7e-4a4e-bdae-ea4eee166185)
+Searched 2k.bin for 127.0.0.1:45146
+Run 31: 64.82µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 38019a74-2229-40f2-8694-203abf3cc3a8)
+Searched 3k.bin for 127.0.0.1:45146
+Run 32: 74.42µs
+Querying 4k.bin for 127.0.0.1:45146 (id: 42864860-c6aa-4ad3-a6db-4b0d6bd83e5a)
+Searched 4k.bin for 127.0.0.1:45146
+Run 33: 109.20µs
+Querying 5k.bin for 127.0.0.1:45146 (id: 8a78bfc1-a58b-4339-a5c3-fc7032ffe1cb)
+Searched 5k.bin for 127.0.0.1:45146
+Run 34: 74.24µs
+Querying 6k.bin for 127.0.0.1:45146 (id: f7828d16-868f-4a75-8d9c-c66262e44089)
+Searched 6k.bin for 127.0.0.1:45146
+Run 35: 63.29µs
+Querying 7k.bin for 127.0.0.1:45146 (id: 5e7405b0-6a4f-4d34-8ad2-bf082baea24b)
+Searched 7k.bin for 127.0.0.1:45146
+Run 36: 60.71µs
+Querying 8k.bin for 127.0.0.1:45146 (id: a51267ce-b7e1-432e-8928-a6ce6bd2ead9)
+Searched 8k.bin for 127.0.0.1:45146
+Run 37: 55.49µs
+Querying 9k.bin for 127.0.0.1:45146 (id: a65068e4-7cf6-47bb-bc14-16800f0311e5)
+Searched 9k.bin for 127.0.0.1:45146
+Run 38: 57.91µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 38ab70ee-41fd-4b1a-89ea-3b6569e2481f)
+Searched 10k.bin for 127.0.0.1:45146
+Run 39: 66.87µs
+Querying 1k.bin for 127.0.0.1:45146 (id: c27243d6-686a-49ce-b655-4aae6f0162a3)
+Searched 1k.bin for 127.0.0.1:45146
+Run 40: 75.98µs
+Querying 2k.bin for 127.0.0.1:45146 (id: f91cc40e-fcf7-437c-ad5e-9d40879cbba4)
+Searched 2k.bin for 127.0.0.1:45146
+Run 41: 73.37µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 89e433fa-34f9-4ac8-ba14-d78bce9c6e70)
+Searched 3k.bin for 127.0.0.1:45146
+Run 42: 78.07µs
+Querying 4k.bin for 127.0.0.1:45146 (id: bfbbba27-5dd3-4cb3-8a44-5df3ef2b2b03)
+Searched 4k.bin for 127.0.0.1:45146
+Run 43: 81.34µs
+Querying 5k.bin for 127.0.0.1:45146 (id: 7e2eb943-aedf-43c3-b900-8bad38698c7e)
+Searched 5k.bin for 127.0.0.1:45146
+Run 44: 66.77µs
+Querying 6k.bin for 127.0.0.1:45146 (id: 073f0f16-3360-4983-83f3-ea389225b691)
+Searched 6k.bin for 127.0.0.1:45146
+Run 45: 52.16µs
+Querying 7k.bin for 127.0.0.1:45146 (id: bb5ac690-0897-4358-94ce-2a4658aa3814)
+Searched 7k.bin for 127.0.0.1:45146
+Run 46: 52.28µs
+Querying 8k.bin for 127.0.0.1:45146 (id: 410bbe19-a644-4898-ace3-6308768c593e)
+Searched 8k.bin for 127.0.0.1:45146
+Run 47: 69.09µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 5823680c-9448-4f93-963b-14a4d1bdfdde)
+Searched 9k.bin for 127.0.0.1:45146
+Run 48: 57.49µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 64b9ba15-cde4-4b3e-adaa-28abc446a860)
+Searched 10k.bin for 127.0.0.1:45146
+Run 49: 49.15µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 2edc8d8d-2f54-4bbe-bf95-d56f5c525715)
+Searched 1k.bin for 127.0.0.1:45146
+Run 50: 58.35µs
+Querying 2k.bin for 127.0.0.1:45146 (id: 46df6a3a-3492-40e6-be3e-6c1504715e90)
+Searched 2k.bin for 127.0.0.1:45146
+Run 51: 60.43µs
+Querying 3k.bin for 127.0.0.1:45146 (id: cf1da184-42dd-49a5-a0b0-e961c9401ae4)
+Searched 3k.bin for 127.0.0.1:45146
+Run 52: 79.52µs
+Querying 4k.bin for 127.0.0.1:45146 (id: 4e20017f-da12-4ba4-ae8e-4493ccdb9528)
+Searched 4k.bin for 127.0.0.1:45146
+Run 53: 64.89µs
+Querying 5k.bin for 127.0.0.1:45146 (id: 617b46ca-c367-4b42-8632-40a5d1713857)
+Searched 5k.bin for 127.0.0.1:45146
+Run 54: 186.60µs
+Querying 6k.bin for 127.0.0.1:45146 (id: ed2d7f27-0b36-4085-baea-5bd07899cbdc)
+Searched 6k.bin for 127.0.0.1:45146
+Run 55: 102.03µs
+Querying 7k.bin for 127.0.0.1:45146 (id: 9685b914-1c3d-4875-a616-4ccf04c2216e)
+Searched 7k.bin for 127.0.0.1:45146
+Run 56: 140.99µs
+Querying 8k.bin for 127.0.0.1:45146 (id: 4e75efa8-755c-4a94-89b2-94231f92ebb8)
+Searched 8k.bin for 127.0.0.1:45146
+Run 57: 126.67µs
+Querying 9k.bin for 127.0.0.1:45146 (id: db8ed275-d4be-49b1-8f8d-78a85f2ab21e)
+Searched 9k.bin for 127.0.0.1:45146
+Run 58: 119.60µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 38d644e0-c31c-4d56-9329-e3bb34f4bb58)
+Searched 10k.bin for 127.0.0.1:45146
+Run 59: 113.42µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 468a03b9-94df-42cc-b110-eaa70f881344)
+Searched 1k.bin for 127.0.0.1:45146
+Run 60: 58.10µs
+Querying 2k.bin for 127.0.0.1:45146 (id: 9712971b-66c4-462e-9b8c-bd61b54f9b11)
+Searched 2k.bin for 127.0.0.1:45146
+Run 61: 36.23µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 6e0701ce-e799-4f06-8c71-30a236610282)
+Searched 3k.bin for 127.0.0.1:45146
+Run 62: 34.39µs
+Querying 4k.bin for 127.0.0.1:45146 (id: 40c9e221-84b7-4ac7-9175-4c9b499856cb)
+Searched 4k.bin for 127.0.0.1:45146
+Run 63: 44.00µs
+Querying 5k.bin for 127.0.0.1:45146 (id: c32a2b0a-3fbd-44cd-bf71-59064e9dfefe)
+Searched 5k.bin for 127.0.0.1:45146
+Run 64: 48.62µs
+Querying 6k.bin for 127.0.0.1:45146 (id: 95944364-7597-40f5-85bf-758443280c73)
+Searched 6k.bin for 127.0.0.1:45146
+Run 65: 38.76µs
+Querying 7k.bin for 127.0.0.1:45146 (id: 1d9e81ab-265e-42a2-9e65-c5a859856f3a)
+Searched 7k.bin for 127.0.0.1:45146
+Run 66: 38.03µs
+Querying 8k.bin for 127.0.0.1:45146 (id: b735251e-b124-4be3-b8c5-52e81ea2faad)
+Searched 8k.bin for 127.0.0.1:45146
+Run 67: 38.73µs
+Querying 9k.bin for 127.0.0.1:45146 (id: bf9a042e-e273-4f57-be1d-49e975eb61f3)
+Searched 9k.bin for 127.0.0.1:45146
+Run 68: 38.56µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 71835676-7c3b-421d-b71b-8f643b83e32d)
+Searched 10k.bin for 127.0.0.1:45146
+Run 69: 42.09µs
+Querying 1k.bin for 127.0.0.1:45146 (id: b7f7da52-dc82-40a8-81bb-6cd9f74af72d)
+Searched 1k.bin for 127.0.0.1:45146
+Run 70: 44.31µs
+Querying 2k.bin for 127.0.0.1:45146 (id: f4817a47-7f73-457a-bf16-e3fec1fc0318)
+Searched 2k.bin for 127.0.0.1:45146
+Run 71: 44.15µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 1f07c020-8ebd-49e0-a8d6-a272ddea51b0)
+Searched 3k.bin for 127.0.0.1:45146
+Run 72: 39.00µs
+Querying 4k.bin for 127.0.0.1:45146 (id: 303af9ac-c303-40bd-a881-99b782940e73)
+Searched 4k.bin for 127.0.0.1:45146
+Run 73: 39.91µs
+Querying 5k.bin for 127.0.0.1:45146 (id: a1dd0555-88f4-45e6-8e1f-cb4ce4bfe4cb)
+Searched 5k.bin for 127.0.0.1:45146
+Run 74: 44.44µs
+Querying 6k.bin for 127.0.0.1:45146 (id: 7f4f0788-aeeb-4d37-934d-921d7ba9b01d)
+Searched 6k.bin for 127.0.0.1:45146
+Run 75: 54.41µs
+Querying 7k.bin for 127.0.0.1:45146 (id: 23ee9428-c0b3-4635-8f19-bec1c29b6f5d)
+Searched 7k.bin for 127.0.0.1:45146
+Run 76: 50.16µs
+Querying 8k.bin for 127.0.0.1:45146 (id: 906362ea-740e-4d34-bede-6f2a228d961a)
+Searched 8k.bin for 127.0.0.1:45146
+Run 77: 44.36µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 025d7bbf-fed2-474b-aa8a-764412d8dcd1)
+Searched 9k.bin for 127.0.0.1:45146
+Run 78: 45.00µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 573db66f-b819-42f3-8a6b-fb4bfd7f3ebe)
+Searched 10k.bin for 127.0.0.1:45146
+Run 79: 49.15µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 0561ecb0-f83e-40d6-abc4-3807d9c0cfb1)
+Searched 1k.bin for 127.0.0.1:45146
+Run 80: 370.10µs
+Querying 2k.bin for 127.0.0.1:45146 (id: 594300f3-5f7c-44d9-9d98-3ef62d12938b)
+Searched 2k.bin for 127.0.0.1:45146
+Run 81: 87.08µs
+Querying 3k.bin for 127.0.0.1:45146 (id: bc25592c-6638-424e-b6ca-ff279a50edfe)
+Searched 3k.bin for 127.0.0.1:45146
+Run 82: 59.53µs
+Querying 4k.bin for 127.0.0.1:45146 (id: 3a9606c1-7771-410c-97ef-7464fef8b296)
+Searched 4k.bin for 127.0.0.1:45146
+Run 83: 37.36µs
+Querying 5k.bin for 127.0.0.1:45146 (id: a904fd92-ae5d-4bdc-8dba-e52a4f4d8f4f)
+Searched 5k.bin for 127.0.0.1:45146
+Run 84: 33.26µs
+Querying 6k.bin for 127.0.0.1:45146 (id: 86a2bee7-167d-41b0-8c6d-c101031045db)
+Searched 6k.bin for 127.0.0.1:45146
+Run 85: 42.17µs
+Querying 7k.bin for 127.0.0.1:45146 (id: 75c08477-489c-4850-b00c-e53ae96d93cd)
+Searched 7k.bin for 127.0.0.1:45146
+Run 86: 39.61µs
+Querying 8k.bin for 127.0.0.1:45146 (id: cc5fd992-fbd5-494d-a07a-889ad41ae602)
+Searched 8k.bin for 127.0.0.1:45146
+Run 87: 37.85µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 5dcfbe6f-ffbf-4fd2-b355-315c033c889c)
+Searched 9k.bin for 127.0.0.1:45146
+Run 88: 37.79µs
+Querying 10k.bin for 127.0.0.1:45146 (id: d4ceadbd-e660-441d-a899-b91fcc51d636)
+Searched 10k.bin for 127.0.0.1:45146
+Run 89: 38.17µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 88c35631-fe7b-4c37-a812-d6188119a9c6)
+Searched 1k.bin for 127.0.0.1:45146
+Run 90: 39.23µs
+Querying 2k.bin for 127.0.0.1:45146 (id: 77de7c05-aa07-4a42-b5bf-53aef79739b2)
+Searched 2k.bin for 127.0.0.1:45146
+Run 91: 46.67µs
+Querying 3k.bin for 127.0.0.1:45146 (id: f23ec5bd-d9a4-4b5d-a830-8f072a6e78f3)
+Searched 3k.bin for 127.0.0.1:45146
+Run 92: 38.15µs
+Querying 4k.bin for 127.0.0.1:45146 (id: fc1b61ea-77b0-4c51-ad65-c743d722f7d7)
+Searched 4k.bin for 127.0.0.1:45146
+Run 93: 38.98µs
+Querying 5k.bin for 127.0.0.1:45146 (id: a53fa829-7cc7-443e-9a87-79a9eaee1acf)
+Searched 5k.bin for 127.0.0.1:45146
+Run 94: 39.51µs
+Querying 6k.bin for 127.0.0.1:45146 (id: ddaae8c2-f3e4-4708-9314-5bb1cd52d16b)
+Searched 6k.bin for 127.0.0.1:45146
+Run 95: 42.83µs
+Querying 7k.bin for 127.0.0.1:45146 (id: 5bfccc22-7276-4df0-9a12-1326d57dce40)
+Searched 7k.bin for 127.0.0.1:45146
+Run 96: 39.79µs
+Querying 8k.bin for 127.0.0.1:45146 (id: e8aeaa8f-38b8-49f2-9025-87598296efb6)
+Searched 8k.bin for 127.0.0.1:45146
+Run 97: 38.07µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 6e728d03-689b-4a7b-b037-f55449f90378)
+Searched 9k.bin for 127.0.0.1:45146
+Run 98: 40.51µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 04bb834e-8c7f-4b85-93a3-51ffea9c28da)
+Searched 10k.bin for 127.0.0.1:45146
+Run 99: 38.77µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 7568dcba-8df7-4326-9f3a-0c9651b81b6b)
+Searched 1k.bin for 127.0.0.1:45146
+Run 100: 40.09µs
+Querying 2k.bin for 127.0.0.1:45146 (id: d78a7ae2-7032-4bb4-a569-4cde68ecb83d)
+Searched 2k.bin for 127.0.0.1:45146
+Run 101: 38.89µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 99976a0b-8305-4f67-8a4e-ad464fc276d3)
+Searched 3k.bin for 127.0.0.1:45146
+Run 102: 41.39µs
+Querying 4k.bin for 127.0.0.1:45146 (id: 8e139e8c-34d4-485b-aad3-689494ce6de2)
+Searched 4k.bin for 127.0.0.1:45146
+Run 103: 41.81µs
+Querying 5k.bin for 127.0.0.1:45146 (id: a6f152f8-2577-4d52-a311-ba0a3deabc4a)
+Searched 5k.bin for 127.0.0.1:45146
+Run 104: 41.81µs
+Querying 6k.bin for 127.0.0.1:45146 (id: 951cf963-c101-4bf4-b1d4-bf8d754ba6a6)
+Searched 6k.bin for 127.0.0.1:45146
+Run 105: 60.39µs
+Querying 7k.bin for 127.0.0.1:45146 (id: f0282968-8934-45cf-b507-949740754f74)
+Searched 7k.bin for 127.0.0.1:45146
+Run 106: 56.42µs
+Querying 8k.bin for 127.0.0.1:45146 (id: ab0cd662-e5a8-4190-ad96-17af1206b4af)
+Searched 8k.bin for 127.0.0.1:45146
+Run 107: 49.17µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 4f85c416-2361-45bd-9c83-68865e5b17fc)
+Searched 9k.bin for 127.0.0.1:45146
+Run 108: 42.92µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 502d72ff-a24d-4cba-8273-e3a45b278b88)
+Searched 10k.bin for 127.0.0.1:45146
+Run 109: 42.49µs
+Querying 1k.bin for 127.0.0.1:45146 (id: e946b318-5ede-4ee7-9f7e-dc406a9161bc)
+Searched 1k.bin for 127.0.0.1:45146
+Run 110: 43.30µs
+Querying 2k.bin for 127.0.0.1:45146 (id: d2ea66c6-03e7-4068-ab48-1fb29588e769)
+Searched 2k.bin for 127.0.0.1:45146
+Run 111: 46.11µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 5d49b089-a9dc-4ffe-bfb8-e2dd889231c3)
+Searched 3k.bin for 127.0.0.1:45146
+Run 112: 80.25µs
+Querying 4k.bin for 127.0.0.1:45146 (id: a9b84fef-555a-4e6b-bae2-1547c081ee4a)
+Searched 4k.bin for 127.0.0.1:45146
+Run 113: 55.93µs
+Querying 5k.bin for 127.0.0.1:45146 (id: 60653484-dbe5-4c4d-9dfd-52da1eeee270)
+Searched 5k.bin for 127.0.0.1:45146
+Run 114: 48.86µs
+Querying 6k.bin for 127.0.0.1:45146 (id: be11c68c-3032-4be9-b223-ee04271dc286)
+Searched 6k.bin for 127.0.0.1:45146
+Run 115: 41.71µs
+Querying 7k.bin for 127.0.0.1:45146 (id: bcbabead-b503-4eb7-a2c0-3241fa0096c7)
+Searched 7k.bin for 127.0.0.1:45146
+Run 116: 47.44µs
+Querying 8k.bin for 127.0.0.1:45146 (id: 34e29dda-3b8f-4d87-93e6-f2245d68c13f)
+Searched 8k.bin for 127.0.0.1:45146
+Run 117: 44.80µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 051a8e30-3b61-435a-bf02-18ce58d3bb94)
+Searched 9k.bin for 127.0.0.1:45146
+Run 118: 57.05µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 617e94d0-de1f-4efb-ba36-35cde544578d)
+Searched 10k.bin for 127.0.0.1:45146
+Run 119: 47.72µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 90af0d29-54d0-44ae-ab97-6b63c580a4ff)
+Searched 1k.bin for 127.0.0.1:45146
+Run 120: 46.64µs
+Querying 2k.bin for 127.0.0.1:45146 (id: a13a1ea7-109f-4f62-a698-f6373d360ce9)
+Searched 2k.bin for 127.0.0.1:45146
+Run 121: 39.65µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 1a2aed4d-71ef-465a-ad99-3c57c92accf3)
+Searched 3k.bin for 127.0.0.1:45146
+Run 122: 60.58µs
+Querying 4k.bin for 127.0.0.1:45146 (id: 930daea7-76df-4aa5-8e84-38437e2f715d)
+Searched 4k.bin for 127.0.0.1:45146
+Run 123: 44.31µs
+Querying 5k.bin for 127.0.0.1:45146 (id: e65394bd-c8d1-428c-9e32-2cf4b98f3a6f)
+Searched 5k.bin for 127.0.0.1:45146
+Run 124: 46.67µs
+Querying 6k.bin for 127.0.0.1:45146 (id: aa78a482-4114-45cf-8f38-b385b218ba24)
+Searched 6k.bin for 127.0.0.1:45146
+Run 125: 42.18µs
+Querying 7k.bin for 127.0.0.1:45146 (id: 6f016835-6cca-4c09-a880-5d8dc3bd4b84)
+Searched 7k.bin for 127.0.0.1:45146
+Run 126: 46.21µs
+Querying 8k.bin for 127.0.0.1:45146 (id: 330dcf19-e1a2-44df-9a8b-0373054692d8)
+Searched 8k.bin for 127.0.0.1:45146
+Run 127: 42.26µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 42cb59e0-895e-499e-a975-09d23ba305a8)
+Searched 9k.bin for 127.0.0.1:45146
+Run 128: 48.12µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 975b501c-702a-4b0c-bf37-21eca4a49d2a)
+Searched 10k.bin for 127.0.0.1:45146
+Run 129: 41.37µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 871c3190-ea63-4741-ab27-af0c1e399073)
+Searched 1k.bin for 127.0.0.1:45146
+Run 130: 43.37µs
+Querying 2k.bin for 127.0.0.1:45146 (id: c3f29395-ff69-42d1-86e1-91a87a85c43b)
+Searched 2k.bin for 127.0.0.1:45146
+Run 131: 41.17µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 09031b3f-d5dc-4074-ae0a-c93ddf8fa5e7)
+Searched 3k.bin for 127.0.0.1:45146
+Run 132: 49.06µs
+Querying 4k.bin for 127.0.0.1:45146 (id: a7a52861-c761-4374-b6bf-48bfab6ff93e)
+Searched 4k.bin for 127.0.0.1:45146
+Run 133: 39.81µs
+Querying 5k.bin for 127.0.0.1:45146 (id: 34f9b12e-5baa-4c6b-b5b6-24c5001548f8)
+Searched 5k.bin for 127.0.0.1:45146
+Run 134: 46.53µs
+Querying 6k.bin for 127.0.0.1:45146 (id: a21c7fae-a2c6-4ed5-ac45-de33ad9c4411)
+Searched 6k.bin for 127.0.0.1:45146
+Run 135: 39.91µs
+Querying 7k.bin for 127.0.0.1:45146 (id: fb90ead1-73ef-4bdc-b2ba-4a94049e0a8f)
+Searched 7k.bin for 127.0.0.1:45146
+Run 136: 43.34µs
+Querying 8k.bin for 127.0.0.1:45146 (id: 366bf181-63e7-42e3-881d-fa29dc5f7803)
+Searched 8k.bin for 127.0.0.1:45146
+Run 137: 43.88µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 8f3be2b9-5d19-44ca-ac58-f982856813f5)
+Searched 9k.bin for 127.0.0.1:45146
+Run 138: 44.95µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 90b5080f-63bf-42ae-8704-4bc3dc575dfd)
+Searched 10k.bin for 127.0.0.1:45146
+Run 139: 39.71µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 70bc957c-8075-47df-affd-549500bd8e64)
+Searched 1k.bin for 127.0.0.1:45146
+Run 140: 43.03µs
+Querying 2k.bin for 127.0.0.1:45146 (id: b13b6775-d230-4d44-83d6-ba346db1c78a)
+Searched 2k.bin for 127.0.0.1:45146
+Run 141: 40.92µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 48a62dde-b6ad-4447-8284-8d27f64e2bb9)
+Searched 3k.bin for 127.0.0.1:45146
+Run 142: 46.88µs
+Querying 4k.bin for 127.0.0.1:45146 (id: 89a82754-3c46-42f5-8580-2f5429f77551)
+Searched 4k.bin for 127.0.0.1:45146
+Run 143: 47.87µs
+Querying 5k.bin for 127.0.0.1:45146 (id: eee7d2b9-10ab-4ec4-beb1-6b07e8ae0252)
+Searched 5k.bin for 127.0.0.1:45146
+Run 144: 42.23µs
+Querying 6k.bin for 127.0.0.1:45146 (id: b6f5741c-6f25-43b4-95b6-95e590528b05)
+Searched 6k.bin for 127.0.0.1:45146
+Run 145: 43.58µs
+Querying 7k.bin for 127.0.0.1:45146 (id: 585e098c-a529-4374-b643-d0f3088f4112)
+Searched 7k.bin for 127.0.0.1:45146
+Run 146: 40.78µs
+Querying 8k.bin for 127.0.0.1:45146 (id: 753b335e-8f10-423a-95a7-2509fffaa144)
+Searched 8k.bin for 127.0.0.1:45146
+Run 147: 42.56µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 542c0c64-cd7b-41b7-946d-53ac1f870724)
+Searched 9k.bin for 127.0.0.1:45146
+Run 148: 40.74µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 16192656-3e4c-479b-870a-ef2edddc8954)
+Searched 10k.bin for 127.0.0.1:45146
+Run 149: 43.74µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 5c7cd385-3d22-411a-bb81-20deda127771)
+Searched 1k.bin for 127.0.0.1:45146
+Run 150: 42.17µs
+Querying 2k.bin for 127.0.0.1:45146 (id: 18567220-7e58-4327-8dcc-676c38480439)
+Searched 2k.bin for 127.0.0.1:45146
+Run 151: 44.74µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 5d1bc6f7-f141-4210-b3cc-284536e2fbd6)
+Searched 3k.bin for 127.0.0.1:45146
+Run 152: 39.48µs
+Querying 4k.bin for 127.0.0.1:45146 (id: 69355ce3-b2ab-400a-8207-ece2dc3a464e)
+Searched 4k.bin for 127.0.0.1:45146
+Run 153: 46.98µs
+Querying 5k.bin for 127.0.0.1:45146 (id: a05ac57e-8be6-4745-b1b8-fdb577ce62f4)
+Searched 5k.bin for 127.0.0.1:45146
+Run 154: 42.60µs
+Querying 6k.bin for 127.0.0.1:45146 (id: 9949949d-0bdd-4013-9103-2a66503a39f2)
+Searched 6k.bin for 127.0.0.1:45146
+Run 155: 51.24µs
+Querying 7k.bin for 127.0.0.1:45146 (id: 0f5414d4-fe8d-4515-ba3e-8af2f40f03df)
+Searched 7k.bin for 127.0.0.1:45146
+Run 156: 44.44µs
+Querying 8k.bin for 127.0.0.1:45146 (id: 49c547f7-695c-4321-af63-5633cfb6aeb5)
+Searched 8k.bin for 127.0.0.1:45146
+Run 157: 42.25µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 73ca0429-ccef-4f8c-8d33-3dcecabc9adb)
+Searched 9k.bin for 127.0.0.1:45146
+Run 158: 44.82µs
+Querying 10k.bin for 127.0.0.1:45146 (id: e00bf437-e16b-4050-a031-6b889197b928)
+Searched 10k.bin for 127.0.0.1:45146
+Run 159: 43.87µs
+Querying 1k.bin for 127.0.0.1:45146 (id: c9e05e4a-11c6-4d56-b14e-bf2e04598c5b)
+Searched 1k.bin for 127.0.0.1:45146
+Run 160: 48.10µs
+Querying 2k.bin for 127.0.0.1:45146 (id: a4ef445b-f1f5-4058-b410-e84511e81291)
+Searched 2k.bin for 127.0.0.1:45146
+Run 161: 46.20µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 96a79276-7485-4037-aa76-c8201b249386)
+Searched 3k.bin for 127.0.0.1:45146
+Run 162: 44.15µs
+Querying 4k.bin for 127.0.0.1:45146 (id: 7000de0a-8053-4ff3-a8d9-676f7bb6eaed)
+Searched 4k.bin for 127.0.0.1:45146
+Run 163: 42.65µs
+Querying 5k.bin for 127.0.0.1:45146 (id: 4f131bc9-74c5-47d0-af61-67fa1e67856b)
+Searched 5k.bin for 127.0.0.1:45146
+Run 164: 48.80µs
+Querying 6k.bin for 127.0.0.1:45146 (id: f84bc72b-01ac-48ec-95d0-15e282f756a0)
+Searched 6k.bin for 127.0.0.1:45146
+Run 165: 41.11µs
+Querying 7k.bin for 127.0.0.1:45146 (id: f2a3d8c7-a235-455d-9287-afd9f77c7c38)
+Searched 7k.bin for 127.0.0.1:45146
+Run 166: 46.50µs
+Querying 8k.bin for 127.0.0.1:45146 (id: 49ba5082-56f7-46a9-aa78-fe75e9a5d3c9)
+Searched 8k.bin for 127.0.0.1:45146
+Run 167: 40.15µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 62203dc3-f0d4-4fd9-8f20-3ed44d00d189)
+Searched 9k.bin for 127.0.0.1:45146
+Run 168: 46.40µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 669921a9-5c77-40df-870b-b9371cf4529c)
+Searched 10k.bin for 127.0.0.1:45146
+Run 169: 36.94µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 4a42a72e-e564-4829-84e5-05526f439242)
+Searched 1k.bin for 127.0.0.1:45146
+Run 170: 42.57µs
+Querying 2k.bin for 127.0.0.1:45146 (id: bd7db64e-e503-4529-9951-d169a49cdbf4)
+Searched 2k.bin for 127.0.0.1:45146
+Run 171: 44.22µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 5363ce3a-f62f-47b6-8548-caab599cd196)
+Searched 3k.bin for 127.0.0.1:45146
+Run 172: 38.68µs
+Querying 4k.bin for 127.0.0.1:45146 (id: 767e83d5-a7f3-4a74-a7bc-51bb94779c5a)
+Searched 4k.bin for 127.0.0.1:45146
+Run 173: 45.17µs
+Querying 5k.bin for 127.0.0.1:45146 (id: fb47a429-d98e-4a8e-b4b0-4dfb2ea9c042)
+Searched 5k.bin for 127.0.0.1:45146
+Run 174: 41.16µs
+Querying 6k.bin for 127.0.0.1:45146 (id: 4ea5b45b-e612-4560-bd42-37f656090615)
+Searched 6k.bin for 127.0.0.1:45146
+Run 175: 40.07µs
+Querying 7k.bin for 127.0.0.1:45146 (id: 4b3cc8de-1cd6-40bb-a92d-a7e8bc2833d0)
+Searched 7k.bin for 127.0.0.1:45146
+Run 176: 39.54µs
+Querying 8k.bin for 127.0.0.1:45146 (id: 8e66127e-3b3a-45e6-b994-bdf2cba54533)
+Searched 8k.bin for 127.0.0.1:45146
+Run 177: 41.46µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 37f92570-7c63-4ba1-a437-c9bc176e80f1)
+Searched 9k.bin for 127.0.0.1:45146
+Run 178: 38.90µs
+Querying 10k.bin for 127.0.0.1:45146 (id: b4bfbde8-1f79-4610-8f5e-8b2d7098db82)
+Searched 10k.bin for 127.0.0.1:45146
+Run 179: 38.64µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 73646f83-b8ed-4db6-bc98-70228809541b)
+Searched 1k.bin for 127.0.0.1:45146
+Run 180: 39.01µs
+Querying 2k.bin for 127.0.0.1:45146 (id: 8c6798b7-a5ed-4f09-be52-92950c3ee9da)
+Searched 2k.bin for 127.0.0.1:45146
+Run 181: 37.91µs
+Querying 3k.bin for 127.0.0.1:45146 (id: 86182625-9d9e-4d4c-a038-24e4b3168ee4)
+Searched 3k.bin for 127.0.0.1:45146
+Run 182: 40.08µs
+Querying 4k.bin for 127.0.0.1:45146 (id: 4e1af644-c997-4e41-8f92-ed51397cfcbb)
+Searched 4k.bin for 127.0.0.1:45146
+Run 183: 53.44µs
+Querying 5k.bin for 127.0.0.1:45146 (id: 61d6707f-736c-467e-938b-0590ffc4db22)
+Searched 5k.bin for 127.0.0.1:45146
+Run 184: 43.75µs
+Querying 6k.bin for 127.0.0.1:45146 (id: 5d2fa49f-17b8-4073-b295-f0570642a0e5)
+Searched 6k.bin for 127.0.0.1:45146
+Run 185: 38.85µs
+Querying 7k.bin for 127.0.0.1:45146 (id: 7e451f62-b1e6-49ee-8680-713792c29a84)
+Searched 7k.bin for 127.0.0.1:45146
+Run 186: 38.04µs
+Querying 8k.bin for 127.0.0.1:45146 (id: ddb7bcc7-2e58-41bc-8872-94e43cfcaccb)
+Searched 8k.bin for 127.0.0.1:45146
+Run 187: 38.44µs
+Querying 9k.bin for 127.0.0.1:45146 (id: e31ba08b-84f0-4a47-8119-7edc411a1c6c)
+Searched 9k.bin for 127.0.0.1:45146
+Run 188: 40.14µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 78343b77-e8da-403e-a11e-76e2c590345f)
+Searched 10k.bin for 127.0.0.1:45146
+Run 189: 41.70µs
+Querying 1k.bin for 127.0.0.1:45146 (id: 3635d097-c953-4ced-83ea-298b65f3506e)
+Searched 1k.bin for 127.0.0.1:45146
+Run 190: 42.49µs
+Querying 2k.bin for 127.0.0.1:45146 (id: 63b68e9d-1a30-454a-8c92-7ce4b8314d2f)
+Searched 2k.bin for 127.0.0.1:45146
+Run 191: 41.03µs
+Querying 3k.bin for 127.0.0.1:45146 (id: c8cf272d-9547-4735-a908-8d0edb7a1a2f)
+Searched 3k.bin for 127.0.0.1:45146
+Run 192: 37.63µs
+Querying 4k.bin for 127.0.0.1:45146 (id: b3945640-7c54-4d1f-9cde-34946a323287)
+Searched 4k.bin for 127.0.0.1:45146
+Run 193: 38.12µs
+Querying 5k.bin for 127.0.0.1:45146 (id: f10db199-d346-45e3-911b-1767543db5b9)
+Searched 5k.bin for 127.0.0.1:45146
+Run 194: 39.31µs
+Querying 6k.bin for 127.0.0.1:45146 (id: f0796010-e4c2-4560-b7e5-914aad068fce)
+Searched 6k.bin for 127.0.0.1:45146
+Run 195: 37.88µs
+Querying 7k.bin for 127.0.0.1:45146 (id: 4cfeac7d-9888-4b9e-8f72-8c79a91189ea)
+Searched 7k.bin for 127.0.0.1:45146
+Run 196: 37.41µs
+Querying 8k.bin for 127.0.0.1:45146 (id: abe466e5-b5ec-453c-9da7-cb8996a80e3d)
+Searched 8k.bin for 127.0.0.1:45146
+Run 197: 37.16µs
+Querying 9k.bin for 127.0.0.1:45146 (id: 2d657435-2143-4346-b532-418d68e0d634)
+Searched 9k.bin for 127.0.0.1:45146
+Run 198: 37.14µs
+Querying 10k.bin for 127.0.0.1:45146 (id: 4e91725c-bf33-4596-9b71-f46cfa948e40)
+Searched 10k.bin for 127.0.0.1:45146
+Run 199: 37.26µs
+Average time: 63.07µs

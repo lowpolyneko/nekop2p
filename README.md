@@ -12,6 +12,18 @@ package is spit into four crates:
 - (for the demo) install `tmux`
 - compile with `cargo build --release`
 
+## Superpeering
+For resources on the new superpeering functionality of `nekop2p` 0.2.0, see
+`docs/sample_superpeer` for sample `config.toml` files and output. Additionally,
+see `docs/profile_superpeer` for raw profiling results given varying `-c`, `-i`,
+and `-q`.
+
+![](docs/sample_superpeer/superpeer.png)
+
+Additional writeups on the design and testing of the superpeering functionality
+can be found under the **Superpeering** section of `docs/design.md` and
+`docs/testing.md`
+
 ## Demo
 To run the example demo, `cd demo/` and run `./run_demo.sh`. This will start an
 instance of `nekoindexer` on `localhost:5000` and three instances of `nekopeer`
@@ -26,15 +38,18 @@ found in `docs/`.
 ## Profiling
 ```sh
 $ ./target/release/demo-profile -h
-Usage: demo-profile [OPTIONS] [INDEXER]
+A simple p2p file sharing system built on tokio and tarpc.
 
-Arguments:
-  [INDEXER]
+Usage: demo-profile [OPTIONS]
 
 Options:
-  -p, --plot
-  -c, --concurrent <CONCURRENT>      [default: 1]
-  -n, --num-requests <NUM_REQUESTS>  [default: 500]
+  -i, --indexers <INDEXERS>          Number of indexers to spawn [default: 1]
+  -s, --start-port <START_PORT>      Number of indexers to spawn [default: 5000]
+  -p, --plot                         Whether or not to plot
+  -c, --concurrent <CONCURRENT>      Number of concurrent clients [default: 1]
+  -n, --num-requests <NUM_REQUESTS>  Number of request rounds to run [default: 500]
+  -q, --q-ttl <Q_TTL>                Query TTL [default: 0]
+  -b, --b-ttl <B_TTL>                Uuid backtrace expiration [default: 10]
   -h, --help                         Print help
   -V, --version                      Print version
 ```
@@ -46,19 +61,27 @@ found in `docs/`. **For accurate benchmarks, you must build with `--release`.**
 ## Indexer
 ```sh
 $ ./target/release/nekoindexer -h
-Usage: nekoindexer [OPTIONS] [HOST]
+A simple p2p file sharing system built on tokio and tarpc.
+
+Usage: nekoindexer <CONFIG>
 
 Arguments:
-  [HOST]
+  <CONFIG>
 
 Options:
-  -p, --port <PORT>  [default: 5000]
-  -h, --help         Print help
-  -V, --version      Print version
+  -h, --help     Print help
+  -V, --version  Print version
 ```
 
-To run the indexer server, run `./target/release/nekoindexer localhost` for a
-local server on port `5000`.
+Config File Format
+```toml
+bind = "127.0.0.1:5000" # host to run on
+neighbors = [ "127.0.0.1:4999" ] # neighboring indexers/superpeers
+ttl = 10 # query backtrace ttl in seconds
+```
+
+To run the indexer server, run `./target/release/nekoindexer` with the above
+`config.toml` file for a local server on port `5000`.
 
 ### Example Output
 ```sh
@@ -68,21 +91,28 @@ Starting indexer on localhost:5000
 ## Client
 ```sh
 $ ./target/release/nekopeer -h
-Usage: nekopeer [OPTIONS] <INDEXER>
+A simple p2p file sharing system built on tokio and tarpc.
+
+Usage: nekopeer <CONFIG>
 
 Arguments:
-  <INDEXER>
+  <CONFIG>
 
 Options:
-      --dl-host <DL_HOST>
-      --dl-port <DL_PORT>  [default: 5001]
-  -h, --help               Print help
-  -V, --version            Print version
+  -h, --help     Print help
+  -V, --version  Print version
 ```
 
-For example, to run a client on port `5001`, run `./target/release/nekopeer
-localhost:5000`. Subsequent client instances need a *different* port, so specify
-it with the `--dl-port=<port>` flag. Clients bind to `localhost` by default.
+Config File Format
+```toml
+indexer = "127.0.0.1:5000" # indexer to bind to
+dl_bind = "127.0.0.1:5001" # incoming download address to bind to
+ttl = 10 # ttl of queries in seconds
+```
+
+For example, to run a client on port `5001`, run `./target/release/nekopeer`
+with the provided `config.toml` file. Subsequent client instances need a
+*different* port, so specify it with the `dl_bind` key.
 
 ### Example Output
 ```sh
@@ -106,6 +136,7 @@ register        Register file to index
 download        Download file from peer on index
 search          Query peers on index
 deregister      Deregister file on index
+query           Queries entire network for file
 ?               Print this help screen
 exit            Quit
 ```

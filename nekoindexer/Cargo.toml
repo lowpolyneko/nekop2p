@@ -11,7 +11,10 @@ edition = "2021"
 anyhow = "1.0.89"
 clap = { version = "4.5.19", features = ["derive"] }
 dashmap = "6.1.0"
+delay_map = "0.4.0"
 futures = "0.3.30"
 nekop2p = { path = "../nekop2p" }
+serde = { version = "1.0.214", features = ["derive"] }
 tarpc = { version = "0.34.0", features = ["full"] }
 tokio = { version = "1.40.0", features = ["full"] }
+toml = "0.8.19"

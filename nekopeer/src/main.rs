@@ -3,12 +3,16 @@
 //!
 //! Connects to [nekop2p::Indexer]s and [Peer]s using [IndexerClient] and [PeerClient]
 //! respectively.
-use std::io::{stdin, stdout, Write};
+use std::{
+    io::{stdin, stdout, Write},
+    net::SocketAddr,
+};
 
 use anyhow::Result;
 use clap::Parser;
 use futures::prelude::*;
 use rand::seq::SliceRandom;
+use serde::Deserialize;
 use tarpc::{
     client, context,
     serde_transport::tcp,
@@ -16,22 +20,26 @@ use tarpc::{
     tokio_serde::formats::Bincode,
 };
 use tokio::{fs, signal};
+use uuid::Uuid;
 
 use nekop2p::{IndexerClient, Peer, PeerClient, PeerServer};
+
+#[derive(Deserialize)]
+struct Config {
+    /// indexer to bind to
+    indexer: SocketAddr,
+
+    /// incoming peer connection [std::net::SocketAddr] to bind to
+    dl_bind: SocketAddr,
+
+    /// TTL of queries (default 1)
+    ttl: Option<u8>,
+}
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 struct Args {
-    /// indexer to bind to
-    indexer: String,
-
-    /// incoming peer connection [std::net::SocketAddr] to bind to
-    #[arg(long)]
-    dl_host: Option<String>,
-
-    /// incoming peer connection port to bind to
-    #[arg(long, default_value_t = 5001)]
-    dl_port: u16,
+    config: String,
 }
 
 /// Given a `prompt` read a line from [stdout] and return it if it exists
@@ -52,8 +60,9 @@ fn print_help() {
     println!("Available CLI commands:");
     println!("register\tRegister file to index");
     println!("download\tDownload file from peer on index");
-    println!("search\t\tQuery peers on index");
+    println!("search\t\tQuery peers on index with file");
     println!("deregister\tDeregister file on index");
+    println!("query\tQueries entire network for file");
     println!("?\t\tPrint this help screen");
     println!("exit\t\tQuit");
 }
@@ -73,11 +82,16 @@ async fn prompt_register(client: &IndexerClient) {
 
 /// Given an [IndexerClient] download a file that is prompted for from a random peer and register
 /// it with the [nekop2p::Indexer]
-async fn prompt_download(client: &IndexerClient) {
+async fn prompt_download(client: &IndexerClient, ttl: u8) {
     let filename = input("Enter filename").unwrap();
 
     let results = match client
-        .search(context::current(), filename.trim_end().to_owned())
+        .query(
+            context::current(),
+            Uuid::new_v4(),
+            filename.trim_end().to_owned(),
+            ttl,
+        )
         .await
     {
         Ok(x) => {
@@ -164,6 +178,33 @@ async fn prompt_search(client: &IndexerClient) {
     results.iter().for_each(|r| println!("{}", r));
 }
 
+/// Given an [IndexerClient] queries the network for a filename that is prompted for
+async fn prompt_query(client: &IndexerClient, ttl: u8) {
+    let filename = input("Enter filename").unwrap();
+
+    let results = match client
+        .query(
+            context::current(),
+            Uuid::new_v4(),
+            filename.trim_end().to_owned(),
+            ttl,
+        )
+        .await
+    {
+        Ok(x) => {
+            println!("Querying network for {0}", filename.trim_end());
+            x
+        }
+        Err(_) => {
+            println!("Failed to retrieve peers for {0}", filename.trim_end());
+            return;
+        }
+    };
+
+    // print out results
+    results.iter().for_each(|r| println!("{}", r));
+}
+
 /// Given an [IndexerClient] deregisters a filename that is prompted for
 async fn prompt_deregister(client: &IndexerClient) {
     let filename = input("Enter filename").unwrap();
@@ -183,20 +224,23 @@ async fn prompt_deregister(client: &IndexerClient) {
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
-    let dl_host = args.dl_host.unwrap_or("localhost".to_owned());
+    let config: Config = toml::from_str(
+        &fs::read_to_string(args.config)
+            .await
+            .expect("missing config file"),
+    )
+    .expect("failed to parse config file");
 
     println!("Welcome to nekop2p! (peer client)");
     println!("Press Ctrl-C to enter commands...");
-    println!("Connecting to indexer on {0}", args.indexer);
-    println!(
-        "Accepting inbound connections on {0}:{1}",
-        dl_host, args.dl_port
-    );
+    println!("Connecting to indexer on {0}", config.indexer);
+    println!("Accepting inbound connections on {0}", config.dl_bind);
 
-    let transport = tcp::connect(args.indexer, Bincode::default);
-    let mut listener = tcp::listen((dl_host, args.dl_port), Bincode::default).await?;
+    let transport = tcp::connect(config.indexer, Bincode::default);
+    let mut listener = tcp::listen(config.dl_bind, Bincode::default).await?;
     listener.config_mut().max_frame_length(usize::MAX); // allow large frames
 
+    let ttl = config.ttl.unwrap_or(1);
     let port = listener.local_addr().port(); // get port (in-case dl_port = 0)
 
     tokio::spawn(
@@ -230,9 +274,10 @@ async fn main() -> Result<()> {
 
         match input.as_str().trim_end() {
             "register" => prompt_register(&client).await,
-            "download" => prompt_download(&client).await,
+            "download" => prompt_download(&client, ttl).await,
             "search" => prompt_search(&client).await,
             "deregister" => prompt_deregister(&client).await,
+            "query" => prompt_query(&client, ttl).await,
             "?" => print_help(),
             "exit" => break,
             _ => println!("Unknown command"),

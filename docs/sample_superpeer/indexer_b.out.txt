@@ -1,0 +1,9 @@
+Starting indexer on 127.0.0.1:4999
+Registered peer_b.toml for 127.0.0.1:41070
+peer_b.toml: 127.0.0.1:41070
+Querying peer_b.toml for 127.0.0.1:36156 (id: c646e5d6-3f1f-45af-9b0c-175e0b8a95e4)
+Searched peer_b.toml for 127.0.0.1:36156
+Querying peer_a.toml for 127.0.0.1:41070 (id: c47e64c3-bda1-4cae-8e02-66073001f6e2)
+Searched peer_a.toml for 127.0.0.1:41070
+Propagating query of peer_a.toml to 127.0.0.1:5000 (id: c47e64c3-bda1-4cae-8e02-66073001f6e2)
+Clean-up peer 127.0.0.1:41070

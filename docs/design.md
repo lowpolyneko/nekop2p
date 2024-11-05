@@ -1,4 +1,139 @@
 # Design
+
+## New: Superpeering
+With `nekop2p` v0.2.0, indexers gain the ability to act as superpeers in a
+Gnutella-esque fully distributed all-to-all network model. The crux of this
+implementation is a new RPC call `query` which in principle acts as an index
+search but with propagation properties. 
+
+Snippet of the RPC declaration.
+```rs
+/// Queries entire network for `filename` with a given ttl
+async fn query(msg_id: Uuid, filename: String, ttl: u8) -> Vec<SocketAddr>;
+```
+
+Queries are tagged with a `Uuid::v4` to uniquely identify them throughout the
+entire network. UUIDs were chosen given their negligible change of collision and
+ease of serialization.
+
+Entire definition.
+```rs
+    async fn query(self, c: Context, msg_id: Uuid, filename: String, ttl: u8) -> Vec<SocketAddr> {
+        println!("Querying {filename} for {0} (id: {msg_id})", self.addr);
+        // if msg_id has already been seen, then we ignore the query
+        if self.backtrace.read().await.contains_key(&msg_id) {
+            println!("Message {msg_id} already handled!");
+            return Vec::new();
+        }
+
+        // insert into set of seen msg_ids
+        self.backtrace.write().await.insert(msg_id);
+
+        // get peers from this peer's index
+        println!("Searched {filename} for {0}", self.addr);
+        let mut peers: Vec<_> = self
+            .index
+            .entry(filename.clone())
+            .or_default()
+            .iter()
+            .filter_map(|e| match self.dl_ports.get(&e) {
+                Some(x) => {
+                    let mut n = e.clone();
+                    n.set_port(*x);
+                    Some(n)
+                }
+                None => None,
+            })
+            .collect();
+
+        // propogate query to neighboring peers
+        if ttl > 0 {
+            for peer in self.neighbors.iter() {
+                println!(
+                    "Propagating query of {filename} to {0} (id: {msg_id})",
+                    peer
+                );
+                if let Ok(transport) = tcp::connect(peer, Bincode::default).await {
+                    let client = IndexerClient::new(client::Config::default(), transport).spawn();
+                    peers.append(
+                        &mut client
+                            .query(c, msg_id, filename.clone(), ttl - 1)
+                            .await
+                            .unwrap_or_default(),
+                    );
+                }
+            }
+        }
+
+        peers
+    }
+```
+
+UUIDs are used to enforce at most one propagation of a query per
+indexer/superpeer. In the current implementation, these UUIDs are saved as
+elements in an `HashSetDelay` from `delay_map`, which provides a `HashSet` with
+expiring entries given a `ttl` (default $10$ seconds).
+
+Queries are recursively propgated with a `ttl` argument, with zero as its
+base-case. When a node encounters a `query` with a non-zero `ttl`, the request
+is propogated by connecting to all the neighbors of the node stored in
+`self.neighbors: Vec<SocketAddr>` and sending a query with `ttl - 1`. This is
+continued until the `ttl` becomes zero, which then back-propagates the result of
+the index query back to the original caller, cascading up the call-stack while
+coalescing the resulting index hits. Upon an index miss, an empty list is
+back-propagated, indicating no match.
+
+A client can then download the file using the `PeerClient::download` interface
+with one of the returned peer `SocketAddr` as its address.
+
+Both the client and indexer are now configured using
+[`.toml`](https://toml.io/en/A). `.toml` enjoys first-class support in Rust with
+direct serialization to structs from a `File` using `toml` and `serde`.
+
+Snippet of `Config` file declaration.
+```rs
+#[derive(Deserialize)]
+struct Config {
+    /// Host to run on
+    bind: SocketAddr,
+
+    /// Neighbors of [IndexerServer]
+    neighbors: Option<Vec<SocketAddr>>,
+
+    /// Query Backtrace TTL (default 10 seconds)
+    ttl: Option<u64>,
+}
+```
+
+And snippet to load `Config` file.
+```rs
+    let config: Config = toml::from_str(
+        &fs::read_to_string(args.config)
+            .await
+            .expect("missing config file"),
+    )
+    .expect("failed to parse config file");
+```
+
+### Limitations
+Query propagation in this style carries some drawbacks...
+
+- Indexers/superpeers can be easily DDOS'd by sending a query to one superpeer
+  with an absurdly high `ttl`, causing an indefinite propagation (and likely a
+  failed request).
+- Back-propagation is slightly inefficent as peers will *always* respond to a
+  query, even on failure. An ideal system should likely treat *no response* as
+  the failure/empty response to save bandwidth.
+- With the current back-propogation scheme, a `ttl` > 2 is not viable even with
+  a small (<= 10) pool of superpeers when connected **all-to-all**, given the
+  exponential growth of query requests propagated as a result.
+- Static definition of the network is required as there are no discovery methods
+  for peers, meaning a `config.toml` or equivalent must be defined for each
+  superpeer to know one another.
+- `delay_map` is marginally more inefficent than `DashSet` due to the
+  requirement of wrapping around a `RwLock<T>`, in practice this should be a
+  real in-memory database for improved concurrency.
+
 ## Philosophy
 As stated in the `README.md`, `nekop2p` is a simple file sharing implementation
 built on `tokio` and `tarpc`. Using these well-known crates and Rust's amazing
