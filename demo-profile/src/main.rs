@@ -7,10 +7,7 @@
 use std::iter::repeat;
 use std::net::ToSocketAddrs;
 use std::time::Instant;
-use std::{
-    sync::Arc,
-    time::Duration,
-};
+use std::{sync::Arc, time::Duration};
 
 use anyhow::Result;
 use clap::Parser;
@@ -73,9 +70,15 @@ async fn main() -> Result<()> {
     println!("Starting {0} indexers...", args.indexers);
 
     // Start indexers here
-    let indexers: Vec<_> = (0..args.indexers).map(|i| {
-        ("127.0.0.1", args.start_port + i as u16).to_socket_addrs().unwrap().next().unwrap()
-    }).collect();
+    let indexers: Vec<_> = (0..args.indexers)
+        .map(|i| {
+            ("127.0.0.1", args.start_port + i as u16)
+                .to_socket_addrs()
+                .unwrap()
+                .next()
+                .unwrap()
+        })
+        .collect();
 
     for i in 0..args.indexers {
         let index = Arc::new(DashMap::new());
@@ -83,8 +86,11 @@ async fn main() -> Result<()> {
         let mut neighbors = indexers.clone();
         neighbors.swap_remove(i);
         let neighbors = Arc::new(neighbors);
-        let backtrace = Arc::new(RwLock::new(HashSetDelay::new(Duration::from_secs(args.b_ttl))));
-        let listener = tcp::listen(("127.0.0.1", args.start_port + i as u16), Bincode::default).await?;
+        let backtrace = Arc::new(RwLock::new(HashSetDelay::new(Duration::from_secs(
+            args.b_ttl,
+        ))));
+        let listener =
+            tcp::listen(("127.0.0.1", args.start_port + i as u16), Bincode::default).await?;
         tokio::spawn(
             listener
                 // Ignore accept errors.
@@ -134,9 +140,14 @@ async fn main() -> Result<()> {
         future::join_all(clients.iter().map(|c| async {
             let d = Arc::clone(&mutex);
             let now = Instant::now();
-            c.query(context::current(), Uuid::new_v4(), format!("{}k.bin", i % 10 + 1), args.q_ttl)
-                .await
-                .expect("failed a query while profiling");
+            c.query(
+                context::current(),
+                Uuid::new_v4(),
+                format!("{}k.bin", i % 10 + 1),
+                args.q_ttl,
+            )
+            .await
+            .expect("failed a query while profiling");
             let elapsed = now.elapsed();
             {
                 d.write().await.push(elapsed);
@@ -181,7 +192,10 @@ async fn main() -> Result<()> {
         plot.add_trace(trace_avg);
 
         let layout = Layout::new()
-            .title(format!("`query` Response Time (with {} superpeers and {} leaf-nodes, ttl={})", args.indexers, args.concurrent, args.q_ttl))
+            .title(format!(
+                "`query` Response Time (with {} superpeers and {} leaf-nodes, ttl={})",
+                args.indexers, args.concurrent, args.q_ttl
+            ))
             .x_axis(Axis::new().title("Request Iteration"))
             .y_axis(Axis::new().title("Response Time (microseconds)"));
         plot.set_layout(layout);

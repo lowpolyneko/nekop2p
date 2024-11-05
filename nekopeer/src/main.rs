@@ -86,7 +86,12 @@ async fn prompt_download(client: &IndexerClient, ttl: u8) {
     let filename = input("Enter filename").unwrap();
 
     let results = match client
-        .query(context::current(), Uuid::new_v4(), filename.trim_end().to_owned(), ttl)
+        .query(
+            context::current(),
+            Uuid::new_v4(),
+            filename.trim_end().to_owned(),
+            ttl,
+        )
         .await
     {
         Ok(x) => {
