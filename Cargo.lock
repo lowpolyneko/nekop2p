@@ -747,8 +747,10 @@ dependencies = [
  "futures",
  "nekop2p",
  "rand",
+ "serde",
  "tarpc",
  "tokio",
+ "toml",
 ]
 
 [[package]]

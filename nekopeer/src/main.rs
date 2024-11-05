@@ -9,6 +9,7 @@ use anyhow::Result;
 use clap::Parser;
 use futures::prelude::*;
 use rand::seq::SliceRandom;
+use serde::Deserialize;
 use tarpc::{
     client, context,
     serde_transport::tcp,
@@ -19,19 +20,22 @@ use tokio::{fs, signal};
 
 use nekop2p::{IndexerClient, Peer, PeerClient, PeerServer};
 
-#[derive(Parser)]
-#[command(version, about, long_about = None)]
-struct Args {
+#[derive(Deserialize)]
+struct Config {
     /// indexer to bind to
     indexer: String,
 
     /// incoming peer connection [std::net::SocketAddr] to bind to
-    #[arg(long)]
-    dl_host: Option<String>,
+    dl_host: String,
 
     /// incoming peer connection port to bind to
-    #[arg(long, default_value_t = 5001)]
     dl_port: u16,
+}
+
+#[derive(Parser)]
+#[command(version, about, long_about = None)]
+struct Args {
+    config: String,
 }
 
 /// Given a `prompt` read a line from [stdout] and return it if it exists
@@ -183,18 +187,24 @@ async fn prompt_deregister(client: &IndexerClient) {
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
-    let dl_host = args.dl_host.unwrap_or("localhost".to_owned());
+    let config: Config =
+        toml::from_str(
+            &fs::read_to_string(args.config)
+                .await
+                .expect("missing config file"),
+        )
+        .expect("failed to parse config file");
 
     println!("Welcome to nekop2p! (peer client)");
     println!("Press Ctrl-C to enter commands...");
-    println!("Connecting to indexer on {0}", args.indexer);
+    println!("Connecting to indexer on {0}", config.indexer);
     println!(
         "Accepting inbound connections on {0}:{1}",
-        dl_host, args.dl_port
+        config.dl_host, config.dl_port
     );
 
-    let transport = tcp::connect(args.indexer, Bincode::default);
-    let mut listener = tcp::listen((dl_host, args.dl_port), Bincode::default).await?;
+    let transport = tcp::connect(config.indexer, Bincode::default);
+    let mut listener = tcp::listen((config.dl_host, config.dl_port), Bincode::default).await?;
     listener.config_mut().max_frame_length(usize::MAX); // allow large frames
 
     let port = listener.local_addr().port(); // get port (in-case dl_port = 0)
