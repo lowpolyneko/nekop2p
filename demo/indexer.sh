@@ -1,2 +1,2 @@
 #!/bin/sh
-../target/release/nekoindexer localhost
+../target/release/nekoindexer indexer.toml
