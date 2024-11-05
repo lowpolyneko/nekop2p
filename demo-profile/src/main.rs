@@ -25,7 +25,7 @@ use tarpc::{
     tokio_serde::formats::Bincode,
 };
 
-use nekop2p::{IndexerServer, Indexer, IndexerClient};
+use nekop2p::{Indexer, IndexerClient, IndexerServer};
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
@@ -129,7 +129,9 @@ async fn main() -> Result<()> {
     // plot?
     if args.plot {
         let mut plot = Plot::new();
-        let x_axis = (1..=args.num_requests).flat_map(|x| repeat(x).take(args.concurrent)).collect();
+        let x_axis = (1..=args.num_requests)
+            .flat_map(|x| repeat(x).take(args.concurrent))
+            .collect();
         let y_axis: Vec<_> = durations.iter().map(|d| d.as_micros()).collect();
         let trace = Scatter::new(x_axis, y_axis.clone())
             .name("Raw Data")
@@ -137,9 +139,15 @@ async fn main() -> Result<()> {
         plot.add_trace(trace);
 
         let x_avg_axis = (1..=args.num_requests).collect();
-        let y_avg_axis = durations.chunks(args.concurrent).map(|i| {
-            i.iter().sum::<Duration>().div_f64(args.concurrent as f64).as_micros()
-        }).collect();
+        let y_avg_axis = durations
+            .chunks(args.concurrent)
+            .map(|i| {
+                i.iter()
+                    .sum::<Duration>()
+                    .div_f64(args.concurrent as f64)
+                    .as_micros()
+            })
+            .collect();
         let trace_avg = Scatter::new(x_avg_axis, y_avg_axis)
             .name("Average per Request")
             .mode(Mode::Lines);
@@ -159,7 +167,11 @@ async fn main() -> Result<()> {
 
         let hist_layout = Layout::new()
             .title("Distribution of `search` Response Time")
-            .x_axis(Axis::new().title("Response Time (microseconds)").range(vec![0, 250]))
+            .x_axis(
+                Axis::new()
+                    .title("Response Time (microseconds)")
+                    .range(vec![0, 250]),
+            )
             .y_axis(Axis::new().title("Count"));
         histogram.set_layout(hist_layout);
 
