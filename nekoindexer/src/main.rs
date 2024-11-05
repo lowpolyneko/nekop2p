@@ -3,7 +3,7 @@
 //!
 //! Utilizes two [DashMap]s as the underlying data structure for the [IndexerServer::index] and
 //! [IndexerServer::dl_ports].
-use std::sync::Arc;
+use std::{net::SocketAddr, sync::Arc};
 
 use anyhow::Result;
 use clap::Parser;
@@ -21,8 +21,14 @@ use nekop2p::{Indexer, IndexerServer};
 
 #[derive(Deserialize)]
 struct Config {
+    /// Host to run on
     host: String,
+
+    /// Port to bind to
     port: u16,
+
+    /// Neighbors of [IndexerServer]
+    neighbors: Option<Vec<SocketAddr>>,
 }
 
 #[derive(Parser)]
@@ -47,7 +53,7 @@ async fn main() -> Result<()> {
 
     let index = Arc::new(DashMap::new());
     let dl_ports = Arc::new(DashMap::new());
-    let neighbors = Arc::new(Vec::new());
+    let neighbors = Arc::new(config.neighbors.unwrap_or_default());
     let backtrace = Arc::new(DashSet::new());
     let listener = tcp::listen((config.host, config.port), Bincode::default).await?;
     listener
