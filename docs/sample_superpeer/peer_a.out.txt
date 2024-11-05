@@ -1,0 +1,11 @@
+Welcome to nekop2p! (peer client)
+Press Ctrl-C to enter commands...
+Connecting to indexer on 127.0.0.1:5000
+Accepting inbound connections on 127.0.0.1:5001
+
+Enter Command ('?' for help) >> Enter filename >> Registered peer_a.toml on index
+
+Enter Command ('?' for help) >> Enter filename >> Querying network for peer_b.toml
+127.0.0.1:5002
+
+Enter Command ('?' for help) >> 
