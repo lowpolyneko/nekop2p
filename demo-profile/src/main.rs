@@ -7,13 +7,14 @@
 use std::iter::repeat;
 use std::time::Instant;
 use std::{
-    sync::{Arc, RwLock},
+    sync::Arc,
     time::Duration,
 };
 
 use anyhow::Result;
 use clap::Parser;
-use dashmap::{DashMap, DashSet};
+use dashmap::DashMap;
+use delay_map::HashSetDelay;
 use futures::{future, prelude::*};
 use plotly::common::Mode;
 use plotly::Histogram;
@@ -24,6 +25,8 @@ use tarpc::{
     server::{BaseChannel, Channel},
     tokio_serde::formats::Bincode,
 };
+use tokio::sync::RwLock;
+use uuid::Uuid;
 
 use nekop2p::{Indexer, IndexerClient, IndexerServer};
 
@@ -44,6 +47,14 @@ struct Args {
     /// Number of request rounds to run
     #[arg(short, long, default_value_t = 500)]
     num_requests: usize,
+
+    /// Query TTL
+    #[arg(short, long, default_value_t = 0)]
+    q_ttl: u8,
+
+    /// Uuid backtrace expiration
+    #[arg(short, long, default_value_t = 10)]
+    b_ttl: u64,
 }
 
 /// Sets-up an [IndexerServer], with [Args::concurrent] clients and runs [Args::num_requests]
@@ -60,7 +71,7 @@ async fn main() -> Result<()> {
     let index = Arc::new(DashMap::new());
     let dl_ports = Arc::new(DashMap::new());
     let neighbors = Arc::new(Vec::new());
-    let backtrace = Arc::new(DashSet::new());
+    let backtrace = Arc::new(RwLock::new(HashSetDelay::new(Duration::from_secs(args.b_ttl))));
     let listener = tcp::listen(host.clone(), Bincode::default).await?;
     tokio::spawn(
         listener
@@ -114,19 +125,19 @@ async fn main() -> Result<()> {
         future::join_all(clients.iter().map(|c| async {
             let d = Arc::clone(&mutex);
             let now = Instant::now();
-            c.search(context::current(), "1k.bin".to_owned())
+            c.query(context::current(), Uuid::new_v4(), "1k.bin".to_owned(), args.q_ttl)
                 .await
                 .expect("failed a query while profiling");
             let elapsed = now.elapsed();
             {
-                d.write().unwrap().push(elapsed);
+                d.write().await.push(elapsed);
             }
             println!("Run {}: {:0.2?}", i, elapsed);
         }))
         .await;
     }
 
-    let durations = mutex.read().unwrap();
+    let durations = mutex.read().await;
     let total = durations
         .iter()
         .sum::<Duration>()
