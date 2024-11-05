@@ -13,7 +13,7 @@ use std::{
 
 use anyhow::Result;
 use clap::Parser;
-use dashmap::DashMap;
+use dashmap::{DashMap, DashSet};
 use futures::{future, prelude::*};
 use plotly::common::Mode;
 use plotly::Histogram;
@@ -59,6 +59,8 @@ async fn main() -> Result<()> {
     // Start indexer here
     let index = Arc::new(DashMap::new());
     let dl_ports = Arc::new(DashMap::new());
+    let neighbors = Arc::new(Vec::new());
+    let backtrace = Arc::new(DashSet::new());
     let listener = tcp::listen(host.clone(), Bincode::default).await?;
     tokio::spawn(
         listener
@@ -68,7 +70,7 @@ async fn main() -> Result<()> {
             .map(BaseChannel::with_defaults)
             .map(move |channel| {
                 let server =
-                    IndexerServer::new(channel.transport().peer_addr().unwrap(), &index, &dl_ports);
+                    IndexerServer::new(channel.transport().peer_addr().unwrap(), &index, &dl_ports, &neighbors, &backtrace);
                 channel
                     .execute(server.serve())
                     .for_each(|response| async move {

@@ -7,7 +7,7 @@ use std::sync::Arc;
 
 use anyhow::Result;
 use clap::Parser;
-use dashmap::DashMap;
+use dashmap::{DashMap, DashSet};
 use futures::{future, prelude::*};
 use tarpc::{
     serde_transport::tcp,
@@ -36,6 +36,8 @@ async fn main() -> Result<()> {
 
     let index = Arc::new(DashMap::new());
     let dl_ports = Arc::new(DashMap::new());
+    let neighbors = Arc::new(Vec::new());
+    let backtrace = Arc::new(DashSet::new());
     let listener = tcp::listen((host, args.port), Bincode::default).await?;
     listener
         // Ignore accept errors.
@@ -44,7 +46,7 @@ async fn main() -> Result<()> {
         .map(BaseChannel::with_defaults)
         .map(|channel| {
             let server =
-                IndexerServer::new(channel.transport().peer_addr().unwrap(), &index, &dl_ports);
+                IndexerServer::new(channel.transport().peer_addr().unwrap(), &index, &dl_ports, &neighbors, &backtrace);
             channel
                 .execute(server.serve())
                 .for_each(|response| async move {
