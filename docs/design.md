@@ -74,16 +74,18 @@ indexer/superpeer. In the current implementation, these UUIDs are saved as
 elements in an `HashSetDelay` from `delay_map`, which provides a `HashSet` with
 expiring entries given a `ttl` (default $10$ seconds).
 
-Queries are recursively propgated with a `ttl` argument, with zero as its
+Queries are recursively propggated with a `ttl` argument, with zero as its
 base-case. When a node encounters a `query` with a non-zero `ttl`, the request
 is propogated by connecting to all the neighbors of the node stored in
 `self.neighbors: Vec<SocketAddr>` and sending a query with `ttl - 1`. This is
 continued until the `ttl` becomes zero, which then back-propagates the result of
 the index query back to the original caller, cascading up the call-stack while
 coalescing the resulting index hits. Upon an index miss, an empty list is
-back-propagated, indicating no match.
+back-propagated, indicating no match. `tarpc` handles back-propagation of return
+values to the caller, eliminating the need for manual tracking or a
+`query_hit` return RPC.
 
-A client can then download the file using the `PeerClient::download` interface
+A client can then download the file using the `PeerClient::download_file` interface
 with one of the returned peer `SocketAddr` as its address.
 
 Both the client and indexer are now configured using
