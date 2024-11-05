@@ -3,11 +3,12 @@
 //!
 //! Utilizes two [DashMap]s as the underlying data structure for the [IndexerServer::index] and
 //! [IndexerServer::dl_ports].
-use std::{net::SocketAddr, sync::Arc};
+use std::{net::SocketAddr, sync::Arc, time::Duration};
 
 use anyhow::Result;
 use clap::Parser;
-use dashmap::{DashMap, DashSet};
+use dashmap::DashMap;
+use delay_map::HashSetDelay;
 use futures::{future, prelude::*};
 use serde::Deserialize;
 use tarpc::{
@@ -15,7 +16,7 @@ use tarpc::{
     server::{BaseChannel, Channel},
     tokio_serde::formats::Bincode,
 };
-use tokio::fs;
+use tokio::{fs, sync::RwLock};
 
 use nekop2p::{Indexer, IndexerServer};
 
@@ -26,6 +27,9 @@ struct Config {
 
     /// Neighbors of [IndexerServer]
     neighbors: Option<Vec<SocketAddr>>,
+
+    /// Query Backtrace TTL (default 10 seconds)
+    ttl: Option<u64>,
 }
 
 #[derive(Parser)]
@@ -50,7 +54,9 @@ async fn main() -> Result<()> {
     let index = Arc::new(DashMap::new());
     let dl_ports = Arc::new(DashMap::new());
     let neighbors = Arc::new(config.neighbors.unwrap_or_default());
-    let backtrace = Arc::new(DashSet::new());
+    let backtrace = Arc::new(RwLock::new(HashSetDelay::new(Duration::from_secs(
+        config.ttl.unwrap_or(10),
+    ))));
     let listener = tcp::listen(config.bind, Bincode::default).await?;
     listener
         // Ignore accept errors.

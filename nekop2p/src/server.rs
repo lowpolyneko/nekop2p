@@ -1,7 +1,9 @@
 use std::{net::SocketAddr, sync::Arc};
 
 use dashmap::{DashMap, DashSet};
+use delay_map::HashSetDelay;
 use tarpc::{client, context::Context, serde_transport::tcp, tokio_serde::formats::Bincode};
+use tokio::sync::RwLock;
 use uuid::Uuid;
 
 use crate::{Indexer, IndexerClient};
@@ -22,7 +24,7 @@ pub struct IndexerServer {
     neighbors: Arc<Vec<SocketAddr>>,
 
     /// Log of all seen query msg_ids
-    backtrace: Arc<DashSet<Uuid>>,
+    backtrace: Arc<RwLock<HashSetDelay<Uuid>>>,
 }
 
 impl IndexerServer {
@@ -32,7 +34,7 @@ impl IndexerServer {
         index: &Arc<DashMap<String, DashSet<SocketAddr>>>,
         dl_ports: &Arc<DashMap<SocketAddr, u16>>,
         neighbors: &Arc<Vec<SocketAddr>>,
-        backtrace: &Arc<DashSet<Uuid>>,
+        backtrace: &Arc<RwLock<HashSetDelay<Uuid>>>,
     ) -> Self {
         IndexerServer {
             addr,
@@ -112,13 +114,13 @@ impl Indexer for IndexerServer {
     async fn query(self, c: Context, msg_id: Uuid, filename: String, ttl: u8) -> Vec<SocketAddr> {
         println!("Querying {filename} for {0} (id: {msg_id})", self.addr);
         // if msg_id has already been seen, then we ignore the query
-        if self.backtrace.contains(&msg_id) {
+        if self.backtrace.read().await.contains_key(&msg_id) {
             println!("Message already handled!");
             return Vec::new();
         }
 
         // insert into set of seen msg_ids
-        self.backtrace.insert(msg_id);
+        self.backtrace.write().await.insert(msg_id);
 
         // get peers from this peer's index
         println!("Searched {filename} for {0}", self.addr);

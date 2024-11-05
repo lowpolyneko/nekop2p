@@ -325,6 +325,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "delay_map"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "df941644b671f05f59433e481ba0d31ac10e3667de725236a4c0d587c496fba1"
+dependencies = [
+ "futures",
+ "tokio",
+ "tokio-util",
+]
+
+[[package]]
 name = "demo-profile"
 version = "0.1.0"
 dependencies = [
@@ -720,6 +731,7 @@ dependencies = [
  "anyhow",
  "clap",
  "dashmap",
+ "delay_map",
  "futures",
  "nekop2p",
  "serde",
@@ -733,6 +745,7 @@ name = "nekop2p"
 version = "0.1.0"
 dependencies = [
  "dashmap",
+ "delay_map",
  "tarpc",
  "tokio",
  "uuid",
