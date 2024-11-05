@@ -29,6 +29,9 @@ Now, we introduce a cluster of indexers such that they all know eachother as
 neighbors. A single client sending queries is sampled.
 
 ![](profile_superpeer/profile-10-1-1-scatter.png)
+
+The distribution of response times remain fairly normal aswell.
+
 ![](profile_superpeer/profile-10-1-1-hist.png)
 
 Introducing the superpeering model incurs an almost 10x penalty to latency
@@ -37,6 +40,9 @@ the `query` to **every** neighboring superpeer and the wait requirement for
 back-propagation.
 
 ![](profile_superpeer/profile-10-5-1-scatter.png)
+
+The distribution of response times continues to remain fairly normal.
+
 ![](profile_superpeer/profile-10-5-1-hist.png)
 
 With a concurrent load, the average jumps to `1.44` ms over `localhost`. This
@@ -48,12 +54,14 @@ due to the propagation requirement.
 ![](profile_superpeer/profile-10-10-1-scatter.png)
 ![](profile_superpeer/profile-10-10-1-hist.png)
 
-Similar doubling with `-c 10` clients (average `2.28` ms).
+Similar doubling with `-c 10` clients (average `2.28` ms) and a maintained
+normal distribution.
 
 ![](profile_superpeer/profile-10-30-1-scatter.png)
 ![](profile_superpeer/profile-10-30-1-hist.png)
 
-And a tripling with `-c 30` clients (average `6.32` ms).
+And a tripling with `-c 30` clients (average `6.32` ms) with a normal
+distribution.
 
 However, where scaling of this model suffers is in an increase of `ttl`, or the
 number of propogations.
