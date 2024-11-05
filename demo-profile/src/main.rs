@@ -197,7 +197,6 @@ async fn main() -> Result<()> {
             .x_axis(
                 Axis::new()
                     .title("Response Time (microseconds)")
-                    .range(vec![0, 250]),
             )
             .y_axis(Axis::new().title("Count"));
         histogram.set_layout(hist_layout);
