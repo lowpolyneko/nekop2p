@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
 
-members = [ "demo-profile",
-	"nekoindexer", "nekop2p", "nekopeer",
+members = [
+    "demo-profile", "nekoindexer", "nekop2p", "nekopeer",
 ]
