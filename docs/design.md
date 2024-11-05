@@ -86,6 +86,35 @@ back-propagated, indicating no match.
 A client can then download the file using the `PeerClient::download` interface
 with one of the returned peer `SocketAddr` as its address.
 
+Both the client and indexer are now configured using
+[`.toml`](https://toml.io/en/A). `.toml` enjoys first-class support in Rust with
+direct serialization to structs from a `File` using `toml` and `serde`.
+
+Snippet of `Config` file declaration.
+```rs
+#[derive(Deserialize)]
+struct Config {
+    /// Host to run on
+    bind: SocketAddr,
+
+    /// Neighbors of [IndexerServer]
+    neighbors: Option<Vec<SocketAddr>>,
+
+    /// Query Backtrace TTL (default 10 seconds)
+    ttl: Option<u64>,
+}
+```
+
+And snippet to load `Config` file.
+```rs
+    let config: Config = toml::from_str(
+        &fs::read_to_string(args.config)
+            .await
+            .expect("missing config file"),
+    )
+    .expect("failed to parse config file");
+```
+
 ### Limitations
 Query propagation in this style carries some drawbacks...
 
