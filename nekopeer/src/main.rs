@@ -31,6 +31,9 @@ struct Config {
 
     /// incoming peer connection [std::net::SocketAddr] to bind to
     dl_bind: SocketAddr,
+
+    /// TTL of queries (default 1)
+    ttl: Option<u8>,
 }
 
 #[derive(Parser)]
@@ -79,11 +82,11 @@ async fn prompt_register(client: &IndexerClient) {
 
 /// Given an [IndexerClient] download a file that is prompted for from a random peer and register
 /// it with the [nekop2p::Indexer]
-async fn prompt_download(client: &IndexerClient) {
+async fn prompt_download(client: &IndexerClient, ttl: u8) {
     let filename = input("Enter filename").unwrap();
 
     let results = match client
-        .search(context::current(), filename.trim_end().to_owned())
+        .query(context::current(), Uuid::new_v4(), filename.trim_end().to_owned(), ttl)
         .await
     {
         Ok(x) => {
@@ -171,16 +174,15 @@ async fn prompt_search(client: &IndexerClient) {
 }
 
 /// Given an [IndexerClient] queries the network for a filename that is prompted for
-async fn prompt_query(client: &IndexerClient) {
+async fn prompt_query(client: &IndexerClient, ttl: u8) {
     let filename = input("Enter filename").unwrap();
 
-    // TODO don't hardcode ttl
     let results = match client
         .query(
             context::current(),
             Uuid::new_v4(),
             filename.trim_end().to_owned(),
-            1,
+            ttl,
         )
         .await
     {
@@ -233,6 +235,7 @@ async fn main() -> Result<()> {
     let mut listener = tcp::listen(config.dl_bind, Bincode::default).await?;
     listener.config_mut().max_frame_length(usize::MAX); // allow large frames
 
+    let ttl = config.ttl.unwrap_or(1);
     let port = listener.local_addr().port(); // get port (in-case dl_port = 0)
 
     tokio::spawn(
@@ -266,10 +269,10 @@ async fn main() -> Result<()> {
 
         match input.as_str().trim_end() {
             "register" => prompt_register(&client).await,
-            "download" => prompt_download(&client).await,
+            "download" => prompt_download(&client, ttl).await,
             "search" => prompt_search(&client).await,
             "deregister" => prompt_deregister(&client).await,
-            "query" => prompt_query(&client).await,
+            "query" => prompt_query(&client, ttl).await,
             "?" => print_help(),
             "exit" => break,
             _ => println!("Unknown command"),
