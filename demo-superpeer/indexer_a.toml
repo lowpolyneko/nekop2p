@@ -1,0 +1,3 @@
+host = "localhost"
+port = 5000
+neighbors = [ "127.0.0.1:4999" ]

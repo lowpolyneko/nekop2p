@@ -1,0 +1,3 @@
+indexer = "localhost:4999"
+dl_host = "localhost"
+dl_port = 5002

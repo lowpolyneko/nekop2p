@@ -70,7 +70,7 @@ impl Indexer for IndexerServer {
     }
 
     async fn search(self, _: Context, filename: String) -> Vec<SocketAddr> {
-        println!("Queried {filename} for {0}", self.addr);
+        println!("Searched {filename} for {0}", self.addr);
         self.index
             .entry(filename)
             .or_default()
@@ -110,12 +110,18 @@ impl Indexer for IndexerServer {
     }
 
     async fn query(self, c: Context, msg_id: Uuid, filename: String, ttl: u8) -> Vec<SocketAddr> {
+        println!("Querying {filename} for {0} (id: {msg_id})", self.addr);
         // if msg_id has already been seen, then we ignore the query
         if self.backtrace.contains(&msg_id) {
+            println!("Message already handled!");
             return Vec::new();
         }
 
+        // insert into set of seen msg_ids
+        self.backtrace.insert(msg_id);
+
         // get peers from this peer's index
+        println!("Searched {filename} for {0}", self.addr);
         let mut peers: Vec<_> = self
             .index
             .entry(filename.clone())
@@ -134,14 +140,16 @@ impl Indexer for IndexerServer {
         // propogate query to neighboring peers
         if ttl > 0 {
             for peer in self.neighbors.iter() {
-                let transport = tcp::connect(peer, Bincode::default).await.unwrap();
-                let client = IndexerClient::new(client::Config::default(), transport).spawn();
-                peers.append(
-                    &mut client
-                        .query(c, msg_id, filename.clone(), ttl - 1)
-                        .await
-                        .unwrap_or_default(),
-                );
+                println!("Propagating query of {filename} to {0} (id: {msg_id})", peer);
+                if let Ok(transport) = tcp::connect(peer, Bincode::default).await {
+                    let client = IndexerClient::new(client::Config::default(), transport).spawn();
+                    peers.append(
+                        &mut client
+                            .query(c, msg_id, filename.clone(), ttl - 1)
+                            .await
+                            .unwrap_or_default(),
+                    );
+                }
             }
         }
 

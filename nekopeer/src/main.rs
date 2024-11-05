@@ -17,6 +17,7 @@ use tarpc::{
     tokio_serde::formats::Bincode,
 };
 use tokio::{fs, signal};
+use uuid::Uuid;
 
 use nekop2p::{IndexerClient, Peer, PeerClient, PeerServer};
 
@@ -56,8 +57,9 @@ fn print_help() {
     println!("Available CLI commands:");
     println!("register\tRegister file to index");
     println!("download\tDownload file from peer on index");
-    println!("search\t\tQuery peers on index");
+    println!("search\t\tQuery peers on index with file");
     println!("deregister\tDeregister file on index");
+    println!("query\tQueries entire network for file");
     println!("?\t\tPrint this help screen");
     println!("exit\t\tQuit");
 }
@@ -168,6 +170,29 @@ async fn prompt_search(client: &IndexerClient) {
     results.iter().for_each(|r| println!("{}", r));
 }
 
+/// Given an [IndexerClient] queries the network for a filename that is prompted for
+async fn prompt_query(client: &IndexerClient) {
+    let filename = input("Enter filename").unwrap();
+
+    // TODO don't hardcode ttl
+    let results = match client
+        .query(context::current(), Uuid::new_v4(), filename.trim_end().to_owned(), 1)
+        .await
+    {
+        Ok(x) => {
+            println!("Querying network for {0}", filename.trim_end());
+            x
+        }
+        Err(_) => {
+            println!("Failed to retrieve peers for {0}", filename.trim_end());
+            return;
+        }
+    };
+
+    // print out results
+    results.iter().for_each(|r| println!("{}", r));
+}
+
 /// Given an [IndexerClient] deregisters a filename that is prompted for
 async fn prompt_deregister(client: &IndexerClient) {
     let filename = input("Enter filename").unwrap();
@@ -243,6 +268,7 @@ async fn main() -> Result<()> {
             "download" => prompt_download(&client).await,
             "search" => prompt_search(&client).await,
             "deregister" => prompt_deregister(&client).await,
+            "query" => prompt_query(&client).await,
             "?" => print_help(),
             "exit" => break,
             _ => println!("Unknown command"),
