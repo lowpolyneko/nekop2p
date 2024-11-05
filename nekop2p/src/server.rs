@@ -115,7 +115,7 @@ impl Indexer for IndexerServer {
         println!("Querying {filename} for {0} (id: {msg_id})", self.addr);
         // if msg_id has already been seen, then we ignore the query
         if self.backtrace.read().await.contains_key(&msg_id) {
-            println!("Message already handled!");
+            println!("Message {msg_id} already handled!");
             return Vec::new();
         }
 

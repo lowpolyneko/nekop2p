@@ -5,6 +5,7 @@
 //!
 //! Additionally, plots can be generated using the [plotly] crate.
 use std::iter::repeat;
+use std::net::ToSocketAddrs;
 use std::time::Instant;
 use std::{
     sync::Arc,
@@ -33,8 +34,13 @@ use nekop2p::{Indexer, IndexerClient, IndexerServer};
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 struct Args {
-    /// IP and port to bind the [IndexerServer] to
-    indexer: Option<String>,
+    /// Number of indexers to spawn
+    #[arg(short, long, default_value_t = 1)]
+    indexers: usize,
+
+    /// Number of indexers to spawn
+    #[arg(short, long, default_value_t = 5000)]
+    start_port: u16,
 
     /// Whether or not to plot
     #[arg(short, long, action)]
@@ -62,60 +68,63 @@ struct Args {
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
-    let host = args.indexer.unwrap_or("localhost:5000".to_owned());
 
     println!("Welcome to the nekop2p profiler!");
-    println!("Starting indexer on {0}", host);
+    println!("Starting {0} indexers...", args.indexers);
 
-    // Start indexer here
-    let index = Arc::new(DashMap::new());
-    let dl_ports = Arc::new(DashMap::new());
-    let neighbors = Arc::new(Vec::new());
-    let backtrace = Arc::new(RwLock::new(HashSetDelay::new(Duration::from_secs(args.b_ttl))));
-    let listener = tcp::listen(host.clone(), Bincode::default).await?;
-    tokio::spawn(
-        listener
-            // Ignore accept errors.
-            .filter_map(|r| future::ready(r.ok()))
-            // Establish serve channel
-            .map(BaseChannel::with_defaults)
-            .map(move |channel| {
-                let server = IndexerServer::new(
-                    channel.transport().peer_addr().unwrap(),
-                    &index,
-                    &dl_ports,
-                    &neighbors,
-                    &backtrace,
-                );
-                channel
-                    .execute(server.serve())
-                    .for_each(|response| async move {
-                        tokio::spawn(response);
-                    })
-            })
-            // Max 10 channels.
-            .buffer_unordered(10)
-            .for_each(|_| async {}),
-    );
+    // Start indexers here
+    let indexers: Vec<_> = (0..args.indexers).map(|i| {
+        ("127.0.0.1", args.start_port + i as u16).to_socket_addrs().unwrap().next().unwrap()
+    }).collect();
+
+    for i in 0..args.indexers {
+        let index = Arc::new(DashMap::new());
+        let dl_ports = Arc::new(DashMap::new());
+        let mut neighbors = indexers.clone();
+        neighbors.swap_remove(i);
+        let neighbors = Arc::new(neighbors);
+        let backtrace = Arc::new(RwLock::new(HashSetDelay::new(Duration::from_secs(args.b_ttl))));
+        let listener = tcp::listen(("127.0.0.1", args.start_port + i as u16), Bincode::default).await?;
+        tokio::spawn(
+            listener
+                // Ignore accept errors.
+                .filter_map(|r| future::ready(r.ok()))
+                // Establish serve channel
+                .map(BaseChannel::with_defaults)
+                .map(move |channel| {
+                    let server = IndexerServer::new(
+                        channel.transport().peer_addr().unwrap(),
+                        &index,
+                        &dl_ports,
+                        &neighbors,
+                        &backtrace,
+                    );
+                    channel
+                        .execute(server.serve())
+                        .for_each(|response| async move {
+                            tokio::spawn(response);
+                        })
+                })
+                // Max 10 channels.
+                .buffer_unordered(10)
+                .for_each(|_| async {}),
+        );
+    }
 
     // Begin profiling requests
     // Spawn clients
     println!("Spawning {0} clients", args.concurrent);
     let mut clients = Vec::new();
-    for _ in 0..args.concurrent {
-        let transport = tcp::connect(host.clone(), Bincode::default);
+    for host in indexers.iter().cycle().take(args.concurrent) {
+        let transport = tcp::connect(host, Bincode::default);
         let client = IndexerClient::new(client::Config::default(), transport.await?).spawn();
         clients.push(client);
     }
 
     // Register binary files on the first peer
-    for i in 1..=10 {
-        println!("Registering {i}k.bin on first peer");
-        clients
-            .first()
-            .unwrap()
-            .register(context::current(), format!("{i}k.bin"))
-            .await?;
+    for (i, c) in (1..=10).cycle().zip(clients.iter()) {
+        println!("Registering {i}k.bin on a peer");
+        c.register(context::current(), format!("{i}k.bin")).await?;
     }
 
     // For each round, run a request on each client
@@ -125,7 +134,7 @@ async fn main() -> Result<()> {
         future::join_all(clients.iter().map(|c| async {
             let d = Arc::clone(&mutex);
             let now = Instant::now();
-            c.query(context::current(), Uuid::new_v4(), "1k.bin".to_owned(), args.q_ttl)
+            c.query(context::current(), Uuid::new_v4(), format!("{}k.bin", i % 10 + 1), args.q_ttl)
                 .await
                 .expect("failed a query while profiling");
             let elapsed = now.elapsed();
@@ -172,7 +181,7 @@ async fn main() -> Result<()> {
         plot.add_trace(trace_avg);
 
         let layout = Layout::new()
-            .title("`search` Response Time")
+            .title(format!("`query` Response Time (with {} superpeers and {} leaf-nodes, ttl={})", args.indexers, args.concurrent, args.q_ttl))
             .x_axis(Axis::new().title("Request Iteration"))
             .y_axis(Axis::new().title("Response Time (microseconds)"));
         plot.set_layout(layout);
@@ -184,7 +193,7 @@ async fn main() -> Result<()> {
         histogram.add_trace(hist_trace);
 
         let hist_layout = Layout::new()
-            .title("Distribution of `search` Response Time")
+            .title(format!("Distribution of `query` Response Time (with {} superpeers and {} leaf-nodes, ttl={})", args.indexers, args.concurrent, args.q_ttl))
             .x_axis(
                 Axis::new()
                     .title("Response Time (microseconds)")
