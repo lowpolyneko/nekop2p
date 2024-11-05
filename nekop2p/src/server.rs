@@ -1,10 +1,10 @@
 use std::{net::SocketAddr, sync::Arc};
 
 use dashmap::{DashMap, DashSet};
-use tarpc::context::Context;
+use tarpc::{client, context::Context, serde_transport::tcp, tokio_serde::formats::Bincode};
 use uuid::Uuid;
 
-use crate::Indexer;
+use crate::{Indexer, IndexerClient};
 
 /// Reference [Indexer] implementation
 #[derive(Clone)]
@@ -17,6 +17,12 @@ pub struct IndexerServer {
 
     /// Index shared between all connections to map remote peers with their incoming download port
     dl_ports: Arc<DashMap<SocketAddr, u16>>,
+
+    /// List of neighboring superpeers
+    neighbors: Arc<Vec<SocketAddr>>,
+
+    /// Log of all seen query msg_ids
+    backtrace: Arc<DashSet<Uuid>>,
 }
 
 impl IndexerServer {
@@ -25,11 +31,15 @@ impl IndexerServer {
         addr: SocketAddr,
         index: &Arc<DashMap<String, DashSet<SocketAddr>>>,
         dl_ports: &Arc<DashMap<SocketAddr, u16>>,
+        neighbors: &Arc<Vec<SocketAddr>>,
+        backtrace: &Arc<DashSet<Uuid>>,
     ) -> Self {
         IndexerServer {
             addr,
             index: Arc::clone(index),
             dl_ports: Arc::clone(dl_ports),
+            neighbors: Arc::clone(neighbors),
+            backtrace: Arc::clone(backtrace),
         }
     }
 
@@ -100,6 +110,41 @@ impl Indexer for IndexerServer {
     }
 
     async fn query(self, c: Context, msg_id: Uuid, filename: String, ttl: u8) -> Vec<SocketAddr> {
-        vec![]
+        // if msg_id has already been seen, then we ignore the query
+        if self.backtrace.contains(&msg_id) {
+            return Vec::new();
+        }
+
+        // get peers from this peer's index
+        let mut peers: Vec<_> = self
+            .index
+            .entry(filename.clone())
+            .or_default()
+            .iter()
+            .filter_map(|e| match self.dl_ports.get(&e) {
+                Some(x) => {
+                    let mut n = e.clone();
+                    n.set_port(*x);
+                    Some(n)
+                }
+                None => None,
+            })
+            .collect();
+
+        // propogate query to neighboring peers
+        if ttl > 0 {
+            for peer in self.neighbors.iter() {
+                let transport = tcp::connect(peer, Bincode::default).await.unwrap();
+                let client = IndexerClient::new(client::Config::default(), transport).spawn();
+                peers.append(
+                    &mut client
+                        .query(c, msg_id, filename.clone(), ttl - 1)
+                        .await
+                        .unwrap_or_default(),
+                );
+            }
+        }
+
+        peers
     }
 }
