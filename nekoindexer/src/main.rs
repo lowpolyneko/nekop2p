@@ -9,36 +9,47 @@ use anyhow::Result;
 use clap::Parser;
 use dashmap::{DashMap, DashSet};
 use futures::{future, prelude::*};
+use serde::Deserialize;
 use tarpc::{
     serde_transport::tcp,
     server::{BaseChannel, Channel},
     tokio_serde::formats::Bincode,
 };
+use tokio::fs;
 
 use nekop2p::{Indexer, IndexerServer};
+
+#[derive(Deserialize)]
+struct Config {
+    host: String,
+    port: u16,
+}
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 struct Args {
-    host: Option<String>,
-
-    #[arg(short, long, default_value_t = 5000)]
-    port: u16,
+    config: String,
 }
 
 /// Starts an [IndexerServer] on [Args::host] with [Args::port]
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
-    let host = args.host.unwrap_or("localhost".to_owned());
+    let config: Config =
+        toml::from_str(
+            &fs::read_to_string(args.config)
+                .await
+                .expect("missing config file"),
+        )
+        .expect("failed to parse config file");
 
-    println!("Starting indexer on {0}:{1}", host, args.port);
+    println!("Starting indexer on {0}:{1}", config.host, config.port);
 
     let index = Arc::new(DashMap::new());
     let dl_ports = Arc::new(DashMap::new());
     let neighbors = Arc::new(Vec::new());
     let backtrace = Arc::new(DashSet::new());
-    let listener = tcp::listen((host, args.port), Bincode::default).await?;
+    let listener = tcp::listen((config.host, config.port), Bincode::default).await?;
     listener
         // Ignore accept errors.
         .filter_map(|r| future::ready(r.ok()))
