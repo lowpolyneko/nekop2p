@@ -12,6 +12,18 @@ package is spit into four crates:
 - (for the demo) install `tmux`
 - compile with `cargo build --release`
 
+## Superpeering
+For resources on the new superpeering functionality of `nekop2p` 0.2.0, see
+`docs/sample_superpeer` for sample `config.toml` files and output. Additionally,
+see `docs/profile_superpeer` for raw profiling results given varying `-c`, `-i`,
+and `-q`.
+
+![](docs/sample_superpeer/superpeer.png)
+
+Additional writeups on the design and testing of the superpeering functionality
+can be found under the **Superpeering** section of `docs/design.md` and
+`docs/testing.md`
+
 ## Demo
 To run the example demo, `cd demo/` and run `./run_demo.sh`. This will start an
 instance of `nekoindexer` on `localhost:5000` and three instances of `nekopeer`
