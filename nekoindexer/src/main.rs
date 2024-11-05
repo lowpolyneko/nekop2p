@@ -38,13 +38,12 @@ struct Args {
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
-    let config: Config =
-        toml::from_str(
-            &fs::read_to_string(args.config)
-                .await
-                .expect("missing config file"),
-        )
-        .expect("failed to parse config file");
+    let config: Config = toml::from_str(
+        &fs::read_to_string(args.config)
+            .await
+            .expect("missing config file"),
+    )
+    .expect("failed to parse config file");
 
     println!("Starting indexer on {0}", config.bind);
 
@@ -59,8 +58,13 @@ async fn main() -> Result<()> {
         // Establish serve channel
         .map(BaseChannel::with_defaults)
         .map(|channel| {
-            let server =
-                IndexerServer::new(channel.transport().peer_addr().unwrap(), &index, &dl_ports, &neighbors, &backtrace);
+            let server = IndexerServer::new(
+                channel.transport().peer_addr().unwrap(),
+                &index,
+                &dl_ports,
+                &neighbors,
+                &backtrace,
+            );
             channel
                 .execute(server.serve())
                 .for_each(|response| async move {

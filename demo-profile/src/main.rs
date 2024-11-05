@@ -69,8 +69,13 @@ async fn main() -> Result<()> {
             // Establish serve channel
             .map(BaseChannel::with_defaults)
             .map(move |channel| {
-                let server =
-                    IndexerServer::new(channel.transport().peer_addr().unwrap(), &index, &dl_ports, &neighbors, &backtrace);
+                let server = IndexerServer::new(
+                    channel.transport().peer_addr().unwrap(),
+                    &index,
+                    &dl_ports,
+                    &neighbors,
+                    &backtrace,
+                );
                 channel
                     .execute(server.serve())
                     .for_each(|response| async move {

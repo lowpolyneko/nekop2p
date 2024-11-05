@@ -40,7 +40,7 @@ pub trait Indexer {
     async fn query(msg_id: Uuid, filename: String, ttl: u8) -> Vec<SocketAddr>;
 }
 
-/// RPC scheme for interacting with an [PeerServer]
+/// RPC scheme for interacting with a [PeerServer]
 #[tarpc::service]
 pub trait Peer {
     /// Query `filename` and send over the raw bytes if it exists

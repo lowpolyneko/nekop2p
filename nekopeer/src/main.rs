@@ -3,7 +3,10 @@
 //!
 //! Connects to [nekop2p::Indexer]s and [Peer]s using [IndexerClient] and [PeerClient]
 //! respectively.
-use std::{io::{stdin, stdout, Write}, net::SocketAddr};
+use std::{
+    io::{stdin, stdout, Write},
+    net::SocketAddr,
+};
 
 use anyhow::Result;
 use clap::Parser;
@@ -173,7 +176,12 @@ async fn prompt_query(client: &IndexerClient) {
 
     // TODO don't hardcode ttl
     let results = match client
-        .query(context::current(), Uuid::new_v4(), filename.trim_end().to_owned(), 1)
+        .query(
+            context::current(),
+            Uuid::new_v4(),
+            filename.trim_end().to_owned(),
+            1,
+        )
         .await
     {
         Ok(x) => {
@@ -209,21 +217,17 @@ async fn prompt_deregister(client: &IndexerClient) {
 #[tokio::main]
 async fn main() -> Result<()> {
     let args = Args::parse();
-    let config: Config =
-        toml::from_str(
-            &fs::read_to_string(args.config)
-                .await
-                .expect("missing config file"),
-        )
-        .expect("failed to parse config file");
+    let config: Config = toml::from_str(
+        &fs::read_to_string(args.config)
+            .await
+            .expect("missing config file"),
+    )
+    .expect("failed to parse config file");
 
     println!("Welcome to nekop2p! (peer client)");
     println!("Press Ctrl-C to enter commands...");
     println!("Connecting to indexer on {0}", config.indexer);
-    println!(
-        "Accepting inbound connections on {0}",
-        config.dl_bind
-    );
+    println!("Accepting inbound connections on {0}", config.dl_bind);
 
     let transport = tcp::connect(config.indexer, Bincode::default);
     let mut listener = tcp::listen(config.dl_bind, Bincode::default).await?;

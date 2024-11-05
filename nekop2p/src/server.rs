@@ -140,7 +140,10 @@ impl Indexer for IndexerServer {
         // propogate query to neighboring peers
         if ttl > 0 {
             for peer in self.neighbors.iter() {
-                println!("Propagating query of {filename} to {0} (id: {msg_id})", peer);
+                println!(
+                    "Propagating query of {filename} to {0} (id: {msg_id})",
+                    peer
+                );
                 if let Ok(transport) = tcp::connect(peer, Bincode::default).await {
                     let client = IndexerClient::new(client::Config::default(), transport).spawn();
                     peers.append(
