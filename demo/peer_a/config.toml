@@ -1,3 +1,2 @@
-indexer = "localhost:5000"
-dl_host = "localhost"
-dl_port = 5001
+indexer = "127.0.0.1:5000"
+dl_bind = "127.0.0.1:5001"

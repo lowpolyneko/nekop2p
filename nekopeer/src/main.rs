@@ -3,7 +3,7 @@
 //!
 //! Connects to [nekop2p::Indexer]s and [Peer]s using [IndexerClient] and [PeerClient]
 //! respectively.
-use std::io::{stdin, stdout, Write};
+use std::{io::{stdin, stdout, Write}, net::SocketAddr};
 
 use anyhow::Result;
 use clap::Parser;
@@ -24,13 +24,10 @@ use nekop2p::{IndexerClient, Peer, PeerClient, PeerServer};
 #[derive(Deserialize)]
 struct Config {
     /// indexer to bind to
-    indexer: String,
+    indexer: SocketAddr,
 
     /// incoming peer connection [std::net::SocketAddr] to bind to
-    dl_host: String,
-
-    /// incoming peer connection port to bind to
-    dl_port: u16,
+    dl_bind: SocketAddr,
 }
 
 #[derive(Parser)]
@@ -224,12 +221,12 @@ async fn main() -> Result<()> {
     println!("Press Ctrl-C to enter commands...");
     println!("Connecting to indexer on {0}", config.indexer);
     println!(
-        "Accepting inbound connections on {0}:{1}",
-        config.dl_host, config.dl_port
+        "Accepting inbound connections on {0}",
+        config.dl_bind
     );
 
     let transport = tcp::connect(config.indexer, Bincode::default);
-    let mut listener = tcp::listen((config.dl_host, config.dl_port), Bincode::default).await?;
+    let mut listener = tcp::listen(config.dl_bind, Bincode::default).await?;
     listener.config_mut().max_frame_length(usize::MAX); // allow large frames
 
     let port = listener.local_addr().port(); // get port (in-case dl_port = 0)

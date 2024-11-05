@@ -22,10 +22,7 @@ use nekop2p::{Indexer, IndexerServer};
 #[derive(Deserialize)]
 struct Config {
     /// Host to run on
-    host: String,
-
-    /// Port to bind to
-    port: u16,
+    bind: SocketAddr,
 
     /// Neighbors of [IndexerServer]
     neighbors: Option<Vec<SocketAddr>>,
@@ -49,13 +46,13 @@ async fn main() -> Result<()> {
         )
         .expect("failed to parse config file");
 
-    println!("Starting indexer on {0}:{1}", config.host, config.port);
+    println!("Starting indexer on {0}", config.bind);
 
     let index = Arc::new(DashMap::new());
     let dl_ports = Arc::new(DashMap::new());
     let neighbors = Arc::new(config.neighbors.unwrap_or_default());
     let backtrace = Arc::new(DashSet::new());
-    let listener = tcp::listen((config.host, config.port), Bincode::default).await?;
+    let listener = tcp::listen(config.bind, Bincode::default).await?;
     listener
         // Ignore accept errors.
         .filter_map(|r| future::ready(r.ok()))
