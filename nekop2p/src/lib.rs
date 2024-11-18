@@ -47,9 +47,12 @@ pub trait Indexer {
 /// RPC scheme for interacting with a [PeerServer]
 #[tarpc::service]
 pub trait Peer {
-    /// Query `filename` and send over the raw bytes (and a ttr) if it exists
-    async fn download_file(filename: String) -> Option<(Vec<u8>, Metadata)>;
+    /// Query `filename` and send over the raw bytes if it exists
+    async fn download_file(filename: String) -> Option<Vec<u8>>;
 
     /// Invalidates a `filename` on endpoint, discard if version number is older
     async fn invalidate(msg_id: Uuid, origin_server: SocketAddr, filename: String);
+
+    /// Poll file metadata
+    async fn get_metadata(filename: String) -> Option<Metadata>;
 }

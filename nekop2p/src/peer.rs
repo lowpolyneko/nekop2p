@@ -7,7 +7,7 @@ use tokio::fs;
 use crate::Peer;
 
 /// [Peer] downloaded file metadata
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, PartialEq)]
 pub struct Metadata {
     /// Server the file originated from (not necessarily downloaded)
     pub origin_server: SocketAddr,
@@ -34,23 +34,13 @@ impl PeerServer {
 }
 
 impl Peer for PeerServer {
-    async fn download_file(self, _: Context, filename: String) -> Option<(Vec<u8>, Metadata)> {
+    async fn download_file(self, _: Context, filename: String) -> Option<Vec<u8>> {
         println!(
             "Handling download request for {0} from {1}",
             filename, self.addr
         );
-        // get origin server and version from metadata
-        let metadata_text = match fs::read_to_string(filename.clone() + ".meta").await {
-            Ok(x) => x,
-            Err(_) => return None,
-        };
-        let metadata: Metadata = match toml::from_str(metadata_text.as_str()) {
-            Ok(x) => x,
-            Err(_) => return None,
-        };
-
         match fs::read(filename).await {
-            Ok(x) => Some((x, metadata)),
+            Ok(x) => Some(x),
             Err(_) => None,
         }
     }
@@ -87,5 +77,14 @@ impl Peer for PeerServer {
                 filename, origin_server, self.addr
             );
         }
+    }
+
+    async fn get_metadata(self, _: Context, filename: String) -> Option<Metadata> {
+        // get origin server and version from metadata
+        let metadata_text = match fs::read_to_string(filename.clone() + ".meta").await {
+            Ok(x) => x,
+            Err(_) => return None,
+        };
+        toml::from_str(metadata_text.as_str()).ok()
     }
 }
