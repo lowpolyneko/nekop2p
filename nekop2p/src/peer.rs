@@ -79,7 +79,8 @@ impl Peer for PeerServer {
                 "Recieved invalidation message for {0}::{1} from {2}",
                 filename, origin_server, self.addr
             );
-            let _ = fs::remove_file(filename).await;
+            let _ = fs::remove_file(filename.clone()).await;
+            let _ = fs::remove_file(filename + ".meta").await;
         } else {
             println!(
                 "Recieved invalid invalidation message for {0} from {2} with bad origin {1}",
