@@ -1,0 +1,543 @@
+diff --git a/.gitignore b/.gitignore
+index bb79083..3f81687 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -5,3 +5,4 @@ demo/peer_b/[1-4]k.bin
+ demo/peer_b/[8-9]k.bin
+ demo/peer_b/10k.bin
+ demo/peer_c/[1-7]k.bin
++*.meta
+diff --git a/Cargo.lock b/Cargo.lock
+index a24caa1..157076a 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -337,7 +337,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "demo-profile"
+-version = "0.1.0"
++version = "0.2.0"
+ dependencies = [
+  "anyhow",
+  "clap",
+@@ -728,7 +728,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "nekoindexer"
+-version = "0.1.0"
++version = "0.2.0"
+ dependencies = [
+  "anyhow",
+  "clap",
+@@ -744,18 +744,20 @@ dependencies = [
+ 
+ [[package]]
+ name = "nekop2p"
+-version = "0.1.0"
++version = "0.2.0"
+ dependencies = [
+  "dashmap",
+  "delay_map",
++ "serde",
+  "tarpc",
+  "tokio",
++ "toml",
+  "uuid",
+ ]
+ 
+ [[package]]
+ name = "nekopeer"
+-version = "0.1.0"
++version = "0.2.0"
+ dependencies = [
+  "anyhow",
+  "clap",
+@@ -1126,18 +1128,18 @@ checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
+ 
+ [[package]]
+ name = "serde"
+-version = "1.0.214"
++version = "1.0.215"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "f55c3193aca71c12ad7890f1785d2b73e1b9f63a0bbc353c08ef26fe03fc56b5"
++checksum = "6513c1ad0b11a9376da888e3e0baa0077f1aed55c17f50e7b2397136129fb88f"
+ dependencies = [
+  "serde_derive",
+ ]
+ 
+ [[package]]
+ name = "serde_derive"
+-version = "1.0.214"
++version = "1.0.215"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "de523f781f095e28fa605cdce0f8307e451cc0fd14e2eb4cd2e98a355b147766"
++checksum = "ad1e866f866923f252f05c889987993144fb74e722403468a4ebd70c3cd756c0"
+ dependencies = [
+  "proc-macro2",
+  "quote",
+diff --git a/demo/run_demo.sh b/demo/run_demo.sh
+index 3decaca..9c7e800 100755
+--- a/demo/run_demo.sh
++++ b/demo/run_demo.sh
+@@ -2,7 +2,7 @@
+ cargo build --release
+ 
+ # remove downloads if they already exist
+-rm -f peer_a/{5..10}k.bin peer_b/{1..4}k.bin peer_b/{8..10}k.bin peer_c/{1..7}k.bin
++rm -f peer_a/{5..10}k.bin peer_b/{1..4}k.bin peer_b/{8..10}k.bin peer_c/{1..7}k.bin **/*.meta
+ 
+ tmux new-session -d -s nekop2p './indexer.sh'
+ tmux split-window -h
+diff --git a/nekop2p/Cargo.toml b/nekop2p/Cargo.toml
+index b8d2c82..326b885 100644
+--- a/nekop2p/Cargo.toml
++++ b/nekop2p/Cargo.toml
+@@ -10,6 +10,8 @@ edition = "2021"
+ [dependencies]
+ dashmap = "6.1.0"
+ delay_map = "0.4.0"
++serde = { version = "1.0.215", features = ["derive"] }
+ tarpc = "0.34.0"
+ tokio = { version = "1.40.0", features = ["fs"] }
++toml = "0.8.19"
+ uuid = { version = "1.11.0", features = ["serde", "v4"] }
+diff --git a/nekop2p/src/lib.rs b/nekop2p/src/lib.rs
+index a93c29b..b8ad39e 100644
+--- a/nekop2p/src/lib.rs
++++ b/nekop2p/src/lib.rs
+@@ -9,7 +9,7 @@
+ //! Clients are utilized using [tarpc]'s generated [PeerClient] and [IndexerClient].
+ mod peer;
+ mod server;
+-pub use peer::PeerServer;
++pub use peer::{Metadata, PeerServer};
+ pub use server::IndexerServer;
+ 
+ use std::net::SocketAddr;
+@@ -38,6 +38,10 @@ pub trait Indexer {
+ 
+     /// Queries entire network for `filename` with a given ttl
+     async fn query(msg_id: Uuid, filename: String, ttl: u8) -> Vec<SocketAddr>;
++
++    /// Spreads an invalidation message across the network for `filename` owned by `origin_server`
++    /// (Peer endpoint)
++    async fn invalidate(msg_id: Uuid, origin_server: SocketAddr, filename: String);
+ }
+ 
+ /// RPC scheme for interacting with a [PeerServer]
+@@ -45,4 +49,10 @@ pub trait Indexer {
+ pub trait Peer {
+     /// Query `filename` and send over the raw bytes if it exists
+     async fn download_file(filename: String) -> Option<Vec<u8>>;
++
++    /// Invalidates a `filename` on endpoint, discard if version number is older
++    async fn invalidate(msg_id: Uuid, origin_server: SocketAddr, filename: String);
++
++    /// Poll file metadata
++    async fn get_metadata(filename: String) -> Option<Metadata>;
+ }
+diff --git a/nekop2p/src/peer.rs b/nekop2p/src/peer.rs
+index c37f286..403fdcf 100644
+--- a/nekop2p/src/peer.rs
++++ b/nekop2p/src/peer.rs
+@@ -1,10 +1,24 @@
+ use std::net::SocketAddr;
+ 
++use serde::{Deserialize, Serialize};
+ use tarpc::context::Context;
+ use tokio::fs;
+ 
+ use crate::Peer;
+ 
++/// [Peer] downloaded file metadata
++#[derive(Debug, Deserialize, Serialize, PartialEq)]
++pub struct Metadata {
++    /// Server the file originated from (not necessarily downloaded)
++    pub origin_server: SocketAddr,
++
++    /// Version number of the file
++    pub version: u8,
++
++    /// TTR of the file, or when to check for validity
++    pub ttr: u8,
++}
++
+ /// Reference [Peer] implementation
+ #[derive(Clone)]
+ pub struct PeerServer {
+@@ -27,4 +41,47 @@ impl Peer for PeerServer {
+         );
+         fs::read(filename).await.ok()
+     }
++
++    async fn invalidate(
++        self,
++        _: Context,
++        _: uuid::Uuid,
++        origin_server: SocketAddr,
++        filename: String,
++    ) {
++        // get origin server and version from metadata
++        let metadata_text = match fs::read_to_string(filename.clone() + ".meta").await {
++            Ok(x) => x,
++            Err(_) => return,
++        };
++        let metadata: Metadata = match toml::from_str(metadata_text.as_str()) {
++            Ok(x) => x,
++            Err(_) => return,
++        };
++
++        // remove if origin server matches
++        if origin_server == metadata.origin_server {
++            // got an invalidation message of a file, assume file is bad and delete
++            println!(
++                "Recieved invalidation message for {0}::{1} from {2}",
++                filename, origin_server, self.addr
++            );
++            let _ = fs::remove_file(filename.clone()).await;
++            let _ = fs::remove_file(filename + ".meta").await;
++        } else {
++            println!(
++                "Recieved invalid invalidation message for {0} from {2} with bad origin {1}",
++                filename, origin_server, self.addr
++            );
++        }
++    }
++
++    async fn get_metadata(self, _: Context, filename: String) -> Option<Metadata> {
++        // get origin server and version from metadata
++        let metadata_text = match fs::read_to_string(filename.clone() + ".meta").await {
++            Ok(x) => x,
++            Err(_) => return None,
++        };
++        toml::from_str(metadata_text.as_str()).ok()
++    }
+ }
+diff --git a/nekop2p/src/server.rs b/nekop2p/src/server.rs
+index 770095d..6d51676 100644
+--- a/nekop2p/src/server.rs
++++ b/nekop2p/src/server.rs
+@@ -6,7 +6,7 @@ use tarpc::{client, context::Context, serde_transport::tcp, tokio_serde::formats
+ use tokio::sync::RwLock;
+ use uuid::Uuid;
+ 
+-use crate::{Indexer, IndexerClient};
++use crate::{Indexer, IndexerClient, PeerClient};
+ 
+ /// Reference [Indexer] implementation
+ #[derive(Clone)]
+@@ -160,4 +160,85 @@ impl Indexer for IndexerServer {
+ 
+         peers
+     }
++
++    async fn invalidate(
++        self,
++        c: Context,
++        msg_id: Uuid,
++        origin_server: SocketAddr,
++        filename: String,
++    ) {
++        println!(
++            "Invalidation message for {filename}::{0} sent by {1} (id: {msg_id})",
++            origin_server, self.addr
++        );
++        // if msg_id has already been seen, then we ignore the query
++        if self.backtrace.read().await.contains_key(&msg_id) {
++            println!("Message {msg_id} already handled!");
++            return;
++        }
++
++        // insert into set of seen msg_ids
++        self.backtrace.write().await.insert(msg_id);
++
++        // send invalidation message to leaf nodes
++        println!("Searched {filename} for {0}", self.addr);
++        for peer in self
++            .index
++            .entry(filename.clone())
++            .or_default()
++            .iter()
++            .filter_map(|e| match self.dl_ports.get(&e) {
++                Some(x) => {
++                    let mut n = e.clone();
++                    n.set_port(*x);
++                    Some(n)
++                }
++                None => None,
++            })
++            .into_iter()
++        {
++            if peer == origin_server {
++                // skip original leaf node
++                continue;
++            }
++            println!(
++                "Propagating invalidation of {filename} to {0} (id: {msg_id})",
++                peer
++            );
++            if let Ok(transport) = tcp::connect(peer, Bincode::default).await {
++                let client = PeerClient::new(client::Config::default(), transport).spawn();
++                let _ = client
++                    .invalidate(c, msg_id, origin_server, filename.clone())
++                    .await;
++            }
++        }
++
++        // invalidate all leaf nodes that weren't the origin server
++        self.index
++            .entry(filename.clone())
++            .or_default()
++            .retain(|e| match self.dl_ports.get(&e) {
++                Some(x) => {
++                    let mut n = e.clone();
++                    n.set_port(*x);
++                    n == origin_server
++                }
++                None => false,
++            });
++
++        // propogate invalidation to neighboring indexers
++        for peer in self.neighbors.iter() {
++            println!(
++                "Propagating query of {filename} to {0} (id: {msg_id})",
++                peer
++            );
++            if let Ok(transport) = tcp::connect(peer, Bincode::default).await {
++                let client = IndexerClient::new(client::Config::default(), transport).spawn();
++                let _ = client
++                    .invalidate(c, msg_id, origin_server, filename.clone())
++                    .await;
++            }
++        }
++    }
+ }
+diff --git a/nekopeer/src/main.rs b/nekopeer/src/main.rs
+index d110195..bc770a8 100644
+--- a/nekopeer/src/main.rs
++++ b/nekopeer/src/main.rs
+@@ -6,6 +6,7 @@
+ use std::{
+     io::{stdin, stdout, Write},
+     net::SocketAddr,
++    time::Duration,
+ };
+ 
+ use anyhow::Result;
+@@ -22,7 +23,7 @@ use tarpc::{
+ use tokio::{fs, signal};
+ use uuid::Uuid;
+ 
+-use nekop2p::{IndexerClient, Peer, PeerClient, PeerServer};
++use nekop2p::{IndexerClient, Metadata, Peer, PeerClient, PeerServer};
+ 
+ #[derive(Deserialize)]
+ struct Config {
+@@ -34,6 +35,9 @@ struct Config {
+ 
+     /// TTL of queries (default 1)
+     ttl: Option<u8>,
++
++    /// TTR of downloads (default 255)
++    ttr: Option<u8>,
+ }
+ 
+ #[derive(Parser)]
+@@ -58,7 +62,7 @@ fn input(prompt: &str) -> Option<String> {
+ /// Prints all available [crate] commands
+ fn print_help() {
+     println!("Available CLI commands:");
+-    println!("register\tRegister file to index");
++    println!("register\tRegister file (or update file) to index");
+     println!("download\tDownload file from peer on index");
+     println!("search\t\tQuery peers on index with file");
+     println!("deregister\tDeregister file on index");
+@@ -67,10 +71,118 @@ fn print_help() {
+     println!("exit\t\tQuit");
+ }
+ 
++/// Read metadata from file
++async fn read_metadata(filename: &str) -> Result<Metadata> {
++    // get origin server and version from metadata
++    let metadata_text = fs::read_to_string(filename.to_owned() + ".meta").await?;
++    let metadata: Metadata = toml::from_str(metadata_text.as_str())?;
++    Ok(metadata)
++}
++
++/// Write metadata to file
++async fn write_metadata(filename: &str, metadata: &Metadata) -> Result<()> {
++    // create metadata file
++    let metadata_text = toml::to_string_pretty(&metadata)?;
++    fs::write(filename.trim_end().to_owned() + ".meta", metadata_text).await?;
++    Ok(())
++}
++
++/// Check file validity after ttr
++async fn poll_file_validity(filename: String, metadata: Metadata) {
++    loop {
++        // sleep for ttr, then poll
++        tokio::time::sleep(Duration::from_secs(metadata.ttr.into())).await;
++
++        println!("Polling validity of {0}...", filename.trim_end());
++        let transport = match tcp::connect(metadata.origin_server, Bincode::default).await {
++            Ok(x) => {
++                println!("Connecting to peer {0}", metadata.origin_server);
++                x
++            }
++            Err(_) => {
++                println!(
++                    "Failed to download metadata for {0}, removing",
++                    filename.trim_end()
++                );
++                let _ = fs::remove_file(filename.trim_end()).await;
++                let _ = fs::remove_file(filename.trim_end().to_owned() + ".meta").await;
++                return;
++            }
++        };
++
++        let peer = PeerClient::new(client::Config::default(), transport).spawn();
++        // then, get the updated file metadata
++        let new_metadata = match peer
++            .get_metadata(context::current(), filename.trim_end().to_owned())
++            .await
++        {
++            Ok(Some(x)) => x,
++            _ => {
++                println!(
++                    "Failed to download metadata for {0}, removing",
++                    filename.trim_end()
++                );
++                let _ = fs::remove_file(filename.trim_end()).await;
++                let _ = fs::remove_file(filename.trim_end().to_owned() + ".meta").await;
++                return;
++            }
++        };
++
++        if metadata != new_metadata {
++            // redownload needed
++            return;
++        }
++    }
++}
++
+ /// Given an [IndexerClient] register a filename that is prompted for
+-async fn prompt_register(client: &IndexerClient) {
++async fn prompt_register(client: &IndexerClient, origin_server: SocketAddr, ttr: u8) {
+     let filename = input("Enter filename").unwrap();
+ 
++    // write/get metadata first
++    let metadata = match read_metadata(filename.trim_end()).await {
++        Ok(mut x) => {
++            x.version += 1; // increment version since we're updating this file
++            x
++        }
++        Err(_) => {
++            // not found, make new metadata file instead
++            let metadata = Metadata {
++                origin_server, // this is the origin server!
++                version: 0,    // initial version is zero
++                ttr,           // we set the ttr
++            };
++            if write_metadata(filename.trim_end(), &metadata)
++                .await
++                .is_err()
++            {
++                println!("Failed to get metadata for {0}", filename.trim_end());
++                return;
++            }
++            metadata
++        }
++    };
++
++    // (try to) invalidate old versions
++    match client
++        .invalidate(
++            context::current(),
++            Uuid::new_v4(),
++            metadata.origin_server,
++            filename.trim_end().to_owned(),
++        )
++        .await
++    {
++        Ok(_) => println!(
++            "Sent invalidation message for older versions of {0}",
++            filename.trim_end()
++        ),
++        Err(_) => println!(
++            "Failed to invalidate older versions of {0}",
++            filename.trim_end()
++        ),
++    }
++
+     match client
+         .register(context::current(), filename.trim_end().to_owned())
+         .await
+@@ -144,15 +256,46 @@ async fn prompt_download(client: &IndexerClient, ttl: u8) {
+ 
+     match fs::write(filename.trim_end(), contents).await {
+         Ok(_) => println!("Writing contents to {0}...", filename.trim_end()),
+-        Err(_) => println!("Failed to write to {0}", filename.trim_end()),
++        Err(_) => {
++            println!("Failed to write to {0}", filename.trim_end());
++            return;
++        }
++    }
++
++    // then, get the file metadata
++    let metadata = match peer
++        .get_metadata(context::current(), filename.trim_end().to_owned())
++        .await
++    {
++        Ok(Some(x)) => {
++            println!("Downloading metadata for {0}...", filename.trim_end());
++            x
++        }
++        _ => {
++            println!("Failed to download metadata for {0}", filename.trim_end());
++            let _ = fs::remove_file(filename.trim_end()).await;
++            return;
++        }
++    };
++    // create metadata file
++    match write_metadata(filename.trim_end(), &metadata).await {
++        Ok(_) => println!("Wrote metadata for {0}", filename.trim_end()),
++        Err(_) => println!("Failed to write metadata for {0}", filename.trim_end()),
+     }
+ 
++    // spawn poll system
++    tokio::spawn(poll_file_validity(filename.trim_end().to_owned(), metadata));
++
+     match client
+         .register(context::current(), filename.trim_end().to_owned())
+         .await
+     {
+         Ok(_) => println!("Registered {0} on index", filename.trim_end()),
+-        Err(_) => println!("Failed to register {0}", filename.trim_end()),
++        Err(_) => {
++            println!("Failed to register {0}", filename.trim_end());
++            let _ = fs::remove_file(filename.trim_end()).await;
++            let _ = fs::remove_file(filename.trim_end().to_owned() + ".meta").await;
++        }
+     }
+ }
+ 
+@@ -241,7 +384,9 @@ async fn main() -> Result<()> {
+     listener.config_mut().max_frame_length(usize::MAX); // allow large frames
+ 
+     let ttl = config.ttl.unwrap_or(1);
+-    let port = listener.local_addr().port(); // get port (in-case dl_port = 0)
++    let ttr = config.ttr.unwrap_or(255);
++    let origin_server = listener.local_addr();
++    let port = origin_server.port(); // get port (in-case dl_port = 0)
+ 
+     tokio::spawn(
+         listener
+@@ -273,7 +418,7 @@ async fn main() -> Result<()> {
+         let input = input("\nEnter Command ('?' for help)").unwrap();
+ 
+         match input.as_str().trim_end() {
+-            "register" => prompt_register(&client).await,
++            "register" => prompt_register(&client, origin_server, ttr).await,
+             "download" => prompt_download(&client, ttl).await,
+             "search" => prompt_search(&client).await,
+             "deregister" => prompt_deregister(&client).await,

@@ -1,5 +1,86 @@
 # Design
 
+## New: Consistency
+In `nekop2p` v0.3.0, there are new consistency checks added. These checks are
+done through a push and pull method. For the *push* approach, a new `invalidate`
+RPC scheme is added.
+
+```rs
+    /// Invalidates a `filename` on endpoint, discarding if request is from the
+    /// origin
+    async fn invalidate(msg_id: Uuid, origin_server: SocketAddr, filename: String);
+```
+
+This `invalidate` is now sent on every `nekopeer` client registration, meaning
+that every `register` command will propagate an `invalidate` across the entire
+network, causing all previously cached indexer entries to be dropped and for
+clients to auto delete their downloaded version. Since only the `origin_server`
+will ever send invalidations, sending a version number is unnecessary as a
+re`register` will always prune indexer entries, meaning other clients are forced
+to re-download regardless if the version number remains the same. If clients
+wish, they can subsequently re`download` the file for the updated file and
+corresponding metadata.
+
+Invalidation is not indefinitely propagated over the network as there is a
+`msg_id` UUID passed which is checked for uniqueness before the RPC is acted
+upon.
+
+```rs
+        // if msg_id has already been seen, then we ignore the query
+        if self.backtrace.read().await.contains_key(&msg_id) {
+            println!("Message {msg_id} already handled!");
+            return;
+        }
+
+        // insert into set of seen msg_ids
+        self.backtrace.write().await.insert(msg_id);
+```
+
+Files have metadata introduced in the form of `.toml` serialized `.meta` files
+stored on the filesystem next to the actual file. Implementation of this file is
+done through `serde` serialization.
+
+```rs
+/// [Peer] downloaded file metadata
+#[derive(Debug, Deserialize, Serialize, PartialEq)]
+pub struct Metadata {
+    /// Server the file originated from (not necessarily downloaded)
+    pub origin_server: SocketAddr,
+
+    /// Version number of the file
+    pub version: u8,
+
+    /// TTR of the file, or when to check for validity
+    pub ttr: u8,
+}
+```
+
+This metadata is needed for the *pull* approach, which requires all three fields
+to poll for updates to the original file from the `origin_server`. Clients send
+a TTR of `255` by default with newly download files and will increment `version`
+every re`register`, meaning that polled files will be discarded by a
+`poll_file_validity` `tokio` task.
+
+```rs
+/// Check file validity after ttr
+async fn poll_file_validity(filename: String, metadata: Metadata);
+```
+
+This routine sleeps for `ttr` seconds before re-downloading the file's metadata
+from the `origin_server` with a new `get_metadata` RPC.
+
+```rs
+    /// Poll file metadata
+    async fn get_metadata(filename: String) -> Option<Metadata>;
+```
+
+If this file metadata is different from the one moved into `poll_file_validity`,
+the original file and its corresponding `.meta` file is deleted off the client,
+requiring the user to re`download` the file for it to be re`register`ed to its
+indexer. In this case, the polling is done eagerly as soon as the file's TTR is
+reached by the client.
+
+
 ## New: Superpeering
 With `nekop2p` v0.2.0, indexers gain the ability to act as superpeers in a
 Gnutella-esque fully distributed all-to-all network model. The crux of this
@@ -74,9 +155,9 @@ indexer/superpeer. In the current implementation, these UUIDs are saved as
 elements in an `HashSetDelay` from `delay_map`, which provides a `HashSet` with
 expiring entries given a `ttl` (default $10$ seconds).
 
-Queries are recursively propggated with a `ttl` argument, with zero as its
+Queries are recursively propagated with a `ttl` argument, with zero as its
 base-case. When a node encounters a `query` with a non-zero `ttl`, the request
-is propogated by connecting to all the neighbors of the node stored in
+is propagated by connecting to all the neighbors of the node stored in
 `self.neighbors: Vec<SocketAddr>` and sending a query with `ttl - 1`. This is
 continued until the `ttl` becomes zero, which then back-propagates the result of
 the index query back to the original caller, cascading up the call-stack while
@@ -123,16 +204,16 @@ Query propagation in this style carries some drawbacks...
 - Indexers/superpeers can be easily DDOS'd by sending a query to one superpeer
   with an absurdly high `ttl`, causing an indefinite propagation (and likely a
   failed request).
-- Back-propagation is slightly inefficent as peers will *always* respond to a
+- Back-propagation is slightly inefficient as peers will *always* respond to a
   query, even on failure. An ideal system should likely treat *no response* as
   the failure/empty response to save bandwidth.
-- With the current back-propogation scheme, a `ttl` > 2 is not viable even with
+- With the current back-propagation scheme, a `ttl` > 2 is not viable even with
   a small (<= 10) pool of superpeers when connected **all-to-all**, given the
   exponential growth of query requests propagated as a result.
 - Static definition of the network is required as there are no discovery methods
   for peers, meaning a `config.toml` or equivalent must be defined for each
   superpeer to know one another.
-- `delay_map` is marginally more inefficent than `DashSet` due to the
+- `delay_map` is marginally more inefficient than `DashSet` due to the
   requirement of wrapping around a `RwLock<T>`, in practice this should be a
   real in-memory database for improved concurrency.
 

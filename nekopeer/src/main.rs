@@ -63,7 +63,7 @@ fn input(prompt: &str) -> Option<String> {
 fn print_help() {
     println!("Available CLI commands:");
     println!("register\tRegister file (or update file) to index");
-    println!("download\tDownload file from peer on index");
+    println!("download\tDownload file (or update file) from peer on index");
     println!("search\t\tQuery peers on index with file");
     println!("deregister\tDeregister file on index");
     println!("query\tQueries entire network for file");

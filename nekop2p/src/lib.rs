@@ -50,7 +50,8 @@ pub trait Peer {
     /// Query `filename` and send over the raw bytes if it exists
     async fn download_file(filename: String) -> Option<Vec<u8>>;
 
-    /// Invalidates a `filename` on endpoint, discard if version number is older
+    /// Invalidates a `filename` on endpoint, discarding if request is from the
+    /// origin
     async fn invalidate(msg_id: Uuid, origin_server: SocketAddr, filename: String);
 
     /// Poll file metadata
