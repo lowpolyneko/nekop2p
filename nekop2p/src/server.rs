@@ -167,7 +167,6 @@ impl Indexer for IndexerServer {
         msg_id: Uuid,
         origin_server: SocketAddr,
         filename: String,
-        version: u8,
     ) {
         println!(
             "Invalidation message for {filename}::{0} sent by {1} (id: {msg_id})",
@@ -210,7 +209,7 @@ impl Indexer for IndexerServer {
             if let Ok(transport) = tcp::connect(peer, Bincode::default).await {
                 let client = PeerClient::new(client::Config::default(), transport).spawn();
                 let _ = client
-                    .invalidate(c, msg_id, origin_server, filename.clone(), version)
+                    .invalidate(c, msg_id, origin_server, filename.clone())
                     .await;
             }
         }
@@ -237,7 +236,7 @@ impl Indexer for IndexerServer {
             if let Ok(transport) = tcp::connect(peer, Bincode::default).await {
                 let client = IndexerClient::new(client::Config::default(), transport).spawn();
                 let _ = client
-                    .invalidate(c, msg_id, origin_server, filename.clone(), version)
+                    .invalidate(c, msg_id, origin_server, filename.clone())
                     .await;
             }
         }

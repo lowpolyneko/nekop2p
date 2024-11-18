@@ -22,7 +22,7 @@ use tarpc::{
 use tokio::{fs, signal};
 use uuid::Uuid;
 
-use nekop2p::{IndexerClient, Peer, PeerClient, PeerServer};
+use nekop2p::{IndexerClient, Metadata, Peer, PeerClient, PeerServer};
 
 #[derive(Deserialize)]
 struct Config {
@@ -34,6 +34,9 @@ struct Config {
 
     /// TTL of queries (default 1)
     ttl: Option<u8>,
+
+    /// TTR of downloads (default 255)
+    ttr: Option<u8>,
 }
 
 #[derive(Parser)]
@@ -67,9 +70,66 @@ fn print_help() {
     println!("exit\t\tQuit");
 }
 
+async fn read_metadata(filename: &str) -> Result<Metadata> {
+    // get origin server and version from metadata
+    let metadata_text = fs::read_to_string(filename.to_owned() + ".meta").await?;
+    let metadata: Metadata = toml::from_str(metadata_text.as_str())?;
+    Ok(metadata)
+}
+
+async fn write_metadata(filename: &str, metadata: &Metadata) {
+    // create metadata file
+    let metadata_text = match toml::to_string_pretty(&metadata) {
+        Ok(x) => {
+            println!("Parsing metadata for {0}...", filename.trim_end());
+            x
+        }
+        Err(_) => {
+            println!("Failed to parse metadata for {0}", filename.trim_end());
+            return;
+        }
+    };
+    match fs::write(filename.trim_end().to_owned() + ".meta", metadata_text).await {
+        Ok(_) => println!("Writing metadata for {0}...", filename.trim_end()),
+        Err(_) => {
+            println!("Failed to write metadata for {0}", filename.trim_end());
+            return;
+        }
+    };
+}
+
 /// Given an [IndexerClient] register a filename that is prompted for
-async fn prompt_register(client: &IndexerClient) {
+async fn prompt_register(client: &IndexerClient, origin_server: SocketAddr, ttr: u8) {
     let filename = input("Enter filename").unwrap();
+
+    // write/get metadata first
+    let metadata = match read_metadata(filename.trim_end()).await {
+        Ok(x) => x,
+        Err(_) => {
+            // not found, make new metadata file instead
+            let metadata = Metadata {
+                origin_server, // this is the origin server!
+                version: 0,    // initial version is zero
+                ttr,           // we set the ttr
+            };
+            write_metadata(filename.trim_end(), &metadata).await;
+            metadata
+        }
+    };
+
+    // (try to) invalidate old versions
+    match client
+        .invalidate(
+            context::current(),
+            Uuid::new_v4(),
+            metadata.origin_server,
+            filename.trim_end().to_owned(),
+        )
+        .await
+    {
+        Ok(_) => println!("Send update {0}", filename.trim_end()),
+        Err(_) => println!("Failed to register {0}", filename.trim_end()),
+    }
 
     match client
         .register(context::current(), filename.trim_end().to_owned())
@@ -128,7 +188,7 @@ async fn prompt_download(client: &IndexerClient, ttl: u8) {
     };
 
     let peer = PeerClient::new(client::Config::default(), transport).spawn();
-    let contents = match peer
+    let (contents, metadata) = match peer
         .download_file(context::current(), filename.trim_end().to_owned())
         .await
     {
@@ -144,8 +204,30 @@ async fn prompt_download(client: &IndexerClient, ttl: u8) {
 
     match fs::write(filename.trim_end(), contents).await {
         Ok(_) => println!("Writing contents to {0}...", filename.trim_end()),
-        Err(_) => println!("Failed to write to {0}", filename.trim_end()),
+        Err(_) => {
+            println!("Failed to write to {0}", filename.trim_end());
+            return;
+        }
     }
+
+    // create metadata file
+    let metadata_text = match toml::to_string_pretty(&metadata) {
+        Ok(x) => {
+            println!("Parsing metadata for {0}...", filename.trim_end());
+            x
+        }
+        Err(_) => {
+            println!("Failed to parse metadata for {0}", filename.trim_end());
+            return;
+        }
+    };
+    match fs::write(filename.trim_end().to_owned() + ".meta", metadata_text).await {
+        Ok(_) => println!("Writing metadata for {0}...", filename.trim_end()),
+        Err(_) => {
+            println!("Failed to write metadata for {0}", filename.trim_end());
+            return;
+        }
+    };
 
     match client
         .register(context::current(), filename.trim_end().to_owned())
@@ -241,7 +323,9 @@ async fn main() -> Result<()> {
     listener.config_mut().max_frame_length(usize::MAX); // allow large frames
 
     let ttl = config.ttl.unwrap_or(1);
-    let port = listener.local_addr().port(); // get port (in-case dl_port = 0)
+    let ttr = config.ttr.unwrap_or(255);
+    let origin_server = listener.local_addr();
+    let port = origin_server.port(); // get port (in-case dl_port = 0)
 
     tokio::spawn(
         listener
@@ -273,7 +357,7 @@ async fn main() -> Result<()> {
         let input = input("\nEnter Command ('?' for help)").unwrap();
 
         match input.as_str().trim_end() {
-            "register" => prompt_register(&client).await,
+            "register" => prompt_register(&client, origin_server, ttr).await,
             "download" => prompt_download(&client, ttl).await,
             "search" => prompt_search(&client).await,
             "deregister" => prompt_deregister(&client).await,

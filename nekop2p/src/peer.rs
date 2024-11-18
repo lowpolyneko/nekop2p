@@ -1,9 +1,23 @@
 use std::net::SocketAddr;
 
+use serde::{Deserialize, Serialize};
 use tarpc::context::Context;
 use tokio::fs;
 
 use crate::Peer;
+
+/// [Peer] downloaded file metadata
+#[derive(Debug, Deserialize, Serialize)]
+pub struct Metadata {
+    /// Server the file originated from (not necessarily downloaded)
+    pub origin_server: SocketAddr,
+
+    /// Version number of the file
+    pub version: u8,
+
+    /// TTR of the file, or when to check for validity
+    pub ttr: u8,
+}
 
 /// Reference [Peer] implementation
 #[derive(Clone)]
@@ -20,12 +34,25 @@ impl PeerServer {
 }
 
 impl Peer for PeerServer {
-    async fn download_file(self, _: Context, filename: String) -> Option<Vec<u8>> {
+    async fn download_file(self, _: Context, filename: String) -> Option<(Vec<u8>, Metadata)> {
         println!(
             "Handling download request for {0} from {1}",
             filename, self.addr
         );
-        fs::read(filename).await.ok()
+        // get origin server and version from metadata
+        let metadata_text = match fs::read_to_string(filename.clone() + ".meta").await {
+            Ok(x) => x,
+            Err(_) => return None,
+        };
+        let metadata: Metadata = match toml::from_str(metadata_text.as_str()) {
+            Ok(x) => x,
+            Err(_) => return None,
+        };
+
+        match fs::read(filename).await {
+            Ok(x) => Some((x, metadata)),
+            Err(_) => None,
+        }
     }
 
     async fn invalidate(
@@ -34,13 +61,30 @@ impl Peer for PeerServer {
         _: uuid::Uuid,
         origin_server: SocketAddr,
         filename: String,
-        _: u8,
     ) {
-        // got an invalidation message of a file, assume file is bad and delete
-        println!(
-            "Recieved invalidation message for {0}::{1} from {2}",
-            filename, origin_server, self.addr
-        );
-        let _ = fs::remove_file(filename).await;
+        // get origin server and version from metadata
+        let metadata_text = match fs::read_to_string(filename.clone() + ".meta").await {
+            Ok(x) => x,
+            Err(_) => return,
+        };
+        let metadata: Metadata = match toml::from_str(metadata_text.as_str()) {
+            Ok(x) => x,
+            Err(_) => return,
+        };
+
+        // remove if origin server matches
+        if origin_server == metadata.origin_server {
+            // got an invalidation message of a file, assume file is bad and delete
+            println!(
+                "Recieved invalidation message for {0}::{1} from {2}",
+                filename, origin_server, self.addr
+            );
+            let _ = fs::remove_file(filename).await;
+        } else {
+            println!(
+                "Recieved invalid invalidation message for {0} from {2} with bad origin {1}",
+                filename, origin_server, self.addr
+            );
+        }
     }
 }

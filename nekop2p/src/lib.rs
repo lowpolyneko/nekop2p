@@ -9,7 +9,7 @@
 //! Clients are utilized using [tarpc]'s generated [PeerClient] and [IndexerClient].
 mod peer;
 mod server;
-pub use peer::PeerServer;
+pub use peer::{Metadata, PeerServer};
 pub use server::IndexerServer;
 
 use std::net::SocketAddr;
@@ -41,15 +41,15 @@ pub trait Indexer {
 
     /// Spreads an invalidation message across the network for `filename` owned by `origin_server`
     /// (Peer endpoint)
-    async fn invalidate(msg_id: Uuid, origin_server: SocketAddr, filename: String, version: u8);
+    async fn invalidate(msg_id: Uuid, origin_server: SocketAddr, filename: String);
 }
 
 /// RPC scheme for interacting with a [PeerServer]
 #[tarpc::service]
 pub trait Peer {
-    /// Query `filename` and send over the raw bytes if it exists
-    async fn download_file(filename: String) -> Option<Vec<u8>>;
+    /// Query `filename` and send over the raw bytes (and a ttr) if it exists
+    async fn download_file(filename: String) -> Option<(Vec<u8>, Metadata)>;
 
     /// Invalidates a `filename` on endpoint, discard if version number is older
-    async fn invalidate(msg_id: Uuid, origin_server: SocketAddr, filename: String, version: u8);
+    async fn invalidate(msg_id: Uuid, origin_server: SocketAddr, filename: String);
 }
