@@ -61,7 +61,7 @@ fn input(prompt: &str) -> Option<String> {
 /// Prints all available [crate] commands
 fn print_help() {
     println!("Available CLI commands:");
-    println!("register\tRegister file to index");
+    println!("register\tRegister file (or update file) to index");
     println!("download\tDownload file from peer on index");
     println!("search\t\tQuery peers on index with file");
     println!("deregister\tDeregister file on index");
@@ -104,7 +104,10 @@ async fn prompt_register(client: &IndexerClient, origin_server: SocketAddr, ttr:
 
     // write/get metadata first
     let metadata = match read_metadata(filename.trim_end()).await {
-        Ok(x) => x,
+        Ok(mut x) => {
+            x.version += 1; // increment version since we're updating this file
+            x
+        }
         Err(_) => {
             // not found, make new metadata file instead
             let metadata = Metadata {
@@ -127,8 +130,14 @@ async fn prompt_register(client: &IndexerClient, origin_server: SocketAddr, ttr:
         )
         .await
     {
-        Ok(_) => println!("Send update {0}", filename.trim_end()),
-        Err(_) => println!("Failed to register {0}", filename.trim_end()),
+        Ok(_) => println!(
+            "Sent invalidation message for older versions of {0}",
+            filename.trim_end()
+        ),
+        Err(_) => println!(
+            "Failed to invalidate older versions of {0}",
+            filename.trim_end()
+        ),
     }
 
     match client
