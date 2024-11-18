@@ -6,6 +6,7 @@
 use std::{
     io::{stdin, stdout, Write},
     net::SocketAddr,
+    time::Duration,
 };
 
 use anyhow::Result;
@@ -70,6 +71,7 @@ fn print_help() {
     println!("exit\t\tQuit");
 }
 
+/// Read metadata from file
 async fn read_metadata(filename: &str) -> Result<Metadata> {
     // get origin server and version from metadata
     let metadata_text = fs::read_to_string(filename.to_owned() + ".meta").await?;
@@ -77,25 +79,60 @@ async fn read_metadata(filename: &str) -> Result<Metadata> {
     Ok(metadata)
 }
 
-async fn write_metadata(filename: &str, metadata: &Metadata) {
+/// Write metadata to file
+async fn write_metadata(filename: &str, metadata: &Metadata) -> Result<()> {
     // create metadata file
-    let metadata_text = match toml::to_string_pretty(&metadata) {
-        Ok(x) => {
-            println!("Parsing metadata for {0}...", filename.trim_end());
-            x
-        }
-        Err(_) => {
-            println!("Failed to parse metadata for {0}", filename.trim_end());
+    let metadata_text = toml::to_string_pretty(&metadata)?;
+    fs::write(filename.trim_end().to_owned() + ".meta", metadata_text).await?;
+    Ok(())
+}
+
+/// Check file validity after ttr
+async fn poll_file_validity(filename: String, metadata: Metadata) {
+    loop {
+        // sleep for ttr, then poll
+        tokio::time::sleep(Duration::from_secs(metadata.ttr.into())).await;
+
+        println!("Polling validity of {0}...", filename.trim_end());
+        let transport = match tcp::connect(metadata.origin_server, Bincode::default).await {
+            Ok(x) => {
+                println!("Connecting to peer {0}", metadata.origin_server);
+                x
+            }
+            Err(_) => {
+                println!(
+                    "Failed to download metadata for {0}, removing",
+                    filename.trim_end()
+                );
+                let _ = fs::remove_file(filename.trim_end()).await;
+                let _ = fs::remove_file(filename.trim_end().to_owned() + ".meta").await;
+                return;
+            }
+        };
+
+        let peer = PeerClient::new(client::Config::default(), transport).spawn();
+        // then, get the updated file metadata
+        let new_metadata = match peer
+            .get_metadata(context::current(), filename.trim_end().to_owned())
+            .await
+        {
+            Ok(Some(x)) => x,
+            _ => {
+                println!(
+                    "Failed to download metadata for {0}, removing",
+                    filename.trim_end()
+                );
+                let _ = fs::remove_file(filename.trim_end()).await;
+                let _ = fs::remove_file(filename.trim_end().to_owned() + ".meta").await;
+                return;
+            }
+        };
+
+        if metadata != new_metadata {
+            // redownload needed
             return;
         }
-    };
-    match fs::write(filename.trim_end().to_owned() + ".meta", metadata_text).await {
-        Ok(_) => println!("Writing metadata for {0}...", filename.trim_end()),
-        Err(_) => {
-            println!("Failed to write metadata for {0}", filename.trim_end());
-            return;
-        }
-    };
+    }
 }
 
 /// Given an [IndexerClient] register a filename that is prompted for
@@ -115,7 +152,13 @@ async fn prompt_register(client: &IndexerClient, origin_server: SocketAddr, ttr:
                 version: 0,    // initial version is zero
                 ttr,           // we set the ttr
             };
-            write_metadata(filename.trim_end(), &metadata).await;
+            if write_metadata(filename.trim_end(), &metadata)
+                .await
+                .is_err()
+            {
+                println!("Failed to get metadata for {0}", filename.trim_end());
+                return;
+            }
             metadata
         }
     };
@@ -197,7 +240,7 @@ async fn prompt_download(client: &IndexerClient, ttl: u8) {
     };
 
     let peer = PeerClient::new(client::Config::default(), transport).spawn();
-    let (contents, metadata) = match peer
+    let contents = match peer
         .download_file(context::current(), filename.trim_end().to_owned())
         .await
     {
@@ -219,31 +262,40 @@ async fn prompt_download(client: &IndexerClient, ttl: u8) {
         }
     }
 
-    // create metadata file
-    let metadata_text = match toml::to_string_pretty(&metadata) {
-        Ok(x) => {
-            println!("Parsing metadata for {0}...", filename.trim_end());
+    // then, get the file metadata
+    let metadata = match peer
+        .get_metadata(context::current(), filename.trim_end().to_owned())
+        .await
+    {
+        Ok(Some(x)) => {
+            println!("Downloading metadata for {0}...", filename.trim_end());
             x
         }
-        Err(_) => {
-            println!("Failed to parse metadata for {0}", filename.trim_end());
+        _ => {
+            println!("Failed to download metadata for {0}", filename.trim_end());
+            let _ = fs::remove_file(filename.trim_end()).await;
             return;
         }
     };
-    match fs::write(filename.trim_end().to_owned() + ".meta", metadata_text).await {
-        Ok(_) => println!("Writing metadata for {0}...", filename.trim_end()),
-        Err(_) => {
-            println!("Failed to write metadata for {0}", filename.trim_end());
-            return;
-        }
-    };
+    // create metadata file
+    match write_metadata(filename.trim_end(), &metadata).await {
+        Ok(_) => println!("Wrote metadata for {0}", filename.trim_end()),
+        Err(_) => println!("Failed to write metadata for {0}", filename.trim_end()),
+    }
+
+    // spawn poll system
+    tokio::spawn(poll_file_validity(filename.trim_end().to_owned(), metadata));
 
     match client
         .register(context::current(), filename.trim_end().to_owned())
         .await
     {
         Ok(_) => println!("Registered {0} on index", filename.trim_end()),
-        Err(_) => println!("Failed to register {0}", filename.trim_end()),
+        Err(_) => {
+            println!("Failed to register {0}", filename.trim_end());
+            let _ = fs::remove_file(filename.trim_end()).await;
+            let _ = fs::remove_file(filename.trim_end().to_owned() + ".meta").await;
+        }
     }
 }
 
