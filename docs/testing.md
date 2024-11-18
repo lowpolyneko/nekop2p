@@ -1,4 +1,26 @@
 # Testing
+## Consistency
+Consistency was verified to work on both the *push* and *pull* methodologies.
+Push was observed to be eagerly evaluated, meaning that indexers and clients
+**never** have the old file unless the RPC was failed to be received. 
+
+By contrast, the **pull** approach did appear to have a delay between a client's
+re`register` and the file to be deleted from **all** indexers and leaf nodes
+with a cached copy. By default, `nekopeer`s had a TTR of `255` or approximately
+4.5 minutes. This means that there does exist time where a `nekopeer` could
+inadvertently download an outdated version of the file, albeit this file would
+be subsequently purged after `poll_file_validity` reaches its `TTR`.
+
+![](docs/consistency.png)
+
+There exists some limitations of the current system, particularly for security.
+- There are not checks that the origin server *is* the origin server on
+  `invalidate` RPC calls, meaning a malicious client could get superpeers or
+  `nekopeer`s to repeatedly purge the index or delete their cached files,
+  causing a Denial-of-Service.
+- Metadata requests are similarly insecure to `download_file` requests as stated
+  originally in the bottom of the doc.
+
 ## Superpeering
 Superpeering in `nekop2p` v0.2.0 was tested using an **all-to-all** topology
 with *10* superpeers/indexers and *3* leaf-nodes/peers each. Each leaf node had

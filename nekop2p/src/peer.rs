@@ -77,6 +77,10 @@ impl Peer for PeerServer {
     }
 
     async fn get_metadata(self, _: Context, filename: String) -> Option<Metadata> {
+        println!(
+            "Handling metadata request for {0} from {1}",
+            filename, self.addr
+        );
         // get origin server and version from metadata
         let metadata_text = match fs::read_to_string(filename.clone() + ".meta").await {
             Ok(x) => x,

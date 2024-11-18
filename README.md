@@ -12,6 +12,15 @@ package is spit into four crates:
 - (for the demo) install `tmux`
 - compile with `cargo build --release`
 
+## Consistency
+For resources on the new consistency checking functionality of `nekop2p` 0.3.0, see
+`docs/consistency_changes.patch` for the applied changes to the source.
+
+![](docs/consistency.png)
+
+Amendments regarding the consistency checking can be found in the
+**Consistency** section of `docs/design.md` and `docs/testing.md`
+
 ## Superpeering
 For resources on the new superpeering functionality of `nekop2p` 0.2.0, see
 `docs/sample_superpeer` for sample `config.toml` files and output. Additionally,
@@ -108,6 +117,7 @@ Config File Format
 indexer = "127.0.0.1:5000" # indexer to bind to
 dl_bind = "127.0.0.1:5001" # incoming download address to bind to
 ttl = 10 # ttl of queries in seconds
+ttr = 255 # ttr for download requests
 ```
 
 For example, to run a client on port `5001`, run `./target/release/nekopeer`
@@ -132,8 +142,8 @@ Accepting inbound connections on localhost:5001
 
 Enter Command ('?' for help) >> ?
 Available CLI commands:
-register        Register file to index
-download        Download file from peer on index
+register        Register file (or update file) to index
+download        Download file (or update file) from peer on index
 search          Query peers on index
 deregister      Deregister file on index
 query           Queries entire network for file
