@@ -39,10 +39,7 @@ impl Peer for PeerServer {
             "Handling download request for {0} from {1}",
             filename, self.addr
         );
-        match fs::read(filename).await {
-            Ok(x) => Some(x),
-            Err(_) => None,
-        }
+        fs::read(filename).await.ok()
     }
 
     async fn invalidate(
