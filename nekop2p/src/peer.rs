@@ -27,4 +27,20 @@ impl Peer for PeerServer {
         );
         fs::read(filename).await.ok()
     }
+
+    async fn invalidate(
+        self,
+        _: Context,
+        _: uuid::Uuid,
+        origin_server: SocketAddr,
+        filename: String,
+        _: u8,
+    ) {
+        // got an invalidation message of a file, assume file is bad and delete
+        println!(
+            "Recieved invalidation message for {0}::{1} from {2}",
+            filename, origin_server, self.addr
+        );
+        let _ = fs::remove_file(filename).await;
+    }
 }
