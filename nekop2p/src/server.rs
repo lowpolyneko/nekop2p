@@ -6,7 +6,7 @@ use tarpc::{client, context::Context, serde_transport::tcp, tokio_serde::formats
 use tokio::sync::RwLock;
 use uuid::Uuid;
 
-use crate::{Indexer, IndexerClient};
+use crate::{Indexer, IndexerClient, PeerClient};
 
 /// Reference [Indexer] implementation
 #[derive(Clone)]
@@ -159,5 +159,87 @@ impl Indexer for IndexerServer {
         }
 
         peers
+    }
+
+    async fn invalidate(
+        self,
+        c: Context,
+        msg_id: Uuid,
+        origin_server: SocketAddr,
+        filename: String,
+        version: u8,
+    ) {
+        println!(
+            "Invalidation message for {filename}::{0} sent by {1} (id: {msg_id})",
+            origin_server, self.addr
+        );
+        // if msg_id has already been seen, then we ignore the query
+        if self.backtrace.read().await.contains_key(&msg_id) {
+            println!("Message {msg_id} already handled!");
+            return;
+        }
+
+        // insert into set of seen msg_ids
+        self.backtrace.write().await.insert(msg_id);
+
+        // send invalidation message to leaf nodes
+        println!("Searched {filename} for {0}", self.addr);
+        for peer in self
+            .index
+            .entry(filename.clone())
+            .or_default()
+            .iter()
+            .filter_map(|e| match self.dl_ports.get(&e) {
+                Some(x) => {
+                    let mut n = e.clone();
+                    n.set_port(*x);
+                    Some(n)
+                }
+                None => None,
+            })
+            .into_iter()
+        {
+            if peer == origin_server {
+                // skip original leaf node
+                continue;
+            }
+            println!(
+                "Propagating invalidation of {filename} to {0} (id: {msg_id})",
+                peer
+            );
+            if let Ok(transport) = tcp::connect(peer, Bincode::default).await {
+                let client = PeerClient::new(client::Config::default(), transport).spawn();
+                let _ = client
+                    .invalidate(c, msg_id, origin_server, filename.clone(), version)
+                    .await;
+            }
+        }
+
+        // invalidate all leaf nodes that weren't the origin server
+        self.index
+            .entry(filename.clone())
+            .or_default()
+            .retain(|e| match self.dl_ports.get(&e) {
+                Some(x) => {
+                    let mut n = e.clone();
+                    n.set_port(*x);
+                    n == origin_server
+                }
+                None => false,
+            });
+
+        // propogate invalidation to neighboring indexers
+        for peer in self.neighbors.iter() {
+            println!(
+                "Propagating query of {filename} to {0} (id: {msg_id})",
+                peer
+            );
+            if let Ok(transport) = tcp::connect(peer, Bincode::default).await {
+                let client = IndexerClient::new(client::Config::default(), transport).spawn();
+                let _ = client
+                    .invalidate(c, msg_id, origin_server, filename.clone(), version)
+                    .await;
+            }
+        }
     }
 }

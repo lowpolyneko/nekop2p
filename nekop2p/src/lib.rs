@@ -38,6 +38,10 @@ pub trait Indexer {
 
     /// Queries entire network for `filename` with a given ttl
     async fn query(msg_id: Uuid, filename: String, ttl: u8) -> Vec<SocketAddr>;
+
+    /// Spreads an invalidation message across the network for `filename` owned by `origin_server`
+    /// (Peer endpoint)
+    async fn invalidate(msg_id: Uuid, origin_server: SocketAddr, filename: String, version: u8);
 }
 
 /// RPC scheme for interacting with a [PeerServer]
@@ -45,4 +49,7 @@ pub trait Indexer {
 pub trait Peer {
     /// Query `filename` and send over the raw bytes if it exists
     async fn download_file(filename: String) -> Option<Vec<u8>>;
+
+    /// Invalidates a `filename` on endpoint, discard if version number is older
+    async fn invalidate(msg_id: Uuid, origin_server: SocketAddr, filename: String, version: u8);
 }
