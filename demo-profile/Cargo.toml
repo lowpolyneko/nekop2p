@@ -4,7 +4,7 @@ description = "A simple p2p file sharing system built on tokio and tarpc."
 authors = ["Neko <lowpolyneko@protonmail.ch>"]
 repository = "https://github.com/lowpolyneko/nekop2p"
 license = "MIT"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 
 [dependencies]

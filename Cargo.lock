@@ -337,7 +337,7 @@ dependencies = [
 
 [[package]]
 name = "demo-profile"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "anyhow",
  "clap",
@@ -728,7 +728,7 @@ dependencies = [
 
 [[package]]
 name = "nekoindexer"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "anyhow",
  "clap",
@@ -744,7 +744,7 @@ dependencies = [
 
 [[package]]
 name = "nekop2p"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "dashmap",
  "delay_map",
@@ -757,7 +757,7 @@ dependencies = [
 
 [[package]]
 name = "nekopeer"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "anyhow",
  "clap",
