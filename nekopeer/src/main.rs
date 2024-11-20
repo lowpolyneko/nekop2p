@@ -130,6 +130,12 @@ async fn poll_file_validity(filename: String, metadata: Metadata) {
 
         if metadata != new_metadata {
             // redownload needed
+            println!(
+                "Metadata changed for {0} between remote and local, removing",
+                filename.trim_end()
+            );
+            let _ = fs::remove_file(filename.trim_end()).await;
+            let _ = fs::remove_file(filename.trim_end().to_owned() + ".meta").await;
             return;
         }
     }
